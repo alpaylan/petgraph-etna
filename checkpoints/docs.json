@@ -1,0 +1,231 @@
+{
+  "run_id": "d6059ad0-9cf8-421c-b271-7e66ffcc7457",
+  "project": "petgraph",
+  "repo": "https://github.com/petgraph/petgraph",
+  "language": "Rust",
+  "generated_at": "2026-03-23T10:56:45-04:00",
+  "property_detector_filter": "property_",
+  "summary": {
+    "mutations_final": 27,
+    "property_detectors_detected": 27,
+    "property_detectors_missing": 0
+  },
+  "variants": [
+    {
+      "name": "csr_add_node_row_resets_offset",
+      "variant": "csr_add_node_row_resets_offset_dab2dbf_1",
+      "canonical_failing_property_test": "property_csr_add_node_preserves_existing_edges",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "dab2dbf5aaf574617633c6a7800457b61d2124fb"
+    },
+    {
+      "name": "csr_adjacency_matrix_uses_edge_count",
+      "variant": "csr_adjacency_matrix_uses_edge_count_7fa3aac_1",
+      "canonical_failing_property_test": "property_adjacency_matrix_matches_graph_structure",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "7fa3aac97168de7fca54644a5b45c464d5245535"
+    },
+    {
+      "name": "dfs_move_to_marks_visited",
+      "variant": "dfs_move_to_marks_visited_0fae246_1",
+      "canonical_failing_property_test": "property_csr_dfs_move_to_reaches_reconnected_component",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "0fae246b07f3dba059a40288c4a7a96588bef19b"
+    },
+    {
+      "name": "dominators_include_root_self",
+      "variant": "dominators_include_root_self_602308d_1",
+      "canonical_failing_property_test": "property_dominators_exclude_self_from_immediately_dominated_by",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "602308d8745f0af34e929d1ec56e370a4a7ff378"
+    },
+    {
+      "name": "edgefiltered_directed_neighbor_endpoint",
+      "variant": "edgefiltered_directed_neighbor_endpoint_1147022_1",
+      "canonical_failing_property_test": "property_edgefiltered_reversed_reachability_is_stable",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "1147022802b34624c76849214202a8b610abea14"
+    },
+    {
+      "name": "ff_flow_capacity_bound",
+      "variant": "ff_flow_capacity_bound_ebee197_1",
+      "canonical_failing_property_test": "property_ford_fulkerson_stable_graph_rewiring_keeps_max_flow_stable",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "ebee19788263054c79450a4c798831053b4a9c48"
+    },
+    {
+      "name": "floyd_warshall_undirected_guard_inverted",
+      "variant": "floyd_warshall_undirected_guard_inverted_4c7f18e_1",
+      "canonical_failing_property_test": "property_floyd_warshall_distances_are_symmetric_for_undirected_graphs",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "4c7f18e73a730527b4b4fb571190d71d639b6376"
+    },
+    {
+      "name": "graph_edges_undirected_self_loops_duplicated",
+      "variant": "graph_edges_undirected_self_loops_duplicated_af1aa98_1",
+      "canonical_failing_property_test": "neighbors_selfloops",
+      "property_detector_status": "detected",
+      "property_filter": "targeted",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e"
+    },
+    {
+      "name": "graph_neighbors_directed_skip_start_not_cleared",
+      "variant": "graph_neighbors_directed_skip_start_not_cleared_af1aa98_1",
+      "canonical_failing_property_test": "neighbors_selfloops",
+      "property_detector_status": "detected",
+      "property_filter": "targeted",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e"
+    },
+    {
+      "name": "graph_neighbors_undirected_self_loops_duplicated",
+      "variant": "graph_neighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "canonical_failing_property_test": "neighbors_selfloops",
+      "property_detector_status": "detected",
+      "property_filter": "targeted",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e"
+    },
+    {
+      "name": "graph_reverse_node_links_not_swapped",
+      "variant": "graph_reverse_node_links_not_swapped_28eb089_1",
+      "canonical_failing_property_test": "test_edge_iterators_directed",
+      "property_detector_status": "detected",
+      "property_filter": "targeted",
+      "source_commit": "28eb08936827bf42bbd650fc09f5545fb55b9a09"
+    },
+    {
+      "name": "graph_walkneighbors_undirected_self_loops_duplicated",
+      "variant": "graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "canonical_failing_property_test": "neighbors_selfloops",
+      "property_detector_status": "detected",
+      "property_filter": "targeted",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e"
+    },
+    {
+      "name": "graphmap_incoming_self_loop_missing",
+      "variant": "graphmap_incoming_self_loop_missing_e39f0f9_1",
+      "canonical_failing_property_test": "property_graphmap_incoming_neighbors_include_self_loops",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "e39f0f9523d4037ad212e89f51e1b7e8434964af"
+    },
+    {
+      "name": "graphmap_remove_node_edge_key_direction",
+      "variant": "graphmap_remove_node_edge_key_direction_cdbad50_1",
+      "canonical_failing_property_test": "property_graphmap_remove_node_clears_all_incident_edges",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "cdbad50a5703a1b162a5579bb644c21063f3ceaa"
+    },
+    {
+      "name": "isomorphism_empty_iter_override_dropped",
+      "variant": "isomorphism_empty_iter_override_dropped_d33a613_1",
+      "canonical_failing_property_test": "property_subgraph_isomorphism_empty_pattern_yields_single_empty_mapping",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "d33a613f80f3eb5c1b295e0b3cf270bbd3292708"
+    },
+    {
+      "name": "isomorphism_subgraph_inssize_strict",
+      "variant": "isomorphism_subgraph_inssize_strict_bc0e036_1",
+      "canonical_failing_property_test": "property_subgraph_isomorphism_preserves_small_labeled_path_embedding",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "bc0e036682a1f6e68b8bf91901f4cfc387f05b0d"
+    },
+    {
+      "name": "isomorphism_subgraph_outsize_strict",
+      "variant": "isomorphism_subgraph_outsize_strict_bc0e036_1",
+      "canonical_failing_property_test": "property_subgraph_isomorphism_triangle_embeddings_exist",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "bc0e036682a1f6e68b8bf91901f4cfc387f05b0d"
+    },
+    {
+      "name": "kosaraju_skips_first_identifier",
+      "variant": "kosaraju_skips_first_identifier_1596cb2_1",
+      "canonical_failing_property_test": "matrix_graph::tests::test_kosaraju_scc_with_removed_node",
+      "property_detector_status": "detected",
+      "property_filter": "targeted",
+      "source_commit": "1596cb22efcfaf0c4a1e5a05fb693618b3acc478"
+    },
+    {
+      "name": "nodefiltered_incoming_uses_target",
+      "variant": "nodefiltered_incoming_uses_target_1c26733_1",
+      "canonical_failing_property_test": "property_node_filtered_incoming_edges_respect_node_filter",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "1c267332c76bc612c61750f7f082b917e7141781"
+    },
+    {
+      "name": "quickcheck_random01_rng_source",
+      "variant": "quickcheck_random01_rng_source_1125c33_1",
+      "canonical_failing_property_test": "quickcheck::tests::property_random_01_has_non_zero_support_for_small_generator_sizes",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "1125c33fea0ec3f85d25fc658f1cbe7de7631cd2"
+    },
+    {
+      "name": "simple_paths_ignore_visited_target_hint",
+      "variant": "simple_paths_ignore_visited_target_hint_8f7a0d9_1",
+      "canonical_failing_property_test": "property_simple_paths_node_to_itself_stays_empty_in_complete_digraph",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "8f7a0d93279f575627db90430d1a0aab242c3e9c"
+    },
+    {
+      "name": "spfa_queue_pop_back_order",
+      "variant": "spfa_queue_pop_back_order_29f4c92_1",
+      "canonical_failing_property_test": "property_spfa_uses_queue_order_for_shortest_paths",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "29f4c92f5464e5609ddb0fec31c811f46215cbc0"
+    },
+    {
+      "name": "stablegraph_node_bound_plus_two",
+      "variant": "stablegraph_node_bound_plus_two_b87cf17_1",
+      "canonical_failing_property_test": "property_adjacency_matrix_matches_graph_structure",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "b87cf17dd5690f8de408015fa014b51c25fbf1d6"
+    },
+    {
+      "name": "stablegraph_reverse_edge_free_list_swap",
+      "variant": "stablegraph_reverse_edge_free_list_swap_b682695_1",
+      "canonical_failing_property_test": "graph_impl::stable_graph::property_reverse_after_removed_edges_preserves_free_lists",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "b682695f29833184b322333e151a588be8f98842"
+    },
+    {
+      "name": "stablegraph_reverse_node_free_list_swap",
+      "variant": "stablegraph_reverse_node_free_list_swap_b682695_1",
+      "canonical_failing_property_test": "graph_impl::stable_graph::property_reverse_after_removed_nodes_preserves_free_lists",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "b682695f29833184b322333e151a588be8f98842"
+    },
+    {
+      "name": "undirected_adaptor_incoming_not_reversed",
+      "variant": "undirected_adaptor_incoming_not_reversed_01b17d9_1",
+      "canonical_failing_property_test": "property_undirected_adaptor_edge_targets_match_undirected_neighbors",
+      "property_detector_status": "detected",
+      "property_filter": "property_",
+      "source_commit": "01b17d9b6b510e4604aca4f9a59f76b287ed8425"
+    },
+    {
+      "name": "unionfind_union_reports_no_merge",
+      "variant": "unionfind_union_reports_no_merge_4e0584d_1",
+      "canonical_failing_property_test": "uf_rand",
+      "property_detector_status": "detected",
+      "property_filter": "targeted",
+      "source_commit": "4e0584d5f7b7b1351c780fc89e74ed52fe19d27d"
+    }
+  ]
+}

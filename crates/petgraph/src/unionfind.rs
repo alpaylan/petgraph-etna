@@ -179,7 +179,15 @@ where
     /// **Panics** if `x` or `y` is out of bounds.
     #[track_caller]
     pub fn union(&mut self, x: K, y: K) -> bool {
+        /* marauders:variation=unionfind_union_reports_no_merge;tags=unionfind,union,result */
+        /*| unionfind_union_reports_no_merge_4e0584d */
         self.try_union(x, y).unwrap()
+        /*|| unionfind_union_reports_no_merge_4e0584d_1 */
+        /*|
+        let _ = self.try_union(x, y);
+        false
+        */
+        /* |*/
     }
 
     /// Unify the two sets containing `x` and `y`.

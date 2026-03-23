@@ -60,8 +60,14 @@ impl<N> TarjanScc<N> {
         N: Copy + PartialEq,
     {
         self.nodes.clear();
-        self.nodes
-            .resize(g.node_bound(), NodeData { rootindex: None });
+        /* | tarjan_scc_uses_identifier_count [tarjan, scc, node-bound] */
+        let map_len = g.node_bound();
+        /* || tarjan_scc_uses_identifier_count_204bff0_1 */
+        /*|
+        let map_len = g.node_identifiers().count();
+        */
+        /* | */
+        self.nodes.resize(map_len, NodeData { rootindex: None });
 
         for n in g.node_identifiers() {
             let visited = self.nodes[g.to_index(n)].rootindex.is_some();

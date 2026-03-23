@@ -1,0 +1,225 @@
+{
+  "run_id": "d6059ad0-9cf8-421c-b271-7e66ffcc7457",
+  "project": "petgraph",
+  "repo": "https://github.com/petgraph/petgraph",
+  "language": "Rust",
+  "summary": {
+    "commits_scanned": 200,
+    "candidates_identified": 20,
+    "fixes_extracted": 13,
+    "mutations_classified": 13,
+    "mutations_deferred": 0,
+    "mutations_injected": 27,
+    "mutations_tested": 27,
+    "mutations_detected": 27,
+    "mutations_undetected": 0,
+    "mutations_removed": 0,
+    "mutations_final": 27,
+    "base_tests_passing": true
+  },
+  "pipeline_stages": {
+    "candidates": "checkpoints/candidates.json",
+    "ranked": "checkpoints/ranked.json",
+    "fixes": "checkpoints/fixes.json",
+    "classified": "checkpoints/classified.json",
+    "tests": "checkpoints/tests.json",
+    "mutations": "checkpoints/mutations.json"
+  },
+  "final_mutations": [
+    {
+      "name": "csr_add_node_row_resets_offset",
+      "file": "crates/petgraph/src/csr.rs:288",
+      "variant": "csr_add_node_row_resets_offset_dab2dbf_1",
+      "bug_type": "csr-row-offset-reset",
+      "failing_tests": 1
+    },
+    {
+      "name": "csr_adjacency_matrix_uses_edge_count",
+      "file": "crates/petgraph/src/csr.rs:878",
+      "variant": "csr_adjacency_matrix_uses_edge_count_7fa3aac_1",
+      "bug_type": "wrong-adjacency-matrix-dimension",
+      "failing_tests": 2
+    },
+    {
+      "name": "dfs_move_to_marks_visited",
+      "file": "crates/petgraph/src/visit/traversal.rs:102",
+      "variant": "dfs_move_to_marks_visited_0fae246_1",
+      "bug_type": "premature-dfs-visited-mark",
+      "failing_tests": 3
+    },
+    {
+      "name": "dominators_include_root_self",
+      "file": "crates/petgraph/src/algo/dominators.rs:139",
+      "variant": "dominators_include_root_self_602308d_1",
+      "bug_type": "missing-root-self-exclusion",
+      "failing_tests": 1
+    },
+    {
+      "name": "edgefiltered_directed_neighbor_endpoint",
+      "file": "crates/petgraph/src/visit/filter.rs:590",
+      "variant": "edgefiltered_directed_neighbor_endpoint_1147022_1",
+      "bug_type": "wrong-directed-neighbor-endpoint",
+      "failing_tests": 1
+    },
+    {
+      "name": "ff_flow_capacity_bound",
+      "file": "crates/petgraph/src/algo/maximum_flow/ford_fulkerson.rs:180",
+      "variant": "ff_flow_capacity_bound_ebee197_1",
+      "bug_type": "wrong-flow-buffer-bound",
+      "failing_tests": 1
+    },
+    {
+      "name": "floyd_warshall_undirected_guard_inverted",
+      "file": "crates/petgraph/src/algo/floyd_warshall.rs:321",
+      "variant": "floyd_warshall_undirected_guard_inverted_4c7f18e_1",
+      "bug_type": "inverted-undirected-guard",
+      "failing_tests": 1
+    },
+    {
+      "name": "graph_edges_undirected_self_loops_duplicated",
+      "file": "crates/petgraph/src/graph_impl/mod.rs:2119",
+      "variant": "graph_edges_undirected_self_loops_duplicated_af1aa98_1",
+      "bug_type": "undirected-edge-self-loop-double-visit",
+      "failing_tests": 1
+    },
+    {
+      "name": "graph_neighbors_directed_skip_start_not_cleared",
+      "file": "crates/petgraph/src/graph_impl/mod.rs:940",
+      "variant": "graph_neighbors_directed_skip_start_not_cleared_af1aa98_1",
+      "bug_type": "directed-neighbor-iterator-cleared",
+      "failing_tests": 1
+    },
+    {
+      "name": "graph_neighbors_undirected_self_loops_duplicated",
+      "file": "crates/petgraph/src/graph_impl/mod.rs:1951",
+      "variant": "graph_neighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "bug_type": "undirected-neighbor-self-loop-filter-broken",
+      "failing_tests": 1
+    },
+    {
+      "name": "graph_reverse_node_links_not_swapped",
+      "file": "crates/petgraph/src/graph_impl/mod.rs:1356",
+      "variant": "graph_reverse_node_links_not_swapped_28eb089_1",
+      "bug_type": "reverse-node-links-cleared",
+      "failing_tests": 1
+    },
+    {
+      "name": "graph_walkneighbors_undirected_self_loops_duplicated",
+      "file": "crates/petgraph/src/graph_impl/mod.rs:2460",
+      "variant": "graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "bug_type": "undirected-walkneighbors-self-loop-filter-broken",
+      "failing_tests": 1
+    },
+    {
+      "name": "graphmap_incoming_self_loop_missing",
+      "file": "crates/petgraph/src/graphmap.rs:773",
+      "variant": "graphmap_incoming_self_loop_missing_e39f0f9_1",
+      "bug_type": "missing-self-loop-in-incoming-neighbors",
+      "failing_tests": 1
+    },
+    {
+      "name": "graphmap_remove_node_edge_key_direction",
+      "file": "crates/petgraph/src/graphmap.rs:313",
+      "variant": "graphmap_remove_node_edge_key_direction_cdbad50_1",
+      "bug_type": "wrong-edge-removal-direction",
+      "failing_tests": 1
+    },
+    {
+      "name": "isomorphism_empty_iter_override_dropped",
+      "file": "crates/petgraph/src/algo/isomorphism.rs:748",
+      "variant": "isomorphism_empty_iter_override_dropped_d33a613_1",
+      "bug_type": "empty-isomorphism-override-dropped",
+      "failing_tests": 2
+    },
+    {
+      "name": "isomorphism_subgraph_inssize_strict",
+      "file": "crates/petgraph/src/algo/isomorphism.rs:627",
+      "variant": "isomorphism_subgraph_inssize_strict_bc0e036_1",
+      "bug_type": "strict-ins-size-match",
+      "failing_tests": 1
+    },
+    {
+      "name": "isomorphism_subgraph_outsize_strict",
+      "file": "crates/petgraph/src/algo/isomorphism.rs:620",
+      "variant": "isomorphism_subgraph_outsize_strict_bc0e036_1",
+      "bug_type": "strict-out-size-match",
+      "failing_tests": 1
+    },
+    {
+      "name": "kosaraju_skips_first_identifier",
+      "file": "crates/petgraph/src/algo/scc/kosaraju_scc.rs:106",
+      "variant": "kosaraju_skips_first_identifier_1596cb2_1",
+      "bug_type": "kosaraju-first-pass-empty-iteration",
+      "failing_tests": 1
+    },
+    {
+      "name": "nodefiltered_incoming_uses_target",
+      "file": "crates/petgraph/src/visit/filter.rs:330",
+      "variant": "nodefiltered_incoming_uses_target_1c26733_1",
+      "bug_type": "incoming-direction-filter-bypass",
+      "failing_tests": 1
+    },
+    {
+      "name": "quickcheck_random01_rng_source",
+      "file": "crates/petgraph/src/quickcheck.rs:21",
+      "variant": "quickcheck_random01_rng_source_1125c33_1",
+      "bug_type": "wrong-rng-source",
+      "failing_tests": 1
+    },
+    {
+      "name": "simple_paths_ignore_visited_target_hint",
+      "file": "crates/petgraph/src/algo/simple_paths.rs:125",
+      "variant": "simple_paths_ignore_visited_target_hint_8f7a0d9_1",
+      "bug_type": "missing-visited-target-filter",
+      "failing_tests": 1
+    },
+    {
+      "name": "spfa_queue_pop_back_order",
+      "file": "crates/petgraph/src/algo/spfa.rs:139",
+      "variant": "spfa_queue_pop_back_order_29f4c92_1",
+      "bug_type": "lifo-queue-order",
+      "failing_tests": 1
+    },
+    {
+      "name": "stablegraph_node_bound_plus_two",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs:2360",
+      "variant": "stablegraph_node_bound_plus_two_b87cf17_1",
+      "bug_type": "node-bound-off-by-one",
+      "failing_tests": 2
+    },
+    {
+      "name": "stablegraph_reverse_edge_free_list_swap",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs:246",
+      "variant": "stablegraph_reverse_edge_free_list_swap_b682695_1",
+      "bug_type": "reversed-edge-free-list-corruption",
+      "failing_tests": 1
+    },
+    {
+      "name": "stablegraph_reverse_node_free_list_swap",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs:258",
+      "variant": "stablegraph_reverse_node_free_list_swap_b682695_1",
+      "bug_type": "reversed-node-free-list-corruption",
+      "failing_tests": 2
+    },
+    {
+      "name": "undirected_adaptor_incoming_not_reversed",
+      "file": "crates/petgraph/src/visit/undirected_adaptor.rs:41",
+      "variant": "undirected_adaptor_incoming_not_reversed_01b17d9_1",
+      "bug_type": "incoming-edge-orientation-lost",
+      "failing_tests": 2
+    },
+    {
+      "name": "unionfind_union_reports_no_merge",
+      "file": "crates/petgraph/src/unionfind.rs:183",
+      "variant": "unionfind_union_reports_no_merge_4e0584d_1",
+      "bug_type": "unionfind-union-return-value-broken",
+      "failing_tests": 1
+    }
+  ],
+  "undetected": [],
+  "notes": [
+    "Expanded historical mutation set to 20 variants (target floor reached).",
+    "All retained variants are detected with compile-clean behavior in this pass.",
+    "Added 7 newly injected and detected variants (2026-03-23 extension batch)."
+  ]
+}

@@ -1,0 +1,317 @@
+{
+  "run_id": "d6059ad0-9cf8-421c-b271-7e66ffcc7457",
+  "project": "petgraph",
+  "base": {
+    "passed": true,
+    "exit_code": 0,
+    "duration_seconds": 37.77,
+    "mode": "debug",
+    "runner": "python3 -m wkgen test base --workload-dir workloads/Rust/petgraph --timeout 1200"
+  },
+  "variants": {
+    "csr_add_node_row_resets_offset_dab2dbf_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 6.21,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "csr::tests::test_add_node_with_existing_edges"
+      ],
+      "failure_type": "adding a node resets CSR row offset and disconnects existing edge windows"
+    },
+    "csr_adjacency_matrix_uses_edge_count_7fa3aac_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 6.85,
+      "mode": "debug",
+      "failures": 2,
+      "failing_tests": [
+        "test_adjacency_matrix_for_csr_directed",
+        "test_adjacency_matrix_for_csr_undirected"
+      ],
+      "failure_type": "adjacency matrix capacity uses edge count and panics on node-index writes"
+    },
+    "dfs_move_to_marks_visited_0fae246_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 6.07,
+      "mode": "debug",
+      "failures": 3,
+      "failing_tests": [
+        "csr::tests::csr_dfs",
+        "matrix_graph::tests::test_kosaraju_scc_with_removed_node",
+        "visit::undirected_adaptor::tests::test_is_reachable"
+      ],
+      "failure_type": "move_to pre-marks start node and DFS skips traversal order guarantees"
+    },
+    "dominators_include_root_self_602308d_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 5.82,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "algo::dominators::tests::test_iter_dominators"
+      ],
+      "failure_type": "root node reported as immediately dominated by itself"
+    },
+    "edgefiltered_directed_neighbor_endpoint_1147022_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 10.05,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "filtered_edge_reverse"
+      ],
+      "failure_type": "edge-filtered directed neighbors return wrong endpoint direction"
+    },
+    "ff_flow_capacity_bound_ebee197_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 9.01,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "test_ford_fulkerson_stable_graphs"
+      ],
+      "failure_type": "flow buffer too small for stable-graph edge bound; runtime index panic"
+    },
+    "floyd_warshall_undirected_guard_inverted_4c7f18e_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 5.7,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "algo::steiner_tree::test::test_subgraph_from_metric_closure"
+      ],
+      "failure_type": "undirected shortest-path expectations fail due to missing mirrored edge updates"
+    },
+    "graphmap_incoming_self_loop_missing_e39f0f9_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 10.08,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "neighbors_incoming_includes_self_loops"
+      ],
+      "failure_type": "incoming directed neighbor iterator omits self-loop neighbors"
+    },
+    "graphmap_remove_node_edge_key_direction_cdbad50_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 9.81,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "remove_node"
+      ],
+      "failure_type": "remove_node leaves stale edge links for one direction"
+    },
+    "isomorphism_empty_iter_override_dropped_d33a613_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 11.85,
+      "mode": "debug",
+      "failures": 2,
+      "failing_tests": [
+        "iso1",
+        "iter_subgraph_empty"
+      ],
+      "failure_type": "empty-graph isomorphism mapping is dropped instead of yielded once"
+    },
+    "isomorphism_subgraph_inssize_strict_bc0e036_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 11.5,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "iter_subgraph"
+      ],
+      "failure_type": "subgraph iterator misses valid mappings when frontier in-size differs"
+    },
+    "isomorphism_subgraph_outsize_strict_bc0e036_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 11.63,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "iso_subgraph"
+      ],
+      "failure_type": "subgraph matcher rejects valid mappings when frontier out-size differs"
+    },
+    "nodefiltered_incoming_uses_target_1c26733_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 10.17,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "test_node_filtered_iterators_directed"
+      ],
+      "failure_type": "incoming edge filter checks wrong endpoint and leaks excluded nodes"
+    },
+    "quickcheck_random01_rng_source_1125c33_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 6.23,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "quickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen"
+      ],
+      "failure_type": "random_01 collapses to zero-sized-generator behavior and fails deterministic regression test"
+    },
+    "simple_paths_ignore_visited_target_hint_8f7a0d9_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 6.09,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "algo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph"
+      ],
+      "failure_type": "self-target path search incorrectly returns paths through already visited nodes"
+    },
+    "spfa_queue_pop_back_order_29f4c92_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 27.1,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "spfa_no_neg_cycle"
+      ],
+      "failure_type": "SPFA queue becomes stack-like and misses expected shortest-path behavior"
+    },
+    "stablegraph_node_bound_plus_two_b87cf17_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 6.4,
+      "mode": "debug",
+      "failures": 2,
+      "failing_tests": [
+        "test_adjacency_matrix_for_stable_graph_directed",
+        "test_adjacency_matrix_for_stable_graph_undirected"
+      ],
+      "failure_type": "node_bound overestimates by one extra index and breaks bound assumptions"
+    },
+    "stablegraph_reverse_edge_free_list_swap_b682695_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 5.9,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "graph_impl::stable_graph::test_reverse_after_remove_edges"
+      ],
+      "failure_type": "reverse swaps free edge slots and corrupts free-edge list"
+    },
+    "stablegraph_reverse_node_free_list_swap_b682695_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 5.72,
+      "mode": "debug",
+      "failures": 2,
+      "failing_tests": [
+        "graph_impl::stable_graph::test_reverse",
+        "graph_impl::stable_graph::test_reverse_after_remove_nodes"
+      ],
+      "failure_type": "reverse swaps free node slots and corrupts free-node list"
+    },
+    "undirected_adaptor_incoming_not_reversed_01b17d9_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 5.92,
+      "mode": "debug",
+      "failures": 2,
+      "failing_tests": [
+        "visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse",
+        "visit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways"
+      ],
+      "failure_type": "undirected adaptor cannot traverse incoming directed edges correctly"
+    },
+    "graph_neighbors_directed_skip_start_not_cleared_af1aa98_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 30.96,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "failure_type": "directed neighbor iteration clears traversal head and misses reachable neighbors"
+    },
+    "graph_reverse_node_links_not_swapped_28eb089_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 31.49,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "test_edge_iterators_directed"
+      ],
+      "failure_type": "graph reverse drops all node adjacency links and breaks incoming traversal invariants"
+    },
+    "graph_neighbors_undirected_self_loops_duplicated_af1aa98_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 26.24,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "failure_type": "undirected neighbor iterator drops incoming/self-loop neighbors"
+    },
+    "graph_edges_undirected_self_loops_duplicated_af1aa98_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 29.79,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "failure_type": "undirected edge iterator skips incoming/self-loop edges incorrectly"
+    },
+    "graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 26.71,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "failure_type": "walkneighbors omits incoming neighbors when traversing undirected adjacency"
+    },
+    "kosaraju_skips_first_identifier_1596cb2_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 16.91,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "matrix_graph::tests::test_kosaraju_scc_with_removed_node"
+      ],
+      "failure_type": "kosaraju first phase ignores all node identifiers and yields invalid SCC decomposition"
+    },
+    "unionfind_union_reports_no_merge_4e0584d_1": {
+      "passed": false,
+      "exit_code": 101,
+      "duration_seconds": 39.68,
+      "mode": "debug",
+      "failures": 1,
+      "failing_tests": [
+        "uf_rand"
+      ],
+      "failure_type": "union operation mutates structure but always reports false (no merge)"
+    }
+  }
+}

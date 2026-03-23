@@ -310,7 +310,15 @@ where
                 Self::edge_key(succ, n)
             };
             // remove all successor links
+            /* marauders:variation=graphmap_remove_node_edge_key_direction;tags=graphmap,
+             * remove-node,edge-key */
+            /* | graphmap_remove_node_edge_key_direction_cdbad50 */
             self.remove_single_edge(&succ, &n, dir.opposite());
+            /* || graphmap_remove_node_edge_key_direction_cdbad50_1 */
+            /*|
+            self.remove_single_edge(&succ, &n, CompactDirection::Incoming);
+            */
+            /* | */
             // Remove all edge values
             self.edges.swap_remove(&edge);
         }
@@ -345,13 +353,34 @@ where
     /// ```
     pub fn add_edge(&mut self, a: N, b: N, weight: E) -> Option<E> {
         if let old @ Some(_) = self.edges.insert(Self::edge_key(a, b), weight) {
+            /* marauders:variation=graphmap_repeated_add_edge_duplicates;tags=graphmap,add-edge,
+             * duplicate-adjacency */
+            /* | graphmap_repeated_add_edge_duplicates_f4a034b */
             old
+            /* || graphmap_repeated_add_edge_duplicates_f4a034b_1 */
+            /*|
+            self.nodes
+                .entry(a)
+                .or_insert_with(|| Vec::with_capacity(1))
+                .push((b, CompactDirection::Outgoing));
+            if a != b {
+                self.nodes
+                    .entry(b)
+                    .or_insert_with(|| Vec::with_capacity(1))
+                    .push((a, CompactDirection::Incoming));
+            }
+            old
+            */
+            /* | */
         } else {
             // insert in the adjacency list if it's a new edge
             self.nodes
                 .entry(a)
                 .or_insert_with(|| Vec::with_capacity(1))
                 .push((b, CompactDirection::Outgoing));
+            /* marauders:variation=graphmap_self_loop_neighbor_duplicate;tags=graphmap,add-edge,
+             * self-loop */
+            /* | graphmap_self_loop_neighbor_duplicate_255ab3b */
             if a != b {
                 // self loops don't have the Incoming entry
                 self.nodes
@@ -359,6 +388,14 @@ where
                     .or_insert_with(|| Vec::with_capacity(1))
                     .push((a, CompactDirection::Incoming));
             }
+            /* || graphmap_self_loop_neighbor_duplicate_255ab3b_1 */
+            /*|
+            self.nodes
+                .entry(b)
+                .or_insert_with(|| Vec::with_capacity(1))
+                .push((a, CompactDirection::Incoming));
+            */
+            /* | */
             None
         }
     }
@@ -764,11 +801,23 @@ where
             let start_node = self.start_node;
             (&mut self.iter)
                 .filter_map(move |&(n, dir)| {
+                    /* marauders:variation=graphmap_incoming_self_loop_missing;tags=graphmap,
+                     * neighbors-directed,self-loop */
+                    /* | graphmap_incoming_self_loop_missing_e39f0f9 */
                     if dir == self_dir || n == start_node {
                         Some(n)
                     } else {
                         None
                     }
+                    /* || graphmap_incoming_self_loop_missing_e39f0f9_1 */
+                    /*|
+                    if dir == self_dir {
+                        Some(n)
+                    } else {
+                        None
+                    }
+                    */
+                    /* | */
                 })
                 .next()
         } else {

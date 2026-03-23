@@ -177,7 +177,13 @@ where
     G::EdgeWeight: Sub<Output = G::EdgeWeight> + PositiveMeasure,
 {
     let mut edge_to = vec![None; network.node_count()];
+    /* | ff_flow_capacity_bound [flow, capacity, stable-graph] */
     let mut flows = vec![G::EdgeWeight::zero(); network.edge_bound()];
+    /* || ff_flow_capacity_bound_ebee197_1 */
+    /*|
+    let mut flows = vec![G::EdgeWeight::zero(); network.edge_count()];
+    */
+    /* | */
     let mut max_flow = G::EdgeWeight::zero();
     while has_augmented_path(&network, source, destination, &mut edge_to, &flows) {
         let mut path_flow = G::EdgeWeight::max();

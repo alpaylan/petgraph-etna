@@ -1,0 +1,271 @@
+{
+  "run_id": "d6059ad0-9cf8-421c-b271-7e66ffcc7457",
+  "project": "petgraph",
+  "total_commits_scanned": 200,
+  "candidate_count": 20,
+  "candidates": [
+    {
+      "hash": "0cd5c24fd09c601251b9a76c3dbfb942965480c9",
+      "date": "2025-05-29T17:43:00+02:00",
+      "message": "fix: Run Steiner Tree Quickcheck on the connected components to properly support disconnected graphs (#801)",
+      "author": "Raoul Luqu\u00e9 <125205120+RaoulLuque@users.noreply.github.com>",
+      "files": [
+        "src/algo/steiner_tree.rs",
+        "tests/quickcheck.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 3,
+      "score": 15
+    },
+    {
+      "hash": "ebee19788263054c79450a4c798831053b4a9c48",
+      "date": "2025-05-20T15:38:55+02:00",
+      "message": "fix: Ford Fulkerson sometimes Panics on StableGraphs (#793)",
+      "author": "Raoul Luqu\u00e9 <125205120+RaoulLuque@users.noreply.github.com>",
+      "files": [
+        "src/algo/ford_fulkerson.rs",
+        "tests/ford_fulkerson.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 4,
+      "score": 15
+    },
+    {
+      "hash": "3145fa87fa398fd49cef44b2429d93a4fd2160bc",
+      "date": "2025-04-02T00:55:43+02:00",
+      "message": "fix!: Correct typing for steiner_tree (#759)",
+      "author": "daehiff <winderl13@gmail.com>",
+      "files": [
+        "src/algo/steiner_tree.rs",
+        "tests/steiner_trees.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 4,
+      "score": 15
+    },
+    {
+      "hash": "4c7f18e73a730527b4b4fb571190d71d639b6376",
+      "date": "2022-06-10T16:07:34+09:00",
+      "message": "Fix Floyd-Warshall algorithm behavior toward undirected graphs (#487)",
+      "author": "At-sushi <dkahw210@kyoto.zaq.ne.jp>",
+      "files": [
+        "src/algo/floyd_warshall.rs",
+        "tests/floyd_warshall.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 5,
+      "score": 15
+    },
+    {
+      "hash": "bc0e036682a1f6e68b8bf91901f4cfc387f05b0d",
+      "date": "2022-07-04T15:26:08+03:00",
+      "message": "Fix subgraph isomorphism (#472)",
+      "author": "Alexander Kovalyov <cojuer@gmail.com>",
+      "files": [
+        "src/algo/isomorphism.rs",
+        "tests/iso.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 7,
+      "score": 15
+    },
+    {
+      "hash": "d33a613f80f3eb5c1b295e0b3cf270bbd3292708",
+      "date": "2025-07-05T13:20:20+02:00",
+      "message": "fix: Infinite `subgraph_isomorphisms_iter` for empty isomorphisms (#780)",
+      "author": "Niels Saurer <me@nielssaurer.com>",
+      "files": [
+        "src/algo/isomorphism.rs",
+        "tests/iso.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 10,
+      "score": 15
+    },
+    {
+      "hash": "29f4c92f5464e5609ddb0fec31c811f46215cbc0",
+      "date": "2025-09-29T03:53:07+09:00",
+      "message": "fix: use a queue for SPFA  (#893)",
+      "author": "Jonghun Park <whdgnsdl887@gmail.com>",
+      "files": [
+        "src/algo/johnson.rs",
+        "src/algo/spfa.rs",
+        "tests/spfa.rs"
+      ],
+      "file_count": 3,
+      "hunk_count": 8,
+      "score": 15
+    },
+    {
+      "hash": "7b91964ac42a5c2eaf3af9e89561459f8b5613c3",
+      "date": "2025-05-28T21:47:03+02:00",
+      "message": "fix: Run Maximal Cliques Quickcheck only on Digraphs which are symmetrical (#800)",
+      "author": "Raoul Luqu\u00e9 <125205120+RaoulLuque@users.noreply.github.com>",
+      "files": [
+        "src/algo/maximal_cliques.rs",
+        "tests/maximal_cliques.rs",
+        "tests/quickcheck.rs"
+      ],
+      "file_count": 3,
+      "hunk_count": 9,
+      "score": 15
+    },
+    {
+      "hash": "1c267332c76bc612c61750f7f082b917e7141781",
+      "date": "2022-06-10T03:35:51-07:00",
+      "message": "Fix IntoEdgesDirected implementation for NodeFiltered (#476)",
+      "author": "Jonathan Keljo <jkeljo@users.noreply.github.com>",
+      "files": [
+        "src/visit/filter.rs",
+        "tests/graph.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 5,
+      "score": 14
+    },
+    {
+      "hash": "7fa3aac97168de7fca54644a5b45c464d5245535",
+      "date": "2024-12-29T13:06:51-03:00",
+      "message": "fix: adjacency matrix for csr and adjacency list (#648)",
+      "author": "Bryan Bialokur da Cruz <bryan.bialokur@gmail.com>",
+      "files": [
+        "src/adj.rs",
+        "src/csr.rs",
+        "tests/adjacency_matrix.rs"
+      ],
+      "file_count": 3,
+      "hunk_count": 3,
+      "score": 14
+    },
+    {
+      "hash": "602308d8745f0af34e929d1ec56e370a4a7ff378",
+      "date": "2024-12-01T11:26:29-05:00",
+      "message": "fix: `immediately_dominated_by` function called on root of graph returns root itself",
+      "author": "Andy Soffer <andy.soffer@gmail.com>",
+      "files": [
+        "src/algo/dominators.rs"
+      ],
+      "file_count": 1,
+      "hunk_count": 2,
+      "score": 13
+    },
+    {
+      "hash": "8f7a0d93279f575627db90430d1a0aab242c3e9c",
+      "date": "2025-09-07T19:34:19+01:00",
+      "message": "feat: Fix self-loop bug in all_simple_paths and enable multiple targets (#865)",
+      "author": "lazyhope <78585060+lazyhope@users.noreply.github.com>",
+      "files": [
+        "src/algo/mod.rs",
+        "src/algo/simple_paths.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 8,
+      "score": 13
+    },
+    {
+      "hash": "cf435ca6a7ef6ae9a3ff1cb5402fb9f45f406bd6",
+      "date": "2025-07-27T10:21:10+02:00",
+      "message": "test: Fix feature cfg capitalization in doctest (#852)",
+      "author": "Raoul Luqu\u00e9 <125205120+RaoulLuque@users.noreply.github.com>",
+      "files": [
+        "src/lib.rs"
+      ],
+      "file_count": 1,
+      "hunk_count": 1,
+      "score": 12
+    },
+    {
+      "hash": "1125c33fea0ec3f85d25fc658f1cbe7de7631cd2",
+      "date": "2025-05-29T19:03:48+02:00",
+      "message": "fix: Quickcheck random01 function only outputs 0 (#798)",
+      "author": "Raoul Luqu\u00e9 <125205120+RaoulLuque@users.noreply.github.com>",
+      "files": [
+        "src/quickcheck.rs"
+      ],
+      "file_count": 1,
+      "hunk_count": 1,
+      "score": 12
+    },
+    {
+      "hash": "8ca4ab22a1e5baca4295e8511c4e40cf4ed410cf",
+      "date": "2025-04-07T12:18:54+03:00",
+      "message": "fix: Bring back `VisitMap` impl for std `HashSet` (#764)",
+      "author": "Egor Starovoitov <52821033+starovoid@users.noreply.github.com>",
+      "files": [
+        "src/visit/mod.rs"
+      ],
+      "file_count": 1,
+      "hunk_count": 1,
+      "score": 12
+    },
+    {
+      "hash": "b682695f29833184b322333e151a588be8f98842",
+      "date": "2025-09-29T04:05:05+09:00",
+      "message": "fix: `StableGraph::reverse` breaks free lists (#890)",
+      "author": "Jonghun Park <whdgnsdl887@gmail.com>",
+      "files": [
+        "src/graph_impl/stable_graph/mod.rs"
+      ],
+      "file_count": 1,
+      "hunk_count": 2,
+      "score": 12
+    },
+    {
+      "hash": "e160a91077bc6d96c20bd8fffa27e4ccddb1bf8a",
+      "date": "2021-07-07T11:43:02-07:00",
+      "message": "Fix the 0.6 MSRV as 1.41 (#455)",
+      "author": "Josh Stone <cuviper@gmail.com>",
+      "files": [
+        "RELEASES.rst"
+      ],
+      "file_count": 1,
+      "hunk_count": 2,
+      "score": 12
+    },
+    {
+      "hash": "01b17d9b6b510e4604aca4f9a59f76b287ed8425",
+      "date": "2025-09-10T03:40:37-04:00",
+      "message": "fix: Algos don't work on `UndirectedAdaptor` (#870) (#871)",
+      "author": "CattleProdigy <paulschroeder90@gmail.com>",
+      "files": [
+        "src/visit/undirected_adaptor.rs"
+      ],
+      "file_count": 1,
+      "hunk_count": 6,
+      "score": 12
+    },
+    {
+      "hash": "a515f9141bb28d0544cad37f5ab6bf7b56ad4fab",
+      "date": "2023-02-01T05:36:39-08:00",
+      "message": "Incorrect documentation for GraphMap::edges #364 (#536)",
+      "author": "David Sanders <insideoutclub@gmail.com>",
+      "files": [
+        "src/graphmap.rs",
+        "src/matrix_graph.rs"
+      ],
+      "file_count": 2,
+      "hunk_count": 4,
+      "score": 12
+    },
+    {
+      "hash": "4d807c19304c02c9dd687c68577f75aefcb98491",
+      "date": "2025-08-26T11:28:27-04:00",
+      "message": "chore: fix `mismatched_lifetime_syntaxes` warnings (#869)",
+      "author": "Matt Keeter <matt.j.keeter@gmail.com>",
+      "files": [
+        "src/adj.rs",
+        "src/algo/dominators.rs",
+        "src/algo/maximum_flow/dinics.rs",
+        "src/csr.rs",
+        "src/graph_impl/mod.rs"
+      ],
+      "file_count": 5,
+      "hunk_count": 12,
+      "score": 11
+    }
+  ],
+  "notes": [
+    "Source: wkgen git batch over offsets 0,50,100,150 (200 commits total).",
+    "Filtered out doc/ci/changelog-only fixes for mutation suitability."
+  ]
+}

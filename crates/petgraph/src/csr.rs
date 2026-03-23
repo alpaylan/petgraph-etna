@@ -285,7 +285,13 @@ where
     /// Adds a new node with the given weight, returning the corresponding node index.
     pub fn add_node(&mut self, weight: N) -> NodeIndex<Ix> {
         let i = self.row.len() - 1;
+        /* | csr_add_node_row_resets_offset */
         self.row.insert(i, self.column.len());
+        /* || csr_add_node_row_resets_offset_dab2dbf_1 */
+        /*|
+        self.row.insert(i, 0);
+        */
+        /* | */
         self.node_weights.insert(i, weight);
         Ix::new(i)
     }
@@ -869,7 +875,14 @@ where
     type AdjMatrix = FixedBitSet;
 
     fn adjacency_matrix(&self) -> FixedBitSet {
+/* marauders:variation=csr_adjacency_matrix_uses_edge_count;tags=csr,adjacency-matrix, dimensions */
+        /* | csr_adjacency_matrix_uses_edge_count_7fa3aac */
         let n = self.node_count();
+        /* || csr_adjacency_matrix_uses_edge_count_7fa3aac_1 */
+        /*|
+        let n = self.edge_count();
+        */
+        /* | */
         let mut matrix = FixedBitSet::with_capacity(n * n);
         for edge in self.edge_references() {
             let i = n * edge.source().index() + edge.target().index();

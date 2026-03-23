@@ -1,0 +1,476 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>petgraph injected bugs</title>
+<style>
+:root{--bg:#f7f6f2;--fg:#1f2933;--muted:#5f6c7b;--card:#fff;--line:#d7dce2;--accent:#0f766e;}
+*{box-sizing:border-box} body{margin:0;background:linear-gradient(180deg,#f7f6f2 0%,#eceff4 100%);color:var(--fg);font-family:"IBM Plex Sans","Avenir Next","Segoe UI",sans-serif;line-height:1.45}
+main{max-width:1180px;margin:0 auto;padding:24px 14px 48px} h1{margin:0 0 8px} .sub{color:var(--muted)}
+input{padding:10px 12px;border:1px solid var(--line);border-radius:10px;min-width:280px} .panel{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px;margin:16px 0}
+table{width:100%;border-collapse:collapse;font-size:14px} th,td{border-bottom:1px solid var(--line);padding:7px;text-align:left;vertical-align:top} th{background:#f5f8fb}
+code{background:#eef2f7;padding:1px 5px;border-radius:6px;font-family:"IBM Plex Mono",monospace;font-size:.92em} .muted{color:var(--muted)}
+details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 10px;margin:10px 0} summary{cursor:pointer;padding:10px 0;font-weight:600}
+.meta td:first-child{width:210px;color:#334155;font-weight:600} .pill{display:inline-block;padding:2px 9px;border-radius:999px;background:#dbf5f2;color:#0b5d57;font-size:12px}
+a{color:#0b7285;text-decoration:none} a:hover{text-decoration:underline}
+.hidden{display:none}
+</style></head>
+<body><main>
+<h1>petgraph injected bugs</h1>
+<p class="sub">Synchronized dataset with <strong>27</strong> detected bugs. Source: <code>checkpoints/*.json</code> + <code>BUGS.md</code>.</p>
+<div><input id="q" type="search" placeholder="Filter by name, variant, file, type, detector, test..."></div>
+<section class="panel"><h2>Bug index</h2>
+<table id="idx"><thead><tr><th>#</th><th>Name</th><th>Variant</th><th>File</th><th>Type</th><th>Failing tests</th><th>Canonical detector</th><th>Fix commit</th></tr></thead><tbody>
+<tr><td>1</td><td><code>csr_add_node_row_resets_offset</code></td><td><code>csr_add_node_row_resets_offset_dab2dbf_1</code></td><td><code>crates/petgraph/src/csr.rs:288</code></td><td><code>csr-row-offset-reset</code></td><td>1</td><td><code>property_csr_add_node_preserves_existing_edges</code></td><td><a href="https://github.com/petgraph/petgraph/commit/dab2dbf5aaf574617633c6a7800457b61d2124fb" target="_blank" rel="noopener noreferrer"><code>dab2dbf</code></a></td></tr><tr><td>2</td><td><code>csr_adjacency_matrix_uses_edge_count</code></td><td><code>csr_adjacency_matrix_uses_edge_count_7fa3aac_1</code></td><td><code>crates/petgraph/src/csr.rs:878</code></td><td><code>wrong-adjacency-matrix-dimension</code></td><td>2</td><td><code>property_adjacency_matrix_matches_graph_structure</code></td><td><a href="https://github.com/petgraph/petgraph/commit/7fa3aac97168de7fca54644a5b45c464d5245535" target="_blank" rel="noopener noreferrer"><code>7fa3aac</code></a></td></tr><tr><td>3</td><td><code>dfs_move_to_marks_visited</code></td><td><code>dfs_move_to_marks_visited_0fae246_1</code></td><td><code>crates/petgraph/src/visit/traversal.rs:102</code></td><td><code>premature-dfs-visited-mark</code></td><td>3</td><td><code>property_csr_dfs_move_to_reaches_reconnected_component</code></td><td><a href="https://github.com/petgraph/petgraph/commit/0fae246b07f3dba059a40288c4a7a96588bef19b" target="_blank" rel="noopener noreferrer"><code>0fae246</code></a></td></tr><tr><td>4</td><td><code>dominators_include_root_self</code></td><td><code>dominators_include_root_self_602308d_1</code></td><td><code>crates/petgraph/src/algo/dominators.rs:139</code></td><td><code>missing-root-self-exclusion</code></td><td>1</td><td><code>property_dominators_exclude_self_from_immediately_dominated_by</code></td><td><a href="https://github.com/petgraph/petgraph/commit/602308d8745f0af34e929d1ec56e370a4a7ff378" target="_blank" rel="noopener noreferrer"><code>602308d</code></a></td></tr><tr><td>5</td><td><code>edgefiltered_directed_neighbor_endpoint</code></td><td><code>edgefiltered_directed_neighbor_endpoint_1147022_1</code></td><td><code>crates/petgraph/src/visit/filter.rs:590</code></td><td><code>wrong-directed-neighbor-endpoint</code></td><td>1</td><td><code>property_edgefiltered_reversed_reachability_is_stable</code></td><td><a href="https://github.com/petgraph/petgraph/commit/1147022802b34624c76849214202a8b610abea14" target="_blank" rel="noopener noreferrer"><code>1147022</code></a></td></tr><tr><td>6</td><td><code>ff_flow_capacity_bound</code></td><td><code>ff_flow_capacity_bound_ebee197_1</code></td><td><code>crates/petgraph/src/algo/maximum_flow/ford_fulkerson.rs:180</code></td><td><code>wrong-flow-buffer-bound</code></td><td>1</td><td><code>property_ford_fulkerson_stable_graph_rewiring_keeps_max_flow_stable</code></td><td><a href="https://github.com/petgraph/petgraph/commit/ebee19788263054c79450a4c798831053b4a9c48" target="_blank" rel="noopener noreferrer"><code>ebee197</code></a></td></tr><tr><td>7</td><td><code>floyd_warshall_undirected_guard_inverted</code></td><td><code>floyd_warshall_undirected_guard_inverted_4c7f18e_1</code></td><td><code>crates/petgraph/src/algo/floyd_warshall.rs:321</code></td><td><code>inverted-undirected-guard</code></td><td>1</td><td><code>property_floyd_warshall_distances_are_symmetric_for_undirected_graphs</code></td><td><a href="https://github.com/petgraph/petgraph/commit/4c7f18e73a730527b4b4fb571190d71d639b6376" target="_blank" rel="noopener noreferrer"><code>4c7f18e</code></a></td></tr><tr><td>8</td><td><code>graph_edges_undirected_self_loops_duplicated</code></td><td><code>graph_edges_undirected_self_loops_duplicated_af1aa98_1</code></td><td><code>crates/petgraph/src/graph_impl/mod.rs:2119</code></td><td><code>undirected-edge-self-loop-double-visit</code></td><td>1</td><td><code>neighbors_selfloops</code></td><td><a href="https://github.com/petgraph/petgraph/commit/af1aa98ac0709d730e97db3c74059dbc1340eb4e" target="_blank" rel="noopener noreferrer"><code>af1aa98</code></a></td></tr><tr><td>9</td><td><code>graph_neighbors_directed_skip_start_not_cleared</code></td><td><code>graph_neighbors_directed_skip_start_not_cleared_af1aa98_1</code></td><td><code>crates/petgraph/src/graph_impl/mod.rs:940</code></td><td><code>directed-neighbor-iterator-cleared</code></td><td>1</td><td><code>neighbors_selfloops</code></td><td><a href="https://github.com/petgraph/petgraph/commit/af1aa98ac0709d730e97db3c74059dbc1340eb4e" target="_blank" rel="noopener noreferrer"><code>af1aa98</code></a></td></tr><tr><td>10</td><td><code>graph_neighbors_undirected_self_loops_duplicated</code></td><td><code>graph_neighbors_undirected_self_loops_duplicated_af1aa98_1</code></td><td><code>crates/petgraph/src/graph_impl/mod.rs:1951</code></td><td><code>undirected-neighbor-self-loop-filter-broken</code></td><td>1</td><td><code>neighbors_selfloops</code></td><td><a href="https://github.com/petgraph/petgraph/commit/af1aa98ac0709d730e97db3c74059dbc1340eb4e" target="_blank" rel="noopener noreferrer"><code>af1aa98</code></a></td></tr><tr><td>11</td><td><code>graph_reverse_node_links_not_swapped</code></td><td><code>graph_reverse_node_links_not_swapped_28eb089_1</code></td><td><code>crates/petgraph/src/graph_impl/mod.rs:1356</code></td><td><code>reverse-node-links-cleared</code></td><td>1</td><td><code>test_edge_iterators_directed</code></td><td><a href="https://github.com/petgraph/petgraph/commit/28eb08936827bf42bbd650fc09f5545fb55b9a09" target="_blank" rel="noopener noreferrer"><code>28eb089</code></a></td></tr><tr><td>12</td><td><code>graph_walkneighbors_undirected_self_loops_duplicated</code></td><td><code>graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1</code></td><td><code>crates/petgraph/src/graph_impl/mod.rs:2460</code></td><td><code>undirected-walkneighbors-self-loop-filter-broken</code></td><td>1</td><td><code>neighbors_selfloops</code></td><td><a href="https://github.com/petgraph/petgraph/commit/af1aa98ac0709d730e97db3c74059dbc1340eb4e" target="_blank" rel="noopener noreferrer"><code>af1aa98</code></a></td></tr><tr><td>13</td><td><code>graphmap_incoming_self_loop_missing</code></td><td><code>graphmap_incoming_self_loop_missing_e39f0f9_1</code></td><td><code>crates/petgraph/src/graphmap.rs:773</code></td><td><code>missing-self-loop-in-incoming-neighbors</code></td><td>1</td><td><code>property_graphmap_incoming_neighbors_include_self_loops</code></td><td><a href="https://github.com/petgraph/petgraph/commit/e39f0f9523d4037ad212e89f51e1b7e8434964af" target="_blank" rel="noopener noreferrer"><code>e39f0f9</code></a></td></tr><tr><td>14</td><td><code>graphmap_remove_node_edge_key_direction</code></td><td><code>graphmap_remove_node_edge_key_direction_cdbad50_1</code></td><td><code>crates/petgraph/src/graphmap.rs:313</code></td><td><code>wrong-edge-removal-direction</code></td><td>1</td><td><code>property_graphmap_remove_node_clears_all_incident_edges</code></td><td><a href="https://github.com/petgraph/petgraph/commit/cdbad50a5703a1b162a5579bb644c21063f3ceaa" target="_blank" rel="noopener noreferrer"><code>cdbad50</code></a></td></tr><tr><td>15</td><td><code>isomorphism_empty_iter_override_dropped</code></td><td><code>isomorphism_empty_iter_override_dropped_d33a613_1</code></td><td><code>crates/petgraph/src/algo/isomorphism.rs:748</code></td><td><code>empty-isomorphism-override-dropped</code></td><td>2</td><td><code>property_subgraph_isomorphism_empty_pattern_yields_single_empty_mapping</code></td><td><a href="https://github.com/petgraph/petgraph/commit/d33a613f80f3eb5c1b295e0b3cf270bbd3292708" target="_blank" rel="noopener noreferrer"><code>d33a613</code></a></td></tr><tr><td>16</td><td><code>isomorphism_subgraph_inssize_strict</code></td><td><code>isomorphism_subgraph_inssize_strict_bc0e036_1</code></td><td><code>crates/petgraph/src/algo/isomorphism.rs:627</code></td><td><code>strict-ins-size-match</code></td><td>1</td><td><code>property_subgraph_isomorphism_preserves_small_labeled_path_embedding</code></td><td><a href="https://github.com/petgraph/petgraph/commit/bc0e036682a1f6e68b8bf91901f4cfc387f05b0d" target="_blank" rel="noopener noreferrer"><code>bc0e036</code></a></td></tr><tr><td>17</td><td><code>isomorphism_subgraph_outsize_strict</code></td><td><code>isomorphism_subgraph_outsize_strict_bc0e036_1</code></td><td><code>crates/petgraph/src/algo/isomorphism.rs:620</code></td><td><code>strict-out-size-match</code></td><td>1</td><td><code>property_subgraph_isomorphism_triangle_embeddings_exist</code></td><td><a href="https://github.com/petgraph/petgraph/commit/bc0e036682a1f6e68b8bf91901f4cfc387f05b0d" target="_blank" rel="noopener noreferrer"><code>bc0e036</code></a></td></tr><tr><td>18</td><td><code>kosaraju_skips_first_identifier</code></td><td><code>kosaraju_skips_first_identifier_1596cb2_1</code></td><td><code>crates/petgraph/src/algo/scc/kosaraju_scc.rs:106</code></td><td><code>kosaraju-first-pass-empty-iteration</code></td><td>1</td><td><code>matrix_graph::tests::test_kosaraju_scc_with_removed_node</code></td><td><a href="https://github.com/petgraph/petgraph/commit/1596cb22efcfaf0c4a1e5a05fb693618b3acc478" target="_blank" rel="noopener noreferrer"><code>1596cb2</code></a></td></tr><tr><td>19</td><td><code>nodefiltered_incoming_uses_target</code></td><td><code>nodefiltered_incoming_uses_target_1c26733_1</code></td><td><code>crates/petgraph/src/visit/filter.rs:330</code></td><td><code>incoming-direction-filter-bypass</code></td><td>1</td><td><code>property_node_filtered_incoming_edges_respect_node_filter</code></td><td><a href="https://github.com/petgraph/petgraph/commit/1c267332c76bc612c61750f7f082b917e7141781" target="_blank" rel="noopener noreferrer"><code>1c26733</code></a></td></tr><tr><td>20</td><td><code>quickcheck_random01_rng_source</code></td><td><code>quickcheck_random01_rng_source_1125c33_1</code></td><td><code>crates/petgraph/src/quickcheck.rs:21</code></td><td><code>wrong-rng-source</code></td><td>1</td><td><code>quickcheck::tests::property_random_01_has_non_zero_support_for_small_generator_sizes</code></td><td><a href="https://github.com/petgraph/petgraph/commit/1125c33fea0ec3f85d25fc658f1cbe7de7631cd2" target="_blank" rel="noopener noreferrer"><code>1125c33</code></a></td></tr><tr><td>21</td><td><code>simple_paths_ignore_visited_target_hint</code></td><td><code>simple_paths_ignore_visited_target_hint_8f7a0d9_1</code></td><td><code>crates/petgraph/src/algo/simple_paths.rs:125</code></td><td><code>missing-visited-target-filter</code></td><td>1</td><td><code>property_simple_paths_node_to_itself_stays_empty_in_complete_digraph</code></td><td><a href="https://github.com/petgraph/petgraph/commit/8f7a0d93279f575627db90430d1a0aab242c3e9c" target="_blank" rel="noopener noreferrer"><code>8f7a0d9</code></a></td></tr><tr><td>22</td><td><code>spfa_queue_pop_back_order</code></td><td><code>spfa_queue_pop_back_order_29f4c92_1</code></td><td><code>crates/petgraph/src/algo/spfa.rs:139</code></td><td><code>lifo-queue-order</code></td><td>1</td><td><code>property_spfa_uses_queue_order_for_shortest_paths</code></td><td><a href="https://github.com/petgraph/petgraph/commit/29f4c92f5464e5609ddb0fec31c811f46215cbc0" target="_blank" rel="noopener noreferrer"><code>29f4c92</code></a></td></tr><tr><td>23</td><td><code>stablegraph_node_bound_plus_two</code></td><td><code>stablegraph_node_bound_plus_two_b87cf17_1</code></td><td><code>crates/petgraph/src/graph_impl/stable_graph/mod.rs:2360</code></td><td><code>node-bound-off-by-one</code></td><td>2</td><td><code>property_adjacency_matrix_matches_graph_structure</code></td><td><a href="https://github.com/petgraph/petgraph/commit/b87cf17dd5690f8de408015fa014b51c25fbf1d6" target="_blank" rel="noopener noreferrer"><code>b87cf17</code></a></td></tr><tr><td>24</td><td><code>stablegraph_reverse_edge_free_list_swap</code></td><td><code>stablegraph_reverse_edge_free_list_swap_b682695_1</code></td><td><code>crates/petgraph/src/graph_impl/stable_graph/mod.rs:246</code></td><td><code>reversed-edge-free-list-corruption</code></td><td>1</td><td><code>graph_impl::stable_graph::property_reverse_after_removed_edges_preserves_free_lists</code></td><td><a href="https://github.com/petgraph/petgraph/commit/b682695f29833184b322333e151a588be8f98842" target="_blank" rel="noopener noreferrer"><code>b682695</code></a></td></tr><tr><td>25</td><td><code>stablegraph_reverse_node_free_list_swap</code></td><td><code>stablegraph_reverse_node_free_list_swap_b682695_1</code></td><td><code>crates/petgraph/src/graph_impl/stable_graph/mod.rs:258</code></td><td><code>reversed-node-free-list-corruption</code></td><td>2</td><td><code>graph_impl::stable_graph::property_reverse_after_removed_nodes_preserves_free_lists</code></td><td><a href="https://github.com/petgraph/petgraph/commit/b682695f29833184b322333e151a588be8f98842" target="_blank" rel="noopener noreferrer"><code>b682695</code></a></td></tr><tr><td>26</td><td><code>undirected_adaptor_incoming_not_reversed</code></td><td><code>undirected_adaptor_incoming_not_reversed_01b17d9_1</code></td><td><code>crates/petgraph/src/visit/undirected_adaptor.rs:41</code></td><td><code>incoming-edge-orientation-lost</code></td><td>2</td><td><code>property_undirected_adaptor_edge_targets_match_undirected_neighbors</code></td><td><a href="https://github.com/petgraph/petgraph/commit/01b17d9b6b510e4604aca4f9a59f76b287ed8425" target="_blank" rel="noopener noreferrer"><code>01b17d9</code></a></td></tr><tr><td>27</td><td><code>unionfind_union_reports_no_merge</code></td><td><code>unionfind_union_reports_no_merge_4e0584d_1</code></td><td><code>crates/petgraph/src/unionfind.rs:183</code></td><td><code>unionfind-union-return-value-broken</code></td><td>1</td><td><code>uf_rand</code></td><td><a href="https://github.com/petgraph/petgraph/commit/4e0584d5f7b7b1351c780fc89e74ed52fe19d27d" target="_blank" rel="noopener noreferrer"><code>4e0584d</code></a></td></tr>
+</tbody></table></section>
+<section><h2>Bug details</h2>
+
+<details class="bug" data-search="csr_add_node_row_resets_offset csr_add_node_row_resets_offset_dab2dbf_1 crates/petgraph/src/csr.rs csr-row-offset-reset property_csr_add_node_preserves_existing_edges csr::tests::test_add_node_with_existing_edges"> 
+<summary>#1 <code>csr_add_node_row_resets_offset</code> <span class="muted">csr_add_node_row_resets_offset_dab2dbf_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/csr.rs:288</code></td></tr>
+<tr><td>Variant</td><td><code>csr_add_node_row_resets_offset_dab2dbf_1</code></td></tr>
+<tr><td>Type</td><td><code>csr-row-offset-reset</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/dab2dbf5aaf574617633c6a7800457b61d2124fb" target="_blank" rel="noopener noreferrer"><code>dab2dbf</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix bug where adding node to csr graph stole existing edges (Wed Aug 7 21:09:00 2019 +0200)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_csr_add_node_preserves_existing_edges</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>adding a node resets CSR row offset and disconnects existing edge windows</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>csr::tests::test_add_node_with_existing_edges</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="csr_adjacency_matrix_uses_edge_count csr_adjacency_matrix_uses_edge_count_7fa3aac_1 crates/petgraph/src/csr.rs wrong-adjacency-matrix-dimension property_adjacency_matrix_matches_graph_structure test_adjacency_matrix_for_csr_directed test_adjacency_matrix_for_csr_undirected"> 
+<summary>#2 <code>csr_adjacency_matrix_uses_edge_count</code> <span class="muted">csr_adjacency_matrix_uses_edge_count_7fa3aac_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/csr.rs:878</code></td></tr>
+<tr><td>Variant</td><td><code>csr_adjacency_matrix_uses_edge_count_7fa3aac_1</code></td></tr>
+<tr><td>Type</td><td><code>wrong-adjacency-matrix-dimension</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/7fa3aac97168de7fca54644a5b45c464d5245535" target="_blank" rel="noopener noreferrer"><code>7fa3aac</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: adjacency matrix for csr and adjacency list (#648) (Sun Dec 29 13:06:51 2024 -0300)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_adjacency_matrix_matches_graph_structure</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>adjacency matrix capacity uses edge count and panics on node-index writes</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>test_adjacency_matrix_for_csr_directed</code></li><li><code>test_adjacency_matrix_for_csr_undirected</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="dfs_move_to_marks_visited dfs_move_to_marks_visited_0fae246_1 crates/petgraph/src/visit/traversal.rs premature-dfs-visited-mark property_csr_dfs_move_to_reaches_reconnected_component csr::tests::csr_dfs matrix_graph::tests::test_kosaraju_scc_with_removed_node visit::undirected_adaptor::tests::test_is_reachable"> 
+<summary>#3 <code>dfs_move_to_marks_visited</code> <span class="muted">dfs_move_to_marks_visited_0fae246_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/visit/traversal.rs:102</code></td></tr>
+<tr><td>Variant</td><td><code>dfs_move_to_marks_visited_0fae246_1</code></td></tr>
+<tr><td>Type</td><td><code>premature-dfs-visited-mark</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/0fae246b07f3dba059a40288c4a7a96588bef19b" target="_blank" rel="noopener noreferrer"><code>0fae246</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix bug in order of iterative dfs (Thu Dec 19 10:55:53 2019 -0500)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_csr_dfs_move_to_reaches_reconnected_component</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>move_to pre-marks start node and DFS skips traversal order guarantees</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>csr::tests::csr_dfs</code></li><li><code>matrix_graph::tests::test_kosaraju_scc_with_removed_node</code></li><li><code>visit::undirected_adaptor::tests::test_is_reachable</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="dominators_include_root_self dominators_include_root_self_602308d_1 crates/petgraph/src/algo/dominators.rs missing-root-self-exclusion property_dominators_exclude_self_from_immediately_dominated_by algo::dominators::tests::test_iter_dominators"> 
+<summary>#4 <code>dominators_include_root_self</code> <span class="muted">dominators_include_root_self_602308d_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/dominators.rs:139</code></td></tr>
+<tr><td>Variant</td><td><code>dominators_include_root_self_602308d_1</code></td></tr>
+<tr><td>Type</td><td><code>missing-root-self-exclusion</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/602308d8745f0af34e929d1ec56e370a4a7ff378" target="_blank" rel="noopener noreferrer"><code>602308d</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: `immediately_dominated_by` function called on root of graph returns root itself (Sun Dec 1 11:26:29 2024 -0500)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_dominators_exclude_self_from_immediately_dominated_by</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>root node reported as immediately dominated by itself</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>algo::dominators::tests::test_iter_dominators</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="edgefiltered_directed_neighbor_endpoint edgefiltered_directed_neighbor_endpoint_1147022_1 crates/petgraph/src/visit/filter.rs wrong-directed-neighbor-endpoint property_edgefiltered_reversed_reachability_is_stable filtered_edge_reverse"> 
+<summary>#5 <code>edgefiltered_directed_neighbor_endpoint</code> <span class="muted">edgefiltered_directed_neighbor_endpoint_1147022_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/visit/filter.rs:590</code></td></tr>
+<tr><td>Variant</td><td><code>edgefiltered_directed_neighbor_endpoint_1147022_1</code></td></tr>
+<tr><td>Type</td><td><code>wrong-directed-neighbor-endpoint</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/1147022802b34624c76849214202a8b610abea14" target="_blank" rel="noopener noreferrer"><code>1147022</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix IntoNeighborsDirected for EdgeFiltered under undirected graphs (Thu Nov 15 20:31:29 2018 +1100)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_edgefiltered_reversed_reachability_is_stable</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>edge-filtered directed neighbors return wrong endpoint direction</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>filtered_edge_reverse</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="ff_flow_capacity_bound ff_flow_capacity_bound_ebee197_1 crates/petgraph/src/algo/maximum_flow/ford_fulkerson.rs wrong-flow-buffer-bound property_ford_fulkerson_stable_graph_rewiring_keeps_max_flow_stable test_ford_fulkerson_stable_graphs"> 
+<summary>#6 <code>ff_flow_capacity_bound</code> <span class="muted">ff_flow_capacity_bound_ebee197_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/maximum_flow/ford_fulkerson.rs:180</code></td></tr>
+<tr><td>Variant</td><td><code>ff_flow_capacity_bound_ebee197_1</code></td></tr>
+<tr><td>Type</td><td><code>wrong-flow-buffer-bound</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/ebee19788263054c79450a4c798831053b4a9c48" target="_blank" rel="noopener noreferrer"><code>ebee197</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: Ford Fulkerson sometimes Panics on StableGraphs (#793) (Tue May 20 15:38:55 2025 +0200)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_ford_fulkerson_stable_graph_rewiring_keeps_max_flow_stable</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>flow buffer too small for stable-graph edge bound; runtime index panic</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>test_ford_fulkerson_stable_graphs</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="floyd_warshall_undirected_guard_inverted floyd_warshall_undirected_guard_inverted_4c7f18e_1 crates/petgraph/src/algo/floyd_warshall.rs inverted-undirected-guard property_floyd_warshall_distances_are_symmetric_for_undirected_graphs algo::steiner_tree::test::test_subgraph_from_metric_closure"> 
+<summary>#7 <code>floyd_warshall_undirected_guard_inverted</code> <span class="muted">floyd_warshall_undirected_guard_inverted_4c7f18e_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/floyd_warshall.rs:321</code></td></tr>
+<tr><td>Variant</td><td><code>floyd_warshall_undirected_guard_inverted_4c7f18e_1</code></td></tr>
+<tr><td>Type</td><td><code>inverted-undirected-guard</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/4c7f18e73a730527b4b4fb571190d71d639b6376" target="_blank" rel="noopener noreferrer"><code>4c7f18e</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix Floyd-Warshall algorithm behavior toward undirected graphs (#487) (Fri Jun 10 16:07:34 2022 +0900)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_floyd_warshall_distances_are_symmetric_for_undirected_graphs</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>undirected shortest-path expectations fail due to missing mirrored edge updates</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>algo::steiner_tree::test::test_subgraph_from_metric_closure</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="graph_edges_undirected_self_loops_duplicated graph_edges_undirected_self_loops_duplicated_af1aa98_1 crates/petgraph/src/graph_impl/mod.rs undirected-edge-self-loop-double-visit neighbors_selfloops neighbors_selfloops"> 
+<summary>#8 <code>graph_edges_undirected_self_loops_duplicated</code> <span class="muted">graph_edges_undirected_self_loops_duplicated_af1aa98_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graph_impl/mod.rs:2119</code></td></tr>
+<tr><td>Variant</td><td><code>graph_edges_undirected_self_loops_duplicated_af1aa98_1</code></td></tr>
+<tr><td>Type</td><td><code>undirected-edge-self-loop-double-visit</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/af1aa98ac0709d730e97db3c74059dbc1340eb4e" target="_blank" rel="noopener noreferrer"><code>af1aa98</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix neighbor and edge iterators visiting self loops twice (Mon Nov 30 20:08:46 2015 +0100)</td></tr>
+<tr><td>Canonical detector</td><td><code>neighbors_selfloops</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>undirected edge iterator skips incoming/self-loop edges incorrectly</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>neighbors_selfloops</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="graph_neighbors_directed_skip_start_not_cleared graph_neighbors_directed_skip_start_not_cleared_af1aa98_1 crates/petgraph/src/graph_impl/mod.rs directed-neighbor-iterator-cleared neighbors_selfloops neighbors_selfloops"> 
+<summary>#9 <code>graph_neighbors_directed_skip_start_not_cleared</code> <span class="muted">graph_neighbors_directed_skip_start_not_cleared_af1aa98_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graph_impl/mod.rs:940</code></td></tr>
+<tr><td>Variant</td><td><code>graph_neighbors_directed_skip_start_not_cleared_af1aa98_1</code></td></tr>
+<tr><td>Type</td><td><code>directed-neighbor-iterator-cleared</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/af1aa98ac0709d730e97db3c74059dbc1340eb4e" target="_blank" rel="noopener noreferrer"><code>af1aa98</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix neighbor and edge iterators visiting self loops twice (Mon Nov 30 20:08:46 2015 +0100)</td></tr>
+<tr><td>Canonical detector</td><td><code>neighbors_selfloops</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>directed neighbor iteration clears traversal head and misses reachable neighbors</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>neighbors_selfloops</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="graph_neighbors_undirected_self_loops_duplicated graph_neighbors_undirected_self_loops_duplicated_af1aa98_1 crates/petgraph/src/graph_impl/mod.rs undirected-neighbor-self-loop-filter-broken neighbors_selfloops neighbors_selfloops"> 
+<summary>#10 <code>graph_neighbors_undirected_self_loops_duplicated</code> <span class="muted">graph_neighbors_undirected_self_loops_duplicated_af1aa98_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graph_impl/mod.rs:1951</code></td></tr>
+<tr><td>Variant</td><td><code>graph_neighbors_undirected_self_loops_duplicated_af1aa98_1</code></td></tr>
+<tr><td>Type</td><td><code>undirected-neighbor-self-loop-filter-broken</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/af1aa98ac0709d730e97db3c74059dbc1340eb4e" target="_blank" rel="noopener noreferrer"><code>af1aa98</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix neighbor and edge iterators visiting self loops twice (Mon Nov 30 20:08:46 2015 +0100)</td></tr>
+<tr><td>Canonical detector</td><td><code>neighbors_selfloops</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>undirected neighbor iterator drops incoming/self-loop neighbors</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>neighbors_selfloops</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="graph_reverse_node_links_not_swapped graph_reverse_node_links_not_swapped_28eb089_1 crates/petgraph/src/graph_impl/mod.rs reverse-node-links-cleared test_edge_iterators_directed test_edge_iterators_directed"> 
+<summary>#11 <code>graph_reverse_node_links_not_swapped</code> <span class="muted">graph_reverse_node_links_not_swapped_28eb089_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graph_impl/mod.rs:1356</code></td></tr>
+<tr><td>Variant</td><td><code>graph_reverse_node_links_not_swapped_28eb089_1</code></td></tr>
+<tr><td>Type</td><td><code>reverse-node-links-cleared</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/28eb08936827bf42bbd650fc09f5545fb55b9a09" target="_blank" rel="noopener noreferrer"><code>28eb089</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix buggy Graph::reverse (Wed Nov 25 15:38:59 2015 +0100)</td></tr>
+<tr><td>Canonical detector</td><td><code>test_edge_iterators_directed</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>graph reverse drops all node adjacency links and breaks incoming traversal invariants</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>test_edge_iterators_directed</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="graph_walkneighbors_undirected_self_loops_duplicated graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1 crates/petgraph/src/graph_impl/mod.rs undirected-walkneighbors-self-loop-filter-broken neighbors_selfloops neighbors_selfloops"> 
+<summary>#12 <code>graph_walkneighbors_undirected_self_loops_duplicated</code> <span class="muted">graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graph_impl/mod.rs:2460</code></td></tr>
+<tr><td>Variant</td><td><code>graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1</code></td></tr>
+<tr><td>Type</td><td><code>undirected-walkneighbors-self-loop-filter-broken</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/af1aa98ac0709d730e97db3c74059dbc1340eb4e" target="_blank" rel="noopener noreferrer"><code>af1aa98</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix neighbor and edge iterators visiting self loops twice (Mon Nov 30 20:08:46 2015 +0100)</td></tr>
+<tr><td>Canonical detector</td><td><code>neighbors_selfloops</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>walkneighbors omits incoming neighbors when traversing undirected adjacency</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>neighbors_selfloops</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="graphmap_incoming_self_loop_missing graphmap_incoming_self_loop_missing_e39f0f9_1 crates/petgraph/src/graphmap.rs missing-self-loop-in-incoming-neighbors property_graphmap_incoming_neighbors_include_self_loops neighbors_incoming_includes_self_loops"> 
+<summary>#13 <code>graphmap_incoming_self_loop_missing</code> <span class="muted">graphmap_incoming_self_loop_missing_e39f0f9_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graphmap.rs:773</code></td></tr>
+<tr><td>Variant</td><td><code>graphmap_incoming_self_loop_missing_e39f0f9_1</code></td></tr>
+<tr><td>Type</td><td><code>missing-self-loop-in-incoming-neighbors</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/e39f0f9523d4037ad212e89f51e1b7e8434964af" target="_blank" rel="noopener noreferrer"><code>e39f0f9</code></a></td></tr>
+<tr><td>Fix context</td><td>FIX: Include self loops in incoming edges (Sun Oct 6 10:46:08 2019 +0200)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_graphmap_incoming_neighbors_include_self_loops</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>incoming directed neighbor iterator omits self-loop neighbors</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>neighbors_incoming_includes_self_loops</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="graphmap_remove_node_edge_key_direction graphmap_remove_node_edge_key_direction_cdbad50_1 crates/petgraph/src/graphmap.rs wrong-edge-removal-direction property_graphmap_remove_node_clears_all_incident_edges remove_node"> 
+<summary>#14 <code>graphmap_remove_node_edge_key_direction</code> <span class="muted">graphmap_remove_node_edge_key_direction_cdbad50_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graphmap.rs:313</code></td></tr>
+<tr><td>Variant</td><td><code>graphmap_remove_node_edge_key_direction_cdbad50_1</code></td></tr>
+<tr><td>Type</td><td><code>wrong-edge-removal-direction</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/cdbad50a5703a1b162a5579bb644c21063f3ceaa" target="_blank" rel="noopener noreferrer"><code>cdbad50</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix GraphMap::remove_node not removing some edges (#432) (Sun May 16 20:16:12 2021 +0200)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_graphmap_remove_node_clears_all_incident_edges</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>remove_node leaves stale edge links for one direction</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>remove_node</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="isomorphism_empty_iter_override_dropped isomorphism_empty_iter_override_dropped_d33a613_1 crates/petgraph/src/algo/isomorphism.rs empty-isomorphism-override-dropped property_subgraph_isomorphism_empty_pattern_yields_single_empty_mapping iso1 iter_subgraph_empty"> 
+<summary>#15 <code>isomorphism_empty_iter_override_dropped</code> <span class="muted">isomorphism_empty_iter_override_dropped_d33a613_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/isomorphism.rs:748</code></td></tr>
+<tr><td>Variant</td><td><code>isomorphism_empty_iter_override_dropped_d33a613_1</code></td></tr>
+<tr><td>Type</td><td><code>empty-isomorphism-override-dropped</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/d33a613f80f3eb5c1b295e0b3cf270bbd3292708" target="_blank" rel="noopener noreferrer"><code>d33a613</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: Infinite `subgraph_isomorphisms_iter` for empty isomorphisms (#780) (Sat Jul 5 13:20:20 2025 +0200)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_subgraph_isomorphism_empty_pattern_yields_single_empty_mapping</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>empty-graph isomorphism mapping is dropped instead of yielded once</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>iso1</code></li><li><code>iter_subgraph_empty</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="isomorphism_subgraph_inssize_strict isomorphism_subgraph_inssize_strict_bc0e036_1 crates/petgraph/src/algo/isomorphism.rs strict-ins-size-match property_subgraph_isomorphism_preserves_small_labeled_path_embedding iter_subgraph"> 
+<summary>#16 <code>isomorphism_subgraph_inssize_strict</code> <span class="muted">isomorphism_subgraph_inssize_strict_bc0e036_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/isomorphism.rs:627</code></td></tr>
+<tr><td>Variant</td><td><code>isomorphism_subgraph_inssize_strict_bc0e036_1</code></td></tr>
+<tr><td>Type</td><td><code>strict-ins-size-match</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/bc0e036682a1f6e68b8bf91901f4cfc387f05b0d" target="_blank" rel="noopener noreferrer"><code>bc0e036</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix subgraph isomorphism (#472) (Mon Jul 4 15:26:08 2022 +0300)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_subgraph_isomorphism_preserves_small_labeled_path_embedding</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>subgraph iterator misses valid mappings when frontier in-size differs</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>iter_subgraph</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="isomorphism_subgraph_outsize_strict isomorphism_subgraph_outsize_strict_bc0e036_1 crates/petgraph/src/algo/isomorphism.rs strict-out-size-match property_subgraph_isomorphism_triangle_embeddings_exist iso_subgraph"> 
+<summary>#17 <code>isomorphism_subgraph_outsize_strict</code> <span class="muted">isomorphism_subgraph_outsize_strict_bc0e036_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/isomorphism.rs:620</code></td></tr>
+<tr><td>Variant</td><td><code>isomorphism_subgraph_outsize_strict_bc0e036_1</code></td></tr>
+<tr><td>Type</td><td><code>strict-out-size-match</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/bc0e036682a1f6e68b8bf91901f4cfc387f05b0d" target="_blank" rel="noopener noreferrer"><code>bc0e036</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix subgraph isomorphism (#472) (Mon Jul 4 15:26:08 2022 +0300)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_subgraph_isomorphism_triangle_embeddings_exist</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>subgraph matcher rejects valid mappings when frontier out-size differs</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>iso_subgraph</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="kosaraju_skips_first_identifier kosaraju_skips_first_identifier_1596cb2_1 crates/petgraph/src/algo/scc/kosaraju_scc.rs kosaraju-first-pass-empty-iteration matrix_graph::tests::test_kosaraju_scc_with_removed_node matrix_graph::tests::test_kosaraju_scc_with_removed_node"> 
+<summary>#18 <code>kosaraju_skips_first_identifier</code> <span class="muted">kosaraju_skips_first_identifier_1596cb2_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/scc/kosaraju_scc.rs:106</code></td></tr>
+<tr><td>Variant</td><td><code>kosaraju_skips_first_identifier_1596cb2_1</code></td></tr>
+<tr><td>Type</td><td><code>kosaraju-first-pass-empty-iteration</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/1596cb22efcfaf0c4a1e5a05fb693618b3acc478" target="_blank" rel="noopener noreferrer"><code>1596cb2</code></a></td></tr>
+<tr><td>Fix context</td><td>scc: Fix bug -- we were skipping node 0 all this time (Fri Jan 16 22:11:58 2015 +0100)</td></tr>
+<tr><td>Canonical detector</td><td><code>matrix_graph::tests::test_kosaraju_scc_with_removed_node</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>kosaraju first phase ignores all node identifiers and yields invalid SCC decomposition</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>matrix_graph::tests::test_kosaraju_scc_with_removed_node</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="nodefiltered_incoming_uses_target nodefiltered_incoming_uses_target_1c26733_1 crates/petgraph/src/visit/filter.rs incoming-direction-filter-bypass property_node_filtered_incoming_edges_respect_node_filter test_node_filtered_iterators_directed"> 
+<summary>#19 <code>nodefiltered_incoming_uses_target</code> <span class="muted">nodefiltered_incoming_uses_target_1c26733_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/visit/filter.rs:330</code></td></tr>
+<tr><td>Variant</td><td><code>nodefiltered_incoming_uses_target_1c26733_1</code></td></tr>
+<tr><td>Type</td><td><code>incoming-direction-filter-bypass</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/1c267332c76bc612c61750f7f082b917e7141781" target="_blank" rel="noopener noreferrer"><code>1c26733</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix IntoEdgesDirected implementation for NodeFiltered (#476) (Fri Jun 10 03:35:51 2022 -0700)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_node_filtered_incoming_edges_respect_node_filter</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>incoming edge filter checks wrong endpoint and leaks excluded nodes</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>test_node_filtered_iterators_directed</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="quickcheck_random01_rng_source quickcheck_random01_rng_source_1125c33_1 crates/petgraph/src/quickcheck.rs wrong-rng-source quickcheck::tests::property_random_01_has_non_zero_support_for_small_generator_sizes quickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen"> 
+<summary>#20 <code>quickcheck_random01_rng_source</code> <span class="muted">quickcheck_random01_rng_source_1125c33_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/quickcheck.rs:21</code></td></tr>
+<tr><td>Variant</td><td><code>quickcheck_random01_rng_source_1125c33_1</code></td></tr>
+<tr><td>Type</td><td><code>wrong-rng-source</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/1125c33fea0ec3f85d25fc658f1cbe7de7631cd2" target="_blank" rel="noopener noreferrer"><code>1125c33</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: Quickcheck random01 function only outputs 0 (#798) (Thu May 29 19:03:48 2025 +0200)</td></tr>
+<tr><td>Canonical detector</td><td><code>quickcheck::tests::property_random_01_has_non_zero_support_for_small_generator_sizes</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>random_01 collapses to zero-sized-generator behavior and fails deterministic regression test</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>quickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="simple_paths_ignore_visited_target_hint simple_paths_ignore_visited_target_hint_8f7a0d9_1 crates/petgraph/src/algo/simple_paths.rs missing-visited-target-filter property_simple_paths_node_to_itself_stays_empty_in_complete_digraph algo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph"> 
+<summary>#21 <code>simple_paths_ignore_visited_target_hint</code> <span class="muted">simple_paths_ignore_visited_target_hint_8f7a0d9_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/simple_paths.rs:125</code></td></tr>
+<tr><td>Variant</td><td><code>simple_paths_ignore_visited_target_hint_8f7a0d9_1</code></td></tr>
+<tr><td>Type</td><td><code>missing-visited-target-filter</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/8f7a0d93279f575627db90430d1a0aab242c3e9c" target="_blank" rel="noopener noreferrer"><code>8f7a0d9</code></a></td></tr>
+<tr><td>Fix context</td><td>feat: Fix self-loop bug in all_simple_paths and enable multiple targets (#865) (Sun Sep 7 19:34:19 2025 +0100)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_simple_paths_node_to_itself_stays_empty_in_complete_digraph</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>self-target path search incorrectly returns paths through already visited nodes</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>algo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="spfa_queue_pop_back_order spfa_queue_pop_back_order_29f4c92_1 crates/petgraph/src/algo/spfa.rs lifo-queue-order property_spfa_uses_queue_order_for_shortest_paths spfa_no_neg_cycle"> 
+<summary>#22 <code>spfa_queue_pop_back_order</code> <span class="muted">spfa_queue_pop_back_order_29f4c92_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/algo/spfa.rs:139</code></td></tr>
+<tr><td>Variant</td><td><code>spfa_queue_pop_back_order_29f4c92_1</code></td></tr>
+<tr><td>Type</td><td><code>lifo-queue-order</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/29f4c92f5464e5609ddb0fec31c811f46215cbc0" target="_blank" rel="noopener noreferrer"><code>29f4c92</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: use a queue for SPFA  (#893) (Mon Sep 29 03:53:07 2025 +0900)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_spfa_uses_queue_order_for_shortest_paths</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>SPFA queue becomes stack-like and misses expected shortest-path behavior</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>spfa_no_neg_cycle</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="stablegraph_node_bound_plus_two stablegraph_node_bound_plus_two_b87cf17_1 crates/petgraph/src/graph_impl/stable_graph/mod.rs node-bound-off-by-one property_adjacency_matrix_matches_graph_structure test_adjacency_matrix_for_stable_graph_directed test_adjacency_matrix_for_stable_graph_undirected"> 
+<summary>#23 <code>stablegraph_node_bound_plus_two</code> <span class="muted">stablegraph_node_bound_plus_two_b87cf17_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graph_impl/stable_graph/mod.rs:2360</code></td></tr>
+<tr><td>Variant</td><td><code>stablegraph_node_bound_plus_two_b87cf17_1</code></td></tr>
+<tr><td>Type</td><td><code>node-bound-off-by-one</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/b87cf17dd5690f8de408015fa014b51c25fbf1d6" target="_blank" rel="noopener noreferrer"><code>b87cf17</code></a></td></tr>
+<tr><td>Fix context</td><td>BUG: Fix off by one in StableGraph::node_bound (Sun Sep 10 22:40:18 2017 +0200)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_adjacency_matrix_matches_graph_structure</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>node_bound overestimates by one extra index and breaks bound assumptions</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>test_adjacency_matrix_for_stable_graph_directed</code></li><li><code>test_adjacency_matrix_for_stable_graph_undirected</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="stablegraph_reverse_edge_free_list_swap stablegraph_reverse_edge_free_list_swap_b682695_1 crates/petgraph/src/graph_impl/stable_graph/mod.rs reversed-edge-free-list-corruption graph_impl::stable_graph::property_reverse_after_removed_edges_preserves_free_lists graph_impl::stable_graph::test_reverse_after_remove_edges"> 
+<summary>#24 <code>stablegraph_reverse_edge_free_list_swap</code> <span class="muted">stablegraph_reverse_edge_free_list_swap_b682695_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graph_impl/stable_graph/mod.rs:246</code></td></tr>
+<tr><td>Variant</td><td><code>stablegraph_reverse_edge_free_list_swap_b682695_1</code></td></tr>
+<tr><td>Type</td><td><code>reversed-edge-free-list-corruption</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/b682695f29833184b322333e151a588be8f98842" target="_blank" rel="noopener noreferrer"><code>b682695</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: `StableGraph::reverse` breaks free lists (#890) (Mon Sep 29 04:05:05 2025 +0900)</td></tr>
+<tr><td>Canonical detector</td><td><code>graph_impl::stable_graph::property_reverse_after_removed_edges_preserves_free_lists</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>reverse swaps free edge slots and corrupts free-edge list</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>graph_impl::stable_graph::test_reverse_after_remove_edges</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="stablegraph_reverse_node_free_list_swap stablegraph_reverse_node_free_list_swap_b682695_1 crates/petgraph/src/graph_impl/stable_graph/mod.rs reversed-node-free-list-corruption graph_impl::stable_graph::property_reverse_after_removed_nodes_preserves_free_lists graph_impl::stable_graph::test_reverse graph_impl::stable_graph::test_reverse_after_remove_nodes"> 
+<summary>#25 <code>stablegraph_reverse_node_free_list_swap</code> <span class="muted">stablegraph_reverse_node_free_list_swap_b682695_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/graph_impl/stable_graph/mod.rs:258</code></td></tr>
+<tr><td>Variant</td><td><code>stablegraph_reverse_node_free_list_swap_b682695_1</code></td></tr>
+<tr><td>Type</td><td><code>reversed-node-free-list-corruption</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/b682695f29833184b322333e151a588be8f98842" target="_blank" rel="noopener noreferrer"><code>b682695</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: `StableGraph::reverse` breaks free lists (#890) (Mon Sep 29 04:05:05 2025 +0900)</td></tr>
+<tr><td>Canonical detector</td><td><code>graph_impl::stable_graph::property_reverse_after_removed_nodes_preserves_free_lists</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>reverse swaps free node slots and corrupts free-node list</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>graph_impl::stable_graph::test_reverse</code></li><li><code>graph_impl::stable_graph::test_reverse_after_remove_nodes</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="undirected_adaptor_incoming_not_reversed undirected_adaptor_incoming_not_reversed_01b17d9_1 crates/petgraph/src/visit/undirected_adaptor.rs incoming-edge-orientation-lost property_undirected_adaptor_edge_targets_match_undirected_neighbors visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse visit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways"> 
+<summary>#26 <code>undirected_adaptor_incoming_not_reversed</code> <span class="muted">undirected_adaptor_incoming_not_reversed_01b17d9_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/visit/undirected_adaptor.rs:41</code></td></tr>
+<tr><td>Variant</td><td><code>undirected_adaptor_incoming_not_reversed_01b17d9_1</code></td></tr>
+<tr><td>Type</td><td><code>incoming-edge-orientation-lost</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/01b17d9b6b510e4604aca4f9a59f76b287ed8425" target="_blank" rel="noopener noreferrer"><code>01b17d9</code></a></td></tr>
+<tr><td>Fix context</td><td>fix: Algos don&#x27;t work on `UndirectedAdaptor` (#870) (#871) (Wed Sep 10 03:40:37 2025 -0400)</td></tr>
+<tr><td>Canonical detector</td><td><code>property_undirected_adaptor_edge_targets_match_undirected_neighbors</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>undirected adaptor cannot traverse incoming directed edges correctly</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse</code></li><li><code>visit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways</code></li></ul></div>
+</div>
+</details>
+
+<details class="bug" data-search="unionfind_union_reports_no_merge unionfind_union_reports_no_merge_4e0584d_1 crates/petgraph/src/unionfind.rs unionfind-union-return-value-broken uf_rand uf_rand"> 
+<summary>#27 <code>unionfind_union_reports_no_merge</code> <span class="muted">unionfind_union_reports_no_merge_4e0584d_1</span></summary>
+<div class="card">
+<table class="meta">
+<tr><td>File</td><td><code>crates/petgraph/src/unionfind.rs:183</code></td></tr>
+<tr><td>Variant</td><td><code>unionfind_union_reports_no_merge_4e0584d_1</code></td></tr>
+<tr><td>Type</td><td><code>unionfind-union-return-value-broken</code></td></tr>
+<tr><td>Fix commit</td><td><a href="https://github.com/petgraph/petgraph/commit/4e0584d5f7b7b1351c780fc89e74ed52fe19d27d" target="_blank" rel="noopener noreferrer"><code>4e0584d</code></a></td></tr>
+<tr><td>Fix context</td><td>Fix bug in into_labeling (Fri Jan 16 22:11:58 2015 +0100)</td></tr>
+<tr><td>Canonical detector</td><td><code>uf_rand</code> <span class="pill">detected</span></td></tr>
+<tr><td>Failure profile</td><td>union operation mutates structure but always reports false (no merge)</td></tr>
+</table>
+<div><strong>Detecting tests</strong><ul><li><code>uf_rand</code></li></ul></div>
+</div>
+</details>
+
+</section>
+<script>
+const q=document.getElementById('q');
+const rows=[...document.querySelectorAll('#idx tbody tr')];
+const details=[...document.querySelectorAll('details.bug')];
+function norm(s){return (s||'').toLowerCase();}
+function apply(){
+  const t=norm(q.value);
+  rows.forEach((r,i)=>{
+    const text=norm(r.innerText);
+    const show=!t || text.includes(t);
+    r.classList.toggle('hidden',!show);
+    details[i].classList.toggle('hidden',!show);
+  });
+}
+q.addEventListener('input',apply);
+</script>
+</main></body></html>

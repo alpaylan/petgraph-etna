@@ -1,0 +1,178 @@
+{
+  "results": [
+    {
+      "variant": "fix_infinite_subgraph_isomorphisms_iter_for_d33a613_1",
+      "status": "compile_error",
+      "trigger": "iter_subgraph",
+      "attempts": [
+        {
+          "filter": "iter_subgraph",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "fix_use_a_queue_for_spfa_29f4c92_1",
+      "status": "compile_error",
+      "trigger": "test_spfa",
+      "attempts": [
+        {
+          "filter": "test_spfa",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "fix_intoedgesdirected_implementation_for_nodefiltered_476_1c26733_1",
+      "status": "compile_error",
+      "trigger": "test_edge_filtered",
+      "attempts": [
+        {
+          "filter": "test_edge_filtered",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "fix_adjacency_matrix_for_csr_and_7fa3aac_1",
+      "status": "compile_error",
+      "trigger": "adjacency_matrix_for_csr",
+      "attempts": [
+        {
+          "filter": "adjacency_matrix_for_csr",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "fix_immediately_dominated_by_function_called_602308d_1",
+      "status": "compile_error",
+      "trigger": "test_dominators_simple_fast",
+      "attempts": [
+        {
+          "filter": "test_dominators_simple_fast",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "feat_fix_self_loop_bug_in_8f7a0d9_1",
+      "status": "compile_error",
+      "trigger": "test_all_simple_paths",
+      "attempts": [
+        {
+          "filter": "test_all_simple_paths",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "fix_quickcheck_random01_function_only_outputs_1125c33_1",
+      "status": "undetected",
+      "trigger": null,
+      "attempts": [
+        {
+          "filter": "quickcheck_random01",
+          "rc": 0,
+          "compile_error": false
+        },
+        {
+          "filter": "quickcheck",
+          "rc": 0,
+          "compile_error": false
+        },
+        {
+          "filter": "graph",
+          "rc": 0,
+          "compile_error": false
+        },
+        {
+          "filter": "<all>",
+          "rc": 0,
+          "compile_error": false
+        }
+      ]
+    },
+    {
+      "variant": "fix_stablegraph_reverse_breaks_free_lists_b682695_1",
+      "status": "compile_error",
+      "trigger": "test_reverse_after_remove_edges",
+      "attempts": [
+        {
+          "filter": "test_reverse_after_remove_edges",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "fix_algos_don_t_work_on_01b17d9_1",
+      "status": "compile_error",
+      "trigger": "quickcheck",
+      "attempts": [
+        {
+          "filter": "quickcheck",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "incorrect_documentation_for_graphmap_edges_364_a515f91_1",
+      "status": "compile_error",
+      "trigger": "graphmap",
+      "attempts": [
+        {
+          "filter": "graphmap",
+          "rc": 101,
+          "compile_error": true
+        }
+      ]
+    },
+    {
+      "variant": "chore_fix_mismatched_lifetime_syntaxes_warnings_4d807c1_1",
+      "status": "undetected",
+      "trigger": null,
+      "attempts": [
+        {
+          "filter": "adjacency_matrix_for_adj_list",
+          "rc": 0,
+          "compile_error": false
+        },
+        {
+          "filter": "adjacency_matrix",
+          "rc": 0,
+          "compile_error": false
+        },
+        {
+          "filter": "quickcheck",
+          "rc": 0,
+          "compile_error": false
+        },
+        {
+          "filter": "graph",
+          "rc": 0,
+          "compile_error": false
+        },
+        {
+          "filter": "<all>",
+          "rc": 0,
+          "compile_error": false
+        }
+      ]
+    }
+  ],
+  "summary": {
+    "total": 11,
+    "detected": 0,
+    "compile_error": 9,
+    "undetected": 2,
+    "set_failed": 0
+  }
+}

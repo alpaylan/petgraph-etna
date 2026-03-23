@@ -1,0 +1,528 @@
+{
+  "run_id": "d6059ad0-9cf8-421c-b271-7e66ffcc7457",
+  "project": "petgraph",
+  "repo": "https://github.com/petgraph/petgraph",
+  "language": "Rust",
+  "total_mutations": 27,
+  "mutations": [
+    {
+      "name": "csr_add_node_row_resets_offset",
+      "file": "crates/petgraph/src/csr.rs",
+      "line": 288,
+      "variant": "csr_add_node_row_resets_offset_dab2dbf_1",
+      "tags": [
+        "csr",
+        "add-node",
+        "row-offset"
+      ],
+      "bug_type": "csr-row-offset-reset",
+      "source_commit": "dab2dbf5aaf574617633c6a7800457b61d2124fb",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "csr::tests::test_add_node_with_existing_edges"
+      ],
+      "failure_type": "adding a node resets CSR row offset and disconnects existing edge windows"
+    },
+    {
+      "name": "csr_adjacency_matrix_uses_edge_count",
+      "file": "crates/petgraph/src/csr.rs",
+      "line": 878,
+      "variant": "csr_adjacency_matrix_uses_edge_count_7fa3aac_1",
+      "tags": [
+        "csr",
+        "adjacency-matrix",
+        "dimensions"
+      ],
+      "bug_type": "wrong-adjacency-matrix-dimension",
+      "source_commit": "7fa3aac97168de7fca54644a5b45c464d5245535",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "test_adjacency_matrix_for_csr_directed",
+        "test_adjacency_matrix_for_csr_undirected"
+      ],
+      "failure_type": "adjacency matrix capacity uses edge count and panics on node-index writes"
+    },
+    {
+      "name": "dfs_move_to_marks_visited",
+      "file": "crates/petgraph/src/visit/traversal.rs",
+      "line": 102,
+      "variant": "dfs_move_to_marks_visited_0fae246_1",
+      "tags": [
+        "dfs",
+        "move-to",
+        "visitation"
+      ],
+      "bug_type": "premature-dfs-visited-mark",
+      "source_commit": "0fae246b07f3dba059a40288c4a7a96588bef19b",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "csr::tests::csr_dfs",
+        "matrix_graph::tests::test_kosaraju_scc_with_removed_node",
+        "visit::undirected_adaptor::tests::test_is_reachable"
+      ],
+      "failure_type": "move_to pre-marks start node and DFS skips traversal order guarantees"
+    },
+    {
+      "name": "dominators_include_root_self",
+      "file": "crates/petgraph/src/algo/dominators.rs",
+      "line": 139,
+      "variant": "dominators_include_root_self_602308d_1",
+      "tags": [
+        "dominators",
+        "root",
+        "self-dominance"
+      ],
+      "bug_type": "missing-root-self-exclusion",
+      "source_commit": "602308d8745f0af34e929d1ec56e370a4a7ff378",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "algo::dominators::tests::test_iter_dominators"
+      ],
+      "failure_type": "root node reported as immediately dominated by itself"
+    },
+    {
+      "name": "edgefiltered_directed_neighbor_endpoint",
+      "file": "crates/petgraph/src/visit/filter.rs",
+      "line": 590,
+      "variant": "edgefiltered_directed_neighbor_endpoint_1147022_1",
+      "tags": [
+        "edgefiltered",
+        "neighbors-directed",
+        "endpoint"
+      ],
+      "bug_type": "wrong-directed-neighbor-endpoint",
+      "source_commit": "1147022802b34624c76849214202a8b610abea14",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "filtered_edge_reverse"
+      ],
+      "failure_type": "edge-filtered directed neighbors return wrong endpoint direction"
+    },
+    {
+      "name": "ff_flow_capacity_bound",
+      "file": "crates/petgraph/src/algo/maximum_flow/ford_fulkerson.rs",
+      "line": 180,
+      "variant": "ff_flow_capacity_bound_ebee197_1",
+      "tags": [
+        "flow",
+        "capacity",
+        "stable-graph"
+      ],
+      "bug_type": "wrong-flow-buffer-bound",
+      "source_commit": "ebee19788263054c79450a4c798831053b4a9c48",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "test_ford_fulkerson_stable_graphs"
+      ],
+      "failure_type": "flow buffer too small for stable-graph edge bound; runtime index panic"
+    },
+    {
+      "name": "floyd_warshall_undirected_guard_inverted",
+      "file": "crates/petgraph/src/algo/floyd_warshall.rs",
+      "line": 321,
+      "variant": "floyd_warshall_undirected_guard_inverted_4c7f18e_1",
+      "tags": [
+        "floyd-warshall",
+        "undirected",
+        "edge-mirroring"
+      ],
+      "bug_type": "inverted-undirected-guard",
+      "source_commit": "4c7f18e73a730527b4b4fb571190d71d639b6376",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "algo::steiner_tree::test::test_subgraph_from_metric_closure"
+      ],
+      "failure_type": "undirected shortest-path expectations fail due to missing mirrored edge updates"
+    },
+    {
+      "name": "graph_edges_undirected_self_loops_duplicated",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "line": 2119,
+      "variant": "graph_edges_undirected_self_loops_duplicated_af1aa98_1",
+      "tags": [],
+      "bug_type": "undirected-edge-self-loop-double-visit",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "failure_type": "undirected edge iterator skips incoming/self-loop edges incorrectly"
+    },
+    {
+      "name": "graph_neighbors_directed_skip_start_not_cleared",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "line": 940,
+      "variant": "graph_neighbors_directed_skip_start_not_cleared_af1aa98_1",
+      "tags": [],
+      "bug_type": "directed-neighbor-iterator-cleared",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "failure_type": "directed neighbor iteration clears traversal head and misses reachable neighbors"
+    },
+    {
+      "name": "graph_neighbors_undirected_self_loops_duplicated",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "line": 1951,
+      "variant": "graph_neighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "tags": [],
+      "bug_type": "undirected-neighbor-self-loop-filter-broken",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "failure_type": "undirected neighbor iterator drops incoming/self-loop neighbors"
+    },
+    {
+      "name": "graph_reverse_node_links_not_swapped",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "line": 1356,
+      "variant": "graph_reverse_node_links_not_swapped_28eb089_1",
+      "tags": [],
+      "bug_type": "reverse-node-links-cleared",
+      "source_commit": "28eb08936827bf42bbd650fc09f5545fb55b9a09",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "test_edge_iterators_directed"
+      ],
+      "failure_type": "graph reverse drops all node adjacency links and breaks incoming traversal invariants"
+    },
+    {
+      "name": "graph_walkneighbors_undirected_self_loops_duplicated",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "line": 2460,
+      "variant": "graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "tags": [],
+      "bug_type": "undirected-walkneighbors-self-loop-filter-broken",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "failure_type": "walkneighbors omits incoming neighbors when traversing undirected adjacency"
+    },
+    {
+      "name": "graphmap_incoming_self_loop_missing",
+      "file": "crates/petgraph/src/graphmap.rs",
+      "line": 773,
+      "variant": "graphmap_incoming_self_loop_missing_e39f0f9_1",
+      "tags": [
+        "graphmap",
+        "neighbors-directed",
+        "self-loop"
+      ],
+      "bug_type": "missing-self-loop-in-incoming-neighbors",
+      "source_commit": "e39f0f9523d4037ad212e89f51e1b7e8434964af",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "neighbors_incoming_includes_self_loops"
+      ],
+      "failure_type": "incoming directed neighbor iterator omits self-loop neighbors"
+    },
+    {
+      "name": "graphmap_remove_node_edge_key_direction",
+      "file": "crates/petgraph/src/graphmap.rs",
+      "line": 313,
+      "variant": "graphmap_remove_node_edge_key_direction_cdbad50_1",
+      "tags": [
+        "graphmap",
+        "remove-node",
+        "edge-key"
+      ],
+      "bug_type": "wrong-edge-removal-direction",
+      "source_commit": "cdbad50a5703a1b162a5579bb644c21063f3ceaa",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "remove_node"
+      ],
+      "failure_type": "remove_node leaves stale edge links for one direction"
+    },
+    {
+      "name": "isomorphism_empty_iter_override_dropped",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "line": 748,
+      "variant": "isomorphism_empty_iter_override_dropped_d33a613_1",
+      "tags": [
+        "isomorphism",
+        "empty-graph",
+        "iterator"
+      ],
+      "bug_type": "empty-isomorphism-override-dropped",
+      "source_commit": "d33a613f80f3eb5c1b295e0b3cf270bbd3292708",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "iso1",
+        "iter_subgraph_empty"
+      ],
+      "failure_type": "empty-graph isomorphism mapping is dropped instead of yielded once"
+    },
+    {
+      "name": "isomorphism_subgraph_inssize_strict",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "line": 627,
+      "variant": "isomorphism_subgraph_inssize_strict_bc0e036_1",
+      "tags": [
+        "isomorphism",
+        "subgraph",
+        "ins-size"
+      ],
+      "bug_type": "strict-ins-size-match",
+      "source_commit": "bc0e036682a1f6e68b8bf91901f4cfc387f05b0d",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "iter_subgraph"
+      ],
+      "failure_type": "subgraph iterator misses valid mappings when frontier in-size differs"
+    },
+    {
+      "name": "isomorphism_subgraph_outsize_strict",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "line": 620,
+      "variant": "isomorphism_subgraph_outsize_strict_bc0e036_1",
+      "tags": [
+        "isomorphism",
+        "subgraph",
+        "out-size"
+      ],
+      "bug_type": "strict-out-size-match",
+      "source_commit": "bc0e036682a1f6e68b8bf91901f4cfc387f05b0d",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "iso_subgraph"
+      ],
+      "failure_type": "subgraph matcher rejects valid mappings when frontier out-size differs"
+    },
+    {
+      "name": "kosaraju_skips_first_identifier",
+      "file": "crates/petgraph/src/algo/scc/kosaraju_scc.rs",
+      "line": 106,
+      "variant": "kosaraju_skips_first_identifier_1596cb2_1",
+      "tags": [],
+      "bug_type": "kosaraju-first-pass-empty-iteration",
+      "source_commit": "1596cb22efcfaf0c4a1e5a05fb693618b3acc478",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "matrix_graph::tests::test_kosaraju_scc_with_removed_node"
+      ],
+      "failure_type": "kosaraju first phase ignores all node identifiers and yields invalid SCC decomposition"
+    },
+    {
+      "name": "nodefiltered_incoming_uses_target",
+      "file": "crates/petgraph/src/visit/filter.rs",
+      "line": 330,
+      "variant": "nodefiltered_incoming_uses_target_1c26733_1",
+      "tags": [
+        "filter",
+        "incoming",
+        "nodefilter"
+      ],
+      "bug_type": "incoming-direction-filter-bypass",
+      "source_commit": "1c267332c76bc612c61750f7f082b917e7141781",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "test_node_filtered_iterators_directed"
+      ],
+      "failure_type": "incoming edge filter checks wrong endpoint and leaks excluded nodes"
+    },
+    {
+      "name": "quickcheck_random01_rng_source",
+      "file": "crates/petgraph/src/quickcheck.rs",
+      "line": 21,
+      "variant": "quickcheck_random01_rng_source_1125c33_1",
+      "tags": [
+        "quickcheck",
+        "rng",
+        "distribution"
+      ],
+      "bug_type": "wrong-rng-source",
+      "source_commit": "1125c33fea0ec3f85d25fc658f1cbe7de7631cd2",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "quickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen"
+      ],
+      "failure_type": "random_01 collapses to zero-sized-generator behavior and fails deterministic regression test"
+    },
+    {
+      "name": "simple_paths_ignore_visited_target_hint",
+      "file": "crates/petgraph/src/algo/simple_paths.rs",
+      "line": 125,
+      "variant": "simple_paths_ignore_visited_target_hint_8f7a0d9_1",
+      "tags": [
+        "paths",
+        "self-loop",
+        "target-check"
+      ],
+      "bug_type": "missing-visited-target-filter",
+      "source_commit": "8f7a0d93279f575627db90430d1a0aab242c3e9c",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "algo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph"
+      ],
+      "failure_type": "self-target path search incorrectly returns paths through already visited nodes"
+    },
+    {
+      "name": "spfa_queue_pop_back_order",
+      "file": "crates/petgraph/src/algo/spfa.rs",
+      "line": 139,
+      "variant": "spfa_queue_pop_back_order_29f4c92_1",
+      "tags": [
+        "spfa",
+        "queue",
+        "traversal-order"
+      ],
+      "bug_type": "lifo-queue-order",
+      "source_commit": "29f4c92f5464e5609ddb0fec31c811f46215cbc0",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "spfa_no_neg_cycle"
+      ],
+      "failure_type": "SPFA queue becomes stack-like and misses expected shortest-path behavior"
+    },
+    {
+      "name": "stablegraph_node_bound_plus_two",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "line": 2360,
+      "variant": "stablegraph_node_bound_plus_two_b87cf17_1",
+      "tags": [
+        "stablegraph",
+        "node-bound",
+        "off-by-one"
+      ],
+      "bug_type": "node-bound-off-by-one",
+      "source_commit": "b87cf17dd5690f8de408015fa014b51c25fbf1d6",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "test_adjacency_matrix_for_stable_graph_directed",
+        "test_adjacency_matrix_for_stable_graph_undirected"
+      ],
+      "failure_type": "node_bound overestimates by one extra index and breaks bound assumptions"
+    },
+    {
+      "name": "stablegraph_reverse_edge_free_list_swap",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "line": 246,
+      "variant": "stablegraph_reverse_edge_free_list_swap_b682695_1",
+      "tags": [
+        "stablegraph",
+        "reverse",
+        "edge-free-list"
+      ],
+      "bug_type": "reversed-edge-free-list-corruption",
+      "source_commit": "b682695f29833184b322333e151a588be8f98842",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "graph_impl::stable_graph::test_reverse_after_remove_edges"
+      ],
+      "failure_type": "reverse swaps free edge slots and corrupts free-edge list"
+    },
+    {
+      "name": "stablegraph_reverse_node_free_list_swap",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "line": 258,
+      "variant": "stablegraph_reverse_node_free_list_swap_b682695_1",
+      "tags": [
+        "stablegraph",
+        "reverse",
+        "node-free-list"
+      ],
+      "bug_type": "reversed-node-free-list-corruption",
+      "source_commit": "b682695f29833184b322333e151a588be8f98842",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "graph_impl::stable_graph::test_reverse",
+        "graph_impl::stable_graph::test_reverse_after_remove_nodes"
+      ],
+      "failure_type": "reverse swaps free node slots and corrupts free-node list"
+    },
+    {
+      "name": "undirected_adaptor_incoming_not_reversed",
+      "file": "crates/petgraph/src/visit/undirected_adaptor.rs",
+      "line": 41,
+      "variant": "undirected_adaptor_incoming_not_reversed_01b17d9_1",
+      "tags": [
+        "undirected-adaptor",
+        "edges",
+        "orientation"
+      ],
+      "bug_type": "incoming-edge-orientation-lost",
+      "source_commit": "01b17d9b6b510e4604aca4f9a59f76b287ed8425",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse",
+        "visit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways"
+      ],
+      "failure_type": "undirected adaptor cannot traverse incoming directed edges correctly"
+    },
+    {
+      "name": "unionfind_union_reports_no_merge",
+      "file": "crates/petgraph/src/unionfind.rs",
+      "line": 183,
+      "variant": "unionfind_union_reports_no_merge_4e0584d_1",
+      "tags": [],
+      "bug_type": "unionfind-union-return-value-broken",
+      "source_commit": "4e0584d5f7b7b1351c780fc89e74ed52fe19d27d",
+      "test_mode": "debug",
+      "passed": false,
+      "detected": true,
+      "failing_tests": [
+        "uf_rand"
+      ],
+      "failure_type": "union operation mutates structure but always reports false (no merge)"
+    }
+  ]
+}

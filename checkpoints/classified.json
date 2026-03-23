@@ -1,0 +1,138 @@
+{
+  "run_id": "d6059ad0-9cf8-421c-b271-7e66ffcc7457",
+  "project": "petgraph",
+  "count": 13,
+  "classified": [
+    {
+      "commit": "3145fa87fa398fd49cef44b2429d93a4fd2160bc",
+      "title": "fix!: Correct typing for steiner_tree (#759)",
+      "variant": "fix_correct_typing_for_steiner_tree_3145fa8_1",
+      "file": "crates/petgraph/src/algo/steiner_tree.rs",
+      "difficulty": "easy",
+      "expressible": true,
+      "mutation_type": "expression",
+      "rationale": "single-line expression delta from historical fix"
+    },
+    {
+      "commit": "bc0e036682a1f6e68b8bf91901f4cfc387f05b0d",
+      "title": "Fix subgraph isomorphism (#472)",
+      "variant": "fix_subgraph_isomorphism_472_bc0e036_1",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "difficulty": "medium",
+      "expressible": true,
+      "mutation_type": "statement",
+      "rationale": "single-line control-flow delta from historical fix"
+    },
+    {
+      "commit": "d33a613f80f3eb5c1b295e0b3cf270bbd3292708",
+      "title": "fix: Infinite `subgraph_isomorphisms_iter` for empty isomorphisms (#780)",
+      "variant": "fix_infinite_subgraph_isomorphisms_iter_for_d33a613_1",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "difficulty": "medium",
+      "expressible": true,
+      "mutation_type": "statement",
+      "rationale": "single-line control-flow delta from historical fix"
+    },
+    {
+      "commit": "29f4c92f5464e5609ddb0fec31c811f46215cbc0",
+      "title": "fix: use a queue for SPFA  (#893)",
+      "variant": "fix_use_a_queue_for_spfa_29f4c92_1",
+      "file": "crates/petgraph/src/algo/spfa.rs",
+      "difficulty": "medium",
+      "expressible": true,
+      "mutation_type": "statement",
+      "rationale": "single-line control-flow delta from historical fix"
+    },
+    {
+      "commit": "1c267332c76bc612c61750f7f082b917e7141781",
+      "title": "Fix IntoEdgesDirected implementation for NodeFiltered (#476)",
+      "variant": "fix_intoedgesdirected_implementation_for_nodefiltered_476_1c26733_1",
+      "file": "crates/petgraph/src/visit/filter.rs",
+      "difficulty": "medium",
+      "expressible": true,
+      "mutation_type": "statement",
+      "rationale": "single-line control-flow delta from historical fix"
+    },
+    {
+      "commit": "7fa3aac97168de7fca54644a5b45c464d5245535",
+      "title": "fix: adjacency matrix for csr and adjacency list (#648)",
+      "variant": "fix_adjacency_matrix_for_csr_and_7fa3aac_1",
+      "file": "crates/petgraph/src/csr.rs",
+      "difficulty": "easy",
+      "expressible": true,
+      "mutation_type": "expression",
+      "rationale": "single-line expression delta from historical fix"
+    },
+    {
+      "commit": "602308d8745f0af34e929d1ec56e370a4a7ff378",
+      "title": "fix: `immediately_dominated_by` function called on root of graph returns root itself",
+      "variant": "fix_immediately_dominated_by_function_called_602308d_1",
+      "file": "crates/petgraph/src/algo/dominators.rs",
+      "difficulty": "medium",
+      "expressible": true,
+      "mutation_type": "statement",
+      "rationale": "single-line control-flow delta from historical fix"
+    },
+    {
+      "commit": "8f7a0d93279f575627db90430d1a0aab242c3e9c",
+      "title": "feat: Fix self-loop bug in all_simple_paths and enable multiple targets (#865)",
+      "variant": "feat_fix_self_loop_bug_in_8f7a0d9_1",
+      "file": "crates/petgraph/src/algo/simple_paths.rs",
+      "difficulty": "medium",
+      "expressible": true,
+      "mutation_type": "statement",
+      "rationale": "single-line control-flow delta from historical fix"
+    },
+    {
+      "commit": "1125c33fea0ec3f85d25fc658f1cbe7de7631cd2",
+      "title": "fix: Quickcheck random01 function only outputs 0 (#798)",
+      "variant": "fix_quickcheck_random01_function_only_outputs_1125c33_1",
+      "file": "crates/petgraph/src/quickcheck.rs",
+      "difficulty": "easy",
+      "expressible": true,
+      "mutation_type": "expression",
+      "rationale": "single-line expression delta from historical fix"
+    },
+    {
+      "commit": "b682695f29833184b322333e151a588be8f98842",
+      "title": "fix: `StableGraph::reverse` breaks free lists (#890)",
+      "variant": "fix_stablegraph_reverse_breaks_free_lists_b682695_1",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "difficulty": "medium",
+      "expressible": true,
+      "mutation_type": "statement",
+      "rationale": "single-line control-flow delta from historical fix"
+    },
+    {
+      "commit": "01b17d9b6b510e4604aca4f9a59f76b287ed8425",
+      "title": "fix: Algos don't work on `UndirectedAdaptor` (#870) (#871)",
+      "variant": "fix_algos_don_t_work_on_01b17d9_1",
+      "file": "crates/petgraph/src/visit/undirected_adaptor.rs",
+      "difficulty": "easy",
+      "expressible": true,
+      "mutation_type": "expression",
+      "rationale": "single-line expression delta from historical fix"
+    },
+    {
+      "commit": "a515f9141bb28d0544cad37f5ab6bf7b56ad4fab",
+      "title": "Incorrect documentation for GraphMap::edges #364 (#536)",
+      "variant": "incorrect_documentation_for_graphmap_edges_364_a515f91_1",
+      "file": "crates/petgraph/src/graphmap.rs",
+      "difficulty": "easy",
+      "expressible": true,
+      "mutation_type": "expression",
+      "rationale": "single-line expression delta from historical fix"
+    },
+    {
+      "commit": "4d807c19304c02c9dd687c68577f75aefcb98491",
+      "title": "chore: fix `mismatched_lifetime_syntaxes` warnings (#869)",
+      "variant": "chore_fix_mismatched_lifetime_syntaxes_warnings_4d807c1_1",
+      "file": "crates/petgraph/src/adj.rs",
+      "difficulty": "easy",
+      "expressible": true,
+      "mutation_type": "expression",
+      "rationale": "single-line expression delta from historical fix"
+    }
+  ],
+  "deferred_mutations": []
+}

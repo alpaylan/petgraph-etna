@@ -1,0 +1,290 @@
+{
+  "applied": [
+    {
+      "name": "csr_add_node_row_resets_offset",
+      "variant": "csr_add_node_row_resets_offset_dab2dbf_1",
+      "file": "crates/petgraph/src/csr.rs",
+      "tags": [
+        "csr",
+        "add-node",
+        "row-offset"
+      ],
+      "source_commit": "dab2dbf5aaf574617633c6a7800457b61d2124fb"
+    },
+    {
+      "name": "csr_adjacency_matrix_uses_edge_count",
+      "variant": "csr_adjacency_matrix_uses_edge_count_7fa3aac_1",
+      "file": "crates/petgraph/src/csr.rs",
+      "fixed": "        let n = self.node_count();\n        let mut matrix = FixedBitSet::with_capacity(n * n);",
+      "buggy": "        let n = self.edge_count();\n        let mut matrix = FixedBitSet::with_capacity(n * n);",
+      "tags": [
+        "csr",
+        "adjacency-matrix",
+        "dimensions"
+      ],
+      "source_commit": "7fa3aac97168de7fca54644a5b45c464d5245535"
+    },
+    {
+      "name": "dfs_move_to_marks_visited",
+      "variant": "dfs_move_to_marks_visited_0fae246_1",
+      "file": "crates/petgraph/src/visit/traversal.rs",
+      "tags": [
+        "dfs",
+        "move-to",
+        "visitation"
+      ],
+      "source_commit": "0fae246b07f3dba059a40288c4a7a96588bef19b"
+    },
+    {
+      "name": "dominators_include_root_self",
+      "variant": "dominators_include_root_self_602308d_1",
+      "file": "crates/petgraph/src/algo/dominators.rs",
+      "fixed": "            if dominated == &self.node && dominated != dominator {",
+      "buggy": "            if dominated == &self.node {",
+      "tags": [
+        "dominators",
+        "root",
+        "self-dominance"
+      ],
+      "source_commit": "602308d8745f0af34e929d1ec56e370a4a7ff378"
+    },
+    {
+      "name": "edgefiltered_directed_neighbor_endpoint",
+      "variant": "edgefiltered_directed_neighbor_endpoint_1147022_1",
+      "file": "crates/petgraph/src/visit/filter.rs",
+      "tags": [
+        "edgefiltered",
+        "neighbors-directed",
+        "endpoint"
+      ],
+      "source_commit": "1147022802b34624c76849214202a8b610abea14"
+    },
+    {
+      "name": "ff_flow_capacity_bound",
+      "variant": "ff_flow_capacity_bound_ebee197_1",
+      "file": "crates/petgraph/src/algo/maximum_flow/ford_fulkerson.rs",
+      "fixed": "        let mut flows = vec![G::EdgeWeight::zero(); network.edge_bound()];",
+      "buggy": "        let mut flows = vec![G::EdgeWeight::zero(); network.edge_count()];",
+      "tags": [
+        "flow",
+        "capacity",
+        "stable-graph"
+      ],
+      "source_commit": "ebee19788263054c79450a4c798831053b4a9c48"
+    },
+    {
+      "name": "floyd_warshall_undirected_guard_inverted",
+      "variant": "floyd_warshall_undirected_guard_inverted_4c7f18e_1",
+      "file": "crates/petgraph/src/algo/floyd_warshall.rs",
+      "fixed": "            if !graph.is_directed() {",
+      "buggy": "            if graph.is_directed() {",
+      "tags": [
+        "floyd-warshall",
+        "undirected",
+        "edge-mirroring"
+      ],
+      "source_commit": "4c7f18e73a730527b4b4fb571190d71d639b6376"
+    },
+    {
+      "name": "graph_edges_undirected_self_loops_duplicated",
+      "variant": "graph_edges_undirected_self_loops_duplicated_af1aa98_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "tags": [],
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e"
+    },
+    {
+      "name": "graph_neighbors_directed_skip_start_not_cleared",
+      "variant": "graph_neighbors_directed_skip_start_not_cleared_af1aa98_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "tags": [],
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e"
+    },
+    {
+      "name": "graph_neighbors_undirected_self_loops_duplicated",
+      "variant": "graph_neighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "tags": [],
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e"
+    },
+    {
+      "name": "graph_reverse_node_links_not_swapped",
+      "variant": "graph_reverse_node_links_not_swapped_28eb089_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "tags": [],
+      "source_commit": "28eb08936827bf42bbd650fc09f5545fb55b9a09"
+    },
+    {
+      "name": "graph_walkneighbors_undirected_self_loops_duplicated",
+      "variant": "graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "tags": [],
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e"
+    },
+    {
+      "name": "graphmap_incoming_self_loop_missing",
+      "variant": "graphmap_incoming_self_loop_missing_e39f0f9_1",
+      "file": "crates/petgraph/src/graphmap.rs",
+      "tags": [
+        "graphmap",
+        "neighbors-directed",
+        "self-loop"
+      ],
+      "source_commit": "e39f0f9523d4037ad212e89f51e1b7e8434964af"
+    },
+    {
+      "name": "graphmap_remove_node_edge_key_direction",
+      "variant": "graphmap_remove_node_edge_key_direction_cdbad50_1",
+      "file": "crates/petgraph/src/graphmap.rs",
+      "tags": [
+        "graphmap",
+        "remove-node",
+        "edge-key"
+      ],
+      "source_commit": "cdbad50a5703a1b162a5579bb644c21063f3ceaa"
+    },
+    {
+      "name": "isomorphism_empty_iter_override_dropped",
+      "variant": "isomorphism_empty_iter_override_dropped_d33a613_1",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "tags": [
+        "isomorphism",
+        "empty-graph",
+        "iterator"
+      ],
+      "source_commit": "d33a613f80f3eb5c1b295e0b3cf270bbd3292708"
+    },
+    {
+      "name": "isomorphism_subgraph_inssize_strict",
+      "variant": "isomorphism_subgraph_inssize_strict_bc0e036_1",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "fixed": "                                && st.0.ins_size <= st.1.ins_size)",
+      "buggy": "                                && st.0.ins_size == st.1.ins_size)",
+      "tags": [
+        "isomorphism",
+        "subgraph",
+        "ins-size"
+      ],
+      "source_commit": "bc0e036682a1f6e68b8bf91901f4cfc387f05b0d"
+    },
+    {
+      "name": "isomorphism_subgraph_outsize_strict",
+      "variant": "isomorphism_subgraph_outsize_strict_bc0e036_1",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "fixed": "                                && st.0.out_size <= st.1.out_size",
+      "buggy": "                                && st.0.out_size == st.1.out_size",
+      "tags": [
+        "isomorphism",
+        "subgraph",
+        "out-size"
+      ],
+      "source_commit": "bc0e036682a1f6e68b8bf91901f4cfc387f05b0d"
+    },
+    {
+      "name": "kosaraju_skips_first_identifier",
+      "variant": "kosaraju_skips_first_identifier_1596cb2_1",
+      "file": "crates/petgraph/src/algo/scc/kosaraju_scc.rs",
+      "tags": [],
+      "source_commit": "1596cb22efcfaf0c4a1e5a05fb693618b3acc478"
+    },
+    {
+      "name": "nodefiltered_incoming_uses_target",
+      "variant": "nodefiltered_incoming_uses_target_1c26733_1",
+      "file": "crates/petgraph/src/visit/filter.rs",
+      "tags": [
+        "filter",
+        "incoming",
+        "nodefilter"
+      ],
+      "source_commit": "1c267332c76bc612c61750f7f082b917e7141781"
+    },
+    {
+      "name": "quickcheck_random01_rng_source",
+      "variant": "quickcheck_random01_rng_source_1125c33_1",
+      "file": "crates/petgraph/src/quickcheck.rs",
+      "fixed": "    let x: u64 = g.next_u64();",
+      "buggy": "    let x: u64 = Arbitrary::arbitrary(g);",
+      "tags": [
+        "quickcheck",
+        "rng",
+        "distribution"
+      ],
+      "source_commit": "1125c33fea0ec3f85d25fc658f1cbe7de7631cd2"
+    },
+    {
+      "name": "simple_paths_ignore_visited_target_hint",
+      "variant": "simple_paths_ignore_visited_target_hint_8f7a0d9_1",
+      "file": "crates/petgraph/src/algo/simple_paths.rs",
+      "fixed": "                    if (child == to || children.any(|v| v == to && !visited.contains(&v)))",
+      "buggy": "                    if (child == to || children.any(|v| v == to))",
+      "tags": [
+        "paths",
+        "self-loop",
+        "target-check"
+      ],
+      "source_commit": "8f7a0d93279f575627db90430d1a0aab242c3e9c"
+    },
+    {
+      "name": "spfa_queue_pop_back_order",
+      "variant": "spfa_queue_pop_back_order_29f4c92_1",
+      "file": "crates/petgraph/src/algo/spfa.rs",
+      "tags": [
+        "spfa",
+        "queue",
+        "traversal-order"
+      ],
+      "source_commit": "29f4c92f5464e5609ddb0fec31c811f46215cbc0"
+    },
+    {
+      "name": "stablegraph_node_bound_plus_two",
+      "variant": "stablegraph_node_bound_plus_two_b87cf17_1",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "tags": [
+        "stablegraph",
+        "node-bound",
+        "off-by-one"
+      ],
+      "source_commit": "b87cf17dd5690f8de408015fa014b51c25fbf1d6"
+    },
+    {
+      "name": "stablegraph_reverse_edge_free_list_swap",
+      "variant": "stablegraph_reverse_edge_free_list_swap_b682695_1",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "tags": [
+        "stablegraph",
+        "reverse",
+        "edge-free-list"
+      ],
+      "source_commit": "b682695f29833184b322333e151a588be8f98842"
+    },
+    {
+      "name": "stablegraph_reverse_node_free_list_swap",
+      "variant": "stablegraph_reverse_node_free_list_swap_b682695_1",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "tags": [
+        "stablegraph",
+        "reverse",
+        "node-free-list"
+      ],
+      "source_commit": "b682695f29833184b322333e151a588be8f98842"
+    },
+    {
+      "name": "undirected_adaptor_incoming_not_reversed",
+      "variant": "undirected_adaptor_incoming_not_reversed_01b17d9_1",
+      "file": "crates/petgraph/src/visit/undirected_adaptor.rs",
+      "tags": [
+        "undirected-adaptor",
+        "edges",
+        "orientation"
+      ],
+      "source_commit": "01b17d9b6b510e4604aca4f9a59f76b287ed8425"
+    },
+    {
+      "name": "unionfind_union_reports_no_merge",
+      "variant": "unionfind_union_reports_no_merge_4e0584d_1",
+      "file": "crates/petgraph/src/unionfind.rs",
+      "tags": [],
+      "source_commit": "4e0584d5f7b7b1351c780fc89e74ed52fe19d27d"
+    }
+  ],
+  "skipped": []
+}

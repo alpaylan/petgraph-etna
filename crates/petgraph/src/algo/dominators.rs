@@ -136,9 +136,18 @@ where
         for (dominator, dominated) in self.iter.by_ref() {
             // The root node dominates itself, but it should not be included in
             // the results.
+/* marauders:variation=dominators_include_root_self;tags=dominators,root, self-dominance */
+            /*| dominators_include_root_self_602308d */
             if dominated == &self.node && dominated != dominator {
                 return Some(*dominator);
             }
+            /*|| dominators_include_root_self_602308d_1 */
+            /*|
+            if dominated == &self.node {
+                return Some(*dominator);
+            }
+            */
+            /* |*/
         }
         None
     }

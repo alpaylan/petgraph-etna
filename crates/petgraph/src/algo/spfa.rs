@@ -136,6 +136,7 @@ where
     // in the queue to be able to detect a negative cycle.
     let mut visits = vec![0; graph.node_bound()];
 
+    /* | spfa_queue_pop_back_order [spfa, queue, traversal-order] */
     while let Some(i) = queue.pop_front() {
         in_queue[ix(i)] = false;
 
@@ -165,6 +166,39 @@ where
             }
         }
     }
+    /* || spfa_queue_pop_back_order_29f4c92_1 */
+    /*|
+    while let Some(i) = queue.pop_back() {
+        in_queue[ix(i)] = false;
+
+        // In a graph without a negative cycle, no vertex can improve
+        // the shortest distances by more than |V| times.
+        if visits[ix(i)] >= graph.node_bound() {
+            return Err(NegativeCycle(()));
+        }
+        visits[ix(i)] += 1;
+
+        for edge in graph.edges(i) {
+            let j = edge.target();
+            let w = edge_cost(edge);
+
+            let (dist, overflow) = distances[ix(i)].overflowing_add(w);
+
+            if !overflow && dist < distances[ix(j)] {
+                distances[ix(j)] = dist;
+                if let Some(p) = predecessors.as_mut() {
+                    p[ix(j)] = Some(i)
+                }
+
+                if !in_queue[ix(j)] {
+                    in_queue[ix(j)] = true;
+                    queue.push_back(j);
+                }
+            }
+        }
+    }
+    */
+    /* | */
 
     Ok((distances, predecessors))
 }

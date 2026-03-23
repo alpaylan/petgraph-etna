@@ -1,0 +1,84 @@
+{
+  "project": "petgraph",
+  "generated_at": "2026-03-23T17:37:26Z",
+  "note": "Additional mutation batch after baseline 20-bug set; validated with marauders set/reset and targeted cargo tests.",
+  "variants": [
+    {
+      "name": "graph_neighbors_directed_skip_start_not_cleared",
+      "variant": "graph_neighbors_directed_skip_start_not_cleared_af1aa98_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e",
+      "status": "detected",
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "validation_command": "marauders set --path . --variant graph_neighbors_directed_skip_start_not_cleared_af1aa98_1 && cargo test -q -p petgraph neighbors_selfloops"
+    },
+    {
+      "name": "graph_reverse_node_links_not_swapped",
+      "variant": "graph_reverse_node_links_not_swapped_28eb089_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "source_commit": "28eb08936827bf42bbd650fc09f5545fb55b9a09",
+      "status": "detected",
+      "failing_tests": [
+        "test_edge_iterators_directed"
+      ],
+      "validation_command": "marauders set --path . --variant graph_reverse_node_links_not_swapped_28eb089_1 && cargo test -q -p petgraph test_edge_iterators_directed"
+    },
+    {
+      "name": "graph_neighbors_undirected_self_loops_duplicated",
+      "variant": "graph_neighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e",
+      "status": "detected",
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "validation_command": "marauders set --path . --variant graph_neighbors_undirected_self_loops_duplicated_af1aa98_1 && cargo test -q -p petgraph neighbors_selfloops"
+    },
+    {
+      "name": "graph_edges_undirected_self_loops_duplicated",
+      "variant": "graph_edges_undirected_self_loops_duplicated_af1aa98_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e",
+      "status": "detected",
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "validation_command": "marauders set --path . --variant graph_edges_undirected_self_loops_duplicated_af1aa98_1 && cargo test -q -p petgraph neighbors_selfloops"
+    },
+    {
+      "name": "graph_walkneighbors_undirected_self_loops_duplicated",
+      "variant": "graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1",
+      "file": "crates/petgraph/src/graph_impl/mod.rs",
+      "source_commit": "af1aa98ac0709d730e97db3c74059dbc1340eb4e",
+      "status": "detected",
+      "failing_tests": [
+        "neighbors_selfloops"
+      ],
+      "validation_command": "marauders set --path . --variant graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1 && cargo test -q -p petgraph neighbors_selfloops"
+    },
+    {
+      "name": "kosaraju_skips_first_identifier",
+      "variant": "kosaraju_skips_first_identifier_1596cb2_1",
+      "file": "crates/petgraph/src/algo/scc/kosaraju_scc.rs",
+      "source_commit": "1596cb22efcfaf0c4a1e5a05fb693618b3acc478",
+      "status": "detected",
+      "failing_tests": [
+        "matrix_graph::tests::test_kosaraju_scc_with_removed_node"
+      ],
+      "validation_command": "marauders set --path . --variant kosaraju_skips_first_identifier_1596cb2_1 && cargo test -q -p petgraph matrix_graph::tests::test_kosaraju_scc_with_removed_node"
+    },
+    {
+      "name": "unionfind_union_reports_no_merge",
+      "variant": "unionfind_union_reports_no_merge_4e0584d_1",
+      "file": "crates/petgraph/src/unionfind.rs",
+      "source_commit": "4e0584d5f7b7b1351c780fc89e74ed52fe19d27d",
+      "status": "detected",
+      "failing_tests": [
+        "uf_rand"
+      ],
+      "validation_command": "marauders set --path . --variant unionfind_union_reports_no_merge_4e0584d_1 && cargo test -q -p petgraph uf_rand"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "applied": [
+    {
+      "variant": "fix_infinite_subgraph_isomorphisms_iter_for_d33a613_1",
+      "file": "crates/petgraph/src/algo/isomorphism.rs",
+      "mutation_name": "fix_infinite_subgraph_isomorphisms_iter_for"
+    },
+    {
+      "variant": "fix_use_a_queue_for_spfa_29f4c92_1",
+      "file": "crates/petgraph/src/algo/spfa.rs",
+      "mutation_name": "fix_use_a_queue_for_spfa"
+    },
+    {
+      "variant": "fix_intoedgesdirected_implementation_for_nodefiltered_476_1c26733_1",
+      "file": "crates/petgraph/src/visit/filter.rs",
+      "mutation_name": "fix_intoedgesdirected_implementation_for_nodefiltered_476"
+    },
+    {
+      "variant": "fix_adjacency_matrix_for_csr_and_7fa3aac_1",
+      "file": "crates/petgraph/src/csr.rs",
+      "mutation_name": "fix_adjacency_matrix_for_csr_and"
+    },
+    {
+      "variant": "fix_immediately_dominated_by_function_called_602308d_1",
+      "file": "crates/petgraph/src/algo/dominators.rs",
+      "mutation_name": "fix_immediately_dominated_by_function_called"
+    },
+    {
+      "variant": "feat_fix_self_loop_bug_in_8f7a0d9_1",
+      "file": "crates/petgraph/src/algo/simple_paths.rs",
+      "mutation_name": "feat_fix_self_loop_bug_in"
+    },
+    {
+      "variant": "fix_quickcheck_random01_function_only_outputs_1125c33_1",
+      "file": "crates/petgraph/src/quickcheck.rs",
+      "mutation_name": "fix_quickcheck_random01_function_only_outputs"
+    },
+    {
+      "variant": "fix_stablegraph_reverse_breaks_free_lists_b682695_1",
+      "file": "crates/petgraph/src/graph_impl/stable_graph/mod.rs",
+      "mutation_name": "fix_stablegraph_reverse_breaks_free_lists"
+    },
+    {
+      "variant": "fix_algos_don_t_work_on_01b17d9_1",
+      "file": "crates/petgraph/src/visit/undirected_adaptor.rs",
+      "mutation_name": "fix_algos_don_t_work_on"
+    },
+    {
+      "variant": "incorrect_documentation_for_graphmap_edges_364_a515f91_1",
+      "file": "crates/petgraph/src/graphmap.rs",
+      "mutation_name": "incorrect_documentation_for_graphmap_edges_364"
+    },
+    {
+      "variant": "chore_fix_mismatched_lifetime_syntaxes_warnings_4d807c1_1",
+      "file": "crates/petgraph/src/adj.rs",
+      "mutation_name": "chore_fix_mismatched_lifetime_syntaxes_warnings"
+    }
+  ],
+  "skipped": [
+    {
+      "variant": "fix_correct_typing_for_steiner_tree_3145fa8_1",
+      "reason": "fragmentary line",
+      "file": "crates/petgraph/src/algo/steiner_tree.rs"
+    },
+    {
+      "variant": "fix_subgraph_isomorphism_472_bc0e036_1",
+      "reason": "fragmentary line",
+      "file": "crates/petgraph/src/algo/isomorphism.rs"
+    }
+  ]
+}

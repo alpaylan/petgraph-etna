@@ -613,12 +613,26 @@ mod matching {
                             result = Some(st.0.mapping.clone());
                         }
                         // Check cardinalities of Tin, Tout sets
+/* marauders:variation=isomorphism_subgraph_outsize_strict; tags=isomorphism,subgraph,out-size */
+                        /* | isomorphism_subgraph_outsize_strict_bc0e036 */
+                        let out_size_ok = st.0.out_size <= st.1.out_size;
+                        /* || isomorphism_subgraph_outsize_strict_bc0e036_1 */
+                        /*|
+                        let out_size_ok = st.0.out_size == st.1.out_size;
+                        */
+                        /* | */
+/* marauders:variation=isomorphism_subgraph_inssize_strict; tags=isomorphism,subgraph,ins-size */
+                        /* | isomorphism_subgraph_inssize_strict_bc0e036 */
+                        let ins_size_ok = st.0.ins_size <= st.1.ins_size;
+                        /* || isomorphism_subgraph_inssize_strict_bc0e036_1 */
+                        /*|
+                        let ins_size_ok = st.0.ins_size == st.1.ins_size;
+                        */
+                        /* | */
                         if (!match_subgraph
                             && st.0.out_size == st.1.out_size
                             && st.0.ins_size == st.1.ins_size)
-                            || (match_subgraph
-                                && st.0.out_size <= st.1.out_size
-                                && st.0.ins_size <= st.1.ins_size)
+                            || (match_subgraph && out_size_ok && ins_size_ok)
                         {
                             let f0 = Frame::Unwind { nodes, open_list };
                             stack.push(f0);
@@ -733,7 +747,14 @@ mod matching {
         fn next(&mut self) -> Option<Self::Item> {
             if let Some(iter) = self.iter_override.as_mut() {
                 // if we are overriding calls to `isomorphisms`, we return the mapping once
+/* marauders:variation=isomorphism_empty_iter_override_dropped;tags=isomorphism, empty-graph,iterator */
+                /* | isomorphism_empty_iter_override_dropped_d33a613 */
                 return iter.take();
+                /* || isomorphism_empty_iter_override_dropped_d33a613_1 */
+                /*|
+                return None;
+                */
+                /* | */
             }
             isomorphisms(
                 &mut self.st,
@@ -851,6 +872,19 @@ where
 {
     if g0.node_count() != g1.node_count() || g0.edge_count() != g1.edge_count() {
         return false;
+    }
+
+/* marauders:variation=isomorphism_directed_matching_ignores_semantics;tags=isomorphism, directed,semantic */
+    if {
+        /* | isomorphism_directed_matching_ignores_semantics_bb05759 */
+        false
+        /* || isomorphism_directed_matching_ignores_semantics_bb05759_1 */
+        /*|
+        g0.is_directed()
+        */
+        /* | */
+    } {
+        return is_isomorphic(&g0, &g1);
     }
 
     self::matching::GraphMatcher::new(&g0, &g1, &mut node_match, &mut edge_match, false)

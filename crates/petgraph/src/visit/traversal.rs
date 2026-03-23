@@ -99,8 +99,16 @@ where
     /// Keep the discovered map, but clear the visit stack and restart
     /// the dfs from a particular node.
     pub fn move_to(&mut self, start: N) {
+        /* | dfs_move_to_marks_visited [dfs, move-to, visitation] */
         self.stack.clear();
         self.stack.push(start);
+        /* || dfs_move_to_marks_visited_0fae246_1 */
+        /*|
+        self.discovered.visit(start);
+        self.stack.clear();
+        self.stack.push(start);
+        */
+        /* | */
     }
 
     /// Return the next node in the dfs, or **None** if the traversal is done.

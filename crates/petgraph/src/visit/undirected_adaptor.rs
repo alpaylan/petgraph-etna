@@ -36,10 +36,18 @@ where
     >;
 
     fn edges(self, a: Self::NodeId) -> Self::Edges {
+        /* | undirected_adaptor_incoming_not_reversed_01b17d9 */
         let incoming = MaybeReversedEdges {
             iter: self.0.edges_directed(a, Direction::Incoming),
             reversed: true,
         };
+        /* || undirected_adaptor_incoming_not_reversed_01b17d9_1 */
+        /*|
+        let incoming = MaybeReversedEdges {
+                    iter: self.0.edges_directed(a, Direction::Incoming),
+                    reversed: false,        };
+        */
+        /* | */
         let outgoing = MaybeReversedEdges {
             iter: self.0.edges_directed(a, Direction::Outgoing),
             reversed: false,

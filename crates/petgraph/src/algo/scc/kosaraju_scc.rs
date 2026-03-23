@@ -101,7 +101,16 @@ where
     // First phase, reverse dfs pass, compute finishing times.
     // http://stackoverflow.com/a/26780899/161659
     let mut finish_order = Vec::with_capacity(0);
-    for i in g.node_identifiers() {
+    /* marauders:variation=kosaraju_skips_first_identifier;tags=scc,kosaraju,node-iteration */
+    for i in {
+        /*| kosaraju_skips_first_identifier_1596cb2 */
+        g.node_identifiers()
+        /*|| kosaraju_skips_first_identifier_1596cb2_1 */
+        /*|
+        g.node_identifiers().take(0)
+        */
+        /* |*/
+    } {
         if dfs.discovered.is_visited(&i) {
             continue;
         }

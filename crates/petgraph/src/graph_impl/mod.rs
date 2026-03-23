@@ -936,7 +936,14 @@ where
         if self.is_directed() {
             let k = dir.index();
             iter.next[1 - k] = EdgeIndex::end();
+            /* marauders:variation=graph_neighbors_directed_skip_start_not_cleared;tags=graph,neighbors,directed,self-loop */
+            /*| graph_neighbors_directed_skip_start_not_cleared_af1aa98 */
             iter.skip_start = NodeIndex::end();
+            /*|| graph_neighbors_directed_skip_start_not_cleared_af1aa98_1 */
+            /*|
+            iter.next = [EdgeIndex::end(), EdgeIndex::end()];
+            */
+            /* |*/
         }
         iter
     }
@@ -1084,7 +1091,16 @@ where
             if edge.node[1] == b {
                 return Some(edix);
             }
-            edix = edge.next[0];
+/* marauders:variation=graph_find_edge_traverses_wrong_link;tags=graph,find-edge, adjacency-traversal */
+            edix = {
+                /*| graph_find_edge_traverses_wrong_link_9c3b379 */
+                edge.next[0]
+                /*|| graph_find_edge_traverses_wrong_link_9c3b379_1 */
+                /*|
+                edge.next[1]
+                */
+                /* |*/
+            };
         }
         None
     }
@@ -1336,9 +1352,18 @@ where
             edge.node.swap(0, 1);
             edge.next.swap(0, 1);
         }
+        /* marauders:variation=graph_reverse_node_links_not_swapped;tags=graph,reverse,node-links */
+        /*| graph_reverse_node_links_not_swapped_28eb089 */
         for node in &mut self.nodes {
             node.next.swap(0, 1);
         }
+        /*|| graph_reverse_node_links_not_swapped_28eb089_1 */
+        /*|
+        for node in &mut self.nodes {
+            node.next = [EdgeIndex::end(), EdgeIndex::end()];
+        }
+        */
+        /* |*/
     }
 
     /// Remove all nodes and edges
@@ -1921,7 +1946,16 @@ where
         // count selfloops by skipping them in the incoming list.
         while let Some(edge) = self.edges.get(self.next[1].index()) {
             self.next[1] = edge.next[1];
-            if edge.node[0] != self.skip_start {
+            /* marauders:variation=graph_neighbors_undirected_self_loops_duplicated;tags=graph,neighbors,undirected,self-loop */
+            if {
+                /*| graph_neighbors_undirected_self_loops_duplicated_af1aa98 */
+                edge.node[0] != self.skip_start
+                /*|| graph_neighbors_undirected_self_loops_duplicated_af1aa98_1 */
+                /*|
+                false
+                */
+                /* |*/
+            } {
                 return Some(edge.node[0]);
             }
         }
@@ -2080,7 +2114,16 @@ where
                 self.next[1] = next[1];
                 // In any of the "both" situations, self-loops would be iterated over twice.
                 // Skip them here.
-                if iterate_over.is_none() && node[0] == self.skip_start {
+                /* marauders:variation=graph_edges_undirected_self_loops_duplicated;tags=graph,edges,undirected,self-loop */
+                if {
+                    /*| graph_edges_undirected_self_loops_duplicated_af1aa98 */
+                    iterate_over.is_none() && node[0] == self.skip_start
+                    /*|| graph_edges_undirected_self_loops_duplicated_af1aa98_1 */
+                    /*|
+                    true
+                    */
+                    /* |*/
+                } {
                     continue;
                 }
 
@@ -2412,7 +2455,16 @@ impl<Ix: IndexType> WalkNeighbors<Ix> {
         while let Some(edge) = g.edges.get(self.next[1].index()) {
             let ed = self.next[1];
             self.next[1] = edge.next[1];
-            if edge.node[0] != self.skip_start {
+            /* marauders:variation=graph_walkneighbors_undirected_self_loops_duplicated;tags=graph,walkneighbors,undirected,self-loop */
+            if {
+                /*| graph_walkneighbors_undirected_self_loops_duplicated_af1aa98 */
+                edge.node[0] != self.skip_start
+                /*|| graph_walkneighbors_undirected_self_loops_duplicated_af1aa98_1 */
+                /*|
+                false
+                */
+                /* |*/
+            } {
                 return Some((ed, edge.node[0]));
             }
         }

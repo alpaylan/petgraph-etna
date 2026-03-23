@@ -122,8 +122,11 @@ where
                         stack.push(graph.neighbors_directed(child, Outgoing));
                     }
                 } else {
-                    if (child == to || children.any(|v| v == to && !visited.contains(&v)))
-                        && visited.len() >= min_length
+/* marauders:variation=simple_paths_ignore_visited_target_hint;tags=paths, self-loop,target-check */
+                    /* | simple_paths_ignore_visited_target_hint_8f7a0d9 */
+                    if child == to
+                        || children.any(|v| v == to && !visited.contains(&v))
+                            && visited.len() >= min_length
                     {
                         let path = visited
                             .iter()
@@ -132,6 +135,21 @@ where
                             .collect::<TargetColl>();
                         return Some(path);
                     }
+                    /* || simple_paths_ignore_visited_target_hint_8f7a0d9_1 */
+                    /*|
+                    if child == to
+                        || children.any(|v| v == to) && visited.len() >= min_length
+                    {
+                        let path = visited
+                            .iter()
+                            .cloned()
+                            .chain(Some(to))
+                            .collect::<TargetColl>();
+                        return Some(path);
+                    }
+                    */
+                    /* | */
+
                     stack.pop();
                     visited.pop();
                 }

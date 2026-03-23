@@ -1,0 +1,241 @@
+{
+  "project": "petgraph",
+  "workload_dir": "workloads/Rust/petgraph",
+  "generated_at": "2026-03-23T06:42:28Z",
+  "results": [
+    {
+      "variant": "graphmap_remove_node_edge_key_direction_cdbad50_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 9.81,
+      "failing_tests": [
+        "remove_node"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 64 tests\n................................................................\ntest result: ok. 64 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\n.......\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 17 tests\n......... 9/17\nremove_node --- FAILED\n.......\nfailures:\n\n---- remove_node stdout ----\n\nthread 'remove_node' (52184663) panicked at crates/petgraph/tests/graphmap.rs:142:5:\nassertion `left == right` failed\n  left: [2]\n right: []\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    remove_node\n\ntest result: FAILED. 16 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "warning: method `opposite` is never used\n   --> crates/petgraph/src/graphmap.rs:108:12\n    |\n105 | impl CompactDirection {\n    | --------------------- method in this implementation\n...\n108 |     pub fn opposite(self) -> CompactDirection {\n    |            ^^^^^^^^\n    |\n    = note: `#[warn(dead_code)]` (part of `#[warn(unused)]`) on by default\n\nerror: test failed, to rerun pass `-p petgraph --test graphmap`\n"
+    },
+    {
+      "variant": "graphmap_incoming_self_loop_missing_e39f0f9_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 10.08,
+      "failing_tests": [
+        "neighbors_incoming_includes_self_loops"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 64 tests\n................................................................\ntest result: ok. 64 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\n.......\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 17 tests\n........ 8/17\nneighbors_incoming_includes_self_loops --- FAILED\n........\nfailures:\n\n---- neighbors_incoming_includes_self_loops stdout ----\n\nthread 'neighbors_incoming_includes_self_loops' (52189971) panicked at crates/petgraph/tests/graphmap.rs:393:5:\nassertion `left == right` failed\n  left: None\n right: Some(())\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    neighbors_incoming_includes_self_loops\n\ntest result: FAILED. 16 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "warning: unused variable: `start_node`\n   --> crates/petgraph/src/graphmap.rs:770:17\n    |\n770 |             let start_node = self.start_node;\n    |                 ^^^^^^^^^^ help: if this is intentional, prefix it with an underscore: `_start_node`\n    |\n    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default\n\nerror: test failed, to rerun pass `-p petgraph --test graphmap`\n"
+    },
+    {
+      "variant": "stablegraph_reverse_edge_free_list_swap_b682695_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 5.9,
+      "failing_tests": [
+        "graph_impl::stable_graph::test_reverse_after_remove_edges"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n................................................................. 65/105\ngraph_impl::stable_graph::test_reverse_after_remove_edges --- FAILED\n.......................................\nfailures:\n\n---- graph_impl::stable_graph::test_reverse_after_remove_edges stdout ----\n\nthread 'graph_impl::stable_graph::test_reverse_after_remove_edges' (52194718) panicked at crates/petgraph/src/graph_impl/stable_graph/mod.rs:1618:9:\nassertion `left == right` failed\n  left: 0\n right: 1\n\n\nfailures:\n    graph_impl::stable_graph::test_reverse_after_remove_edges\n\ntest result: FAILED. 104 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "stablegraph_reverse_node_free_list_swap_b682695_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 5.72,
+      "failing_tests": [
+        "graph_impl::stable_graph::test_reverse",
+        "graph_impl::stable_graph::test_reverse_after_remove_nodes"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n................................................................ 64/105\ngraph_impl::stable_graph::test_reverse_after_remove_nodes --- FAILED\ngraph_impl::stable_graph::test_reverse --- FAILED\n.......................................\nfailures:\n\n---- graph_impl::stable_graph::test_reverse_after_remove_nodes stdout ----\n\nthread 'graph_impl::stable_graph::test_reverse_after_remove_nodes' (52199769) panicked at crates/petgraph/src/graph_impl/stable_graph/mod.rs:1585:21:\nassertion `left == right` failed\n  left: NodeIndex(1)\n right: NodeIndex(4294967295)\n\n---- graph_impl::stable_graph::test_reverse stdout ----\n\nthread 'graph_impl::stable_graph::test_reverse' (52199767) panicked at /Users/akeles/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/itertools-0.12.1/src/lib.rs:4024:17:\nFailed assertion None == Some(EdgeReference { index: EdgeIndex(0), node: [NodeIndex(1), NodeIndex(0)], weight: 0 }) for iteration 0\n\n\nfailures:\n    graph_impl::stable_graph::test_reverse\n    graph_impl::stable_graph::test_reverse_after_remove_nodes\n\ntest result: FAILED. 103 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "stablegraph_node_bound_plus_two_b87cf17_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 6.4,
+      "failing_tests": [
+        "test_adjacency_matrix_for_stable_graph_directed",
+        "test_adjacency_matrix_for_stable_graph_undirected"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n....... 7/11\ntest_adjacency_matrix_for_stable_graph_undirected --- FAILED\ntest_adjacency_matrix_for_stable_graph_directed --- FAILED\n..\nfailures:\n\n---- test_adjacency_matrix_for_stable_graph_undirected stdout ----\n\nthread 'test_adjacency_matrix_for_stable_graph_undirected' (52204645) panicked at crates/petgraph/tests/adjacency_matrix.rs:28:17:\nassertion failed: g.is_adjacent(&matrix, a, b)\n\n---- test_adjacency_matrix_for_stable_graph_directed stdout ----\n\nthread 'test_adjacency_matrix_for_stable_graph_directed' (52204644) panicked at crates/petgraph/tests/adjacency_matrix.rs:28:17:\nassertion failed: g.is_adjacent(&matrix, a, b)\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    test_adjacency_matrix_for_stable_graph_directed\n    test_adjacency_matrix_for_stable_graph_undirected\n\ntest result: FAILED. 9 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --test adjacency_matrix`\n"
+    },
+    {
+      "variant": "dominators_include_root_self_602308d_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 5.82,
+      "failing_tests": [
+        "algo::dominators::tests::test_iter_dominators"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....... 7/105\nalgo::dominators::tests::test_iter_dominators --- FAILED\n....................................................................................... 95/105\n..........\nfailures:\n\n---- algo::dominators::tests::test_iter_dominators stdout ----\n\nthread 'algo::dominators::tests::test_iter_dominators' (52209343) panicked at crates/petgraph/src/algo/dominators.rs:352:9:\nassertion `left == right` failed\n  left: 1\n right: 2\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    algo::dominators::tests::test_iter_dominators\n\ntest result: FAILED. 104 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "spfa_queue_pop_back_order_29f4c92_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 27.1,
+      "failing_tests": [
+        "spfa_no_neg_cycle"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 64 tests\n................................................................\ntest result: ok. 64 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\n.......\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 17 tests\n.................\ntest result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 22 tests\n......................\ntest result: ok. 22 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 1 test\n.\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 12 tests\n............\ntest result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 10 tests\n..........\ntest result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\n.......\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 1 test\n.\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 1 test\n.\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 68 tests\n....................................................................\ntest result: ok. 68 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.21s\n\n\nrunning 6 tests\n..... 5/6\nspfa_no_neg_cycle --- FAILED\n\nfailures:\n\n---- spfa_no_neg_cycle stdout ----\n\nthread 'spfa_no_neg_cycle' (52215317) panicked at crates/petgraph/tests/spfa.rs:332:5:\nassertion failed: spfa_res.is_ok()\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    spfa_no_neg_cycle\n\ntest result: FAILED. 5 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --test spfa`\n"
+    },
+    {
+      "variant": "floyd_warshall_undirected_guard_inverted_4c7f18e_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 5.7,
+      "failing_tests": [
+        "algo::steiner_tree::test::test_subgraph_from_metric_closure"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n..................................... 37/105\nalgo::steiner_tree::test::test_subgraph_from_metric_closure --- FAILED\n...................................................................\nfailures:\n\n---- algo::steiner_tree::test::test_subgraph_from_metric_closure stdout ----\n\nthread 'algo::steiner_tree::test::test_subgraph_from_metric_closure' (52220054) panicked at crates/petgraph/src/algo/steiner_tree.rs:342:18:\ncalled `Option::unwrap()` on a `None` value\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    algo::steiner_tree::test::test_subgraph_from_metric_closure\n\ntest result: FAILED. 104 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "ff_flow_capacity_bound_ebee197_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 9.01,
+      "failing_tests": [
+        "test_ford_fulkerson_stable_graphs"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n. 1/2\ntest_ford_fulkerson_stable_graphs --- FAILED\n\nfailures:\n\n---- test_ford_fulkerson_stable_graphs stdout ----\n\nthread 'test_ford_fulkerson_stable_graphs' (52225059) panicked at /Users/akeles/Programming/projects/PbtBenchmark/crabcheck/faultloc/workloads/Rust/petgraph/crates/petgraph/src/algo/maximum_flow/ford_fulkerson.rs:74:72:\nindex out of bounds: the len is 3 but the index is 3\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    test_ford_fulkerson_stable_graphs\n\ntest result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --test ford_fulkerson`\n"
+    },
+    {
+      "variant": "isomorphism_subgraph_outsize_strict_bc0e036_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 11.63,
+      "failing_tests": [
+        "iso_subgraph"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 64 tests\n................................................................\ntest result: ok. 64 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\n.......\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 17 tests\n.................\ntest result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 22 tests\n............ 12/22\niso_subgraph --- FAILED\n.........\nfailures:\n\n---- iso_subgraph stdout ----\n\nthread 'iso_subgraph' (52230412) panicked at crates/petgraph/tests/iso.rs:499:5:\nassertion failed: is_isomorphic_subgraph(&g0, &g1)\n\n\nfailures:\n    iso_subgraph\n\ntest result: FAILED. 21 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.33s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --test iso`\n"
+    },
+    {
+      "variant": "isomorphism_subgraph_inssize_strict_bc0e036_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 11.5,
+      "failing_tests": [
+        "iter_subgraph"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 64 tests\n................................................................\ntest result: ok. 64 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\n.......\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 17 tests\n.................\ntest result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 22 tests\n..................... 21/22\niter_subgraph --- FAILED\n\nfailures:\n\n---- iter_subgraph stdout ----\n\nthread 'iter_subgraph' (52235581) panicked at crates/petgraph/tests/iso.rs:579:5:\nassertion `left == right` failed\n  left: []\n right: [[2, 3]]\n\n\nfailures:\n    iter_subgraph\n\ntest result: FAILED. 21 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --test iso`\n"
+    },
+    {
+      "variant": "isomorphism_empty_iter_override_dropped_d33a613_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 11.85,
+      "failing_tests": [
+        "iso1",
+        "iter_subgraph_empty"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 64 tests\n................................................................\ntest result: ok. 64 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 7 tests\n.......\ntest result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s\n\n\nrunning 17 tests\n.................\ntest result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 22 tests\n........ 8/22\niso1 --- FAILED\n.... 13/22\niter_subgraph_empty --- FAILED\n........\nfailures:\n\n---- iso1 stdout ----\n\nthread 'iso1' (52240675) panicked at crates/petgraph/tests/iso.rs:379:5:\nassertion failed: petgraph::algo::is_isomorphic(&g0, &g1)\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n---- iter_subgraph_empty stdout ----\n\nthread 'iter_subgraph_empty' (52240683) panicked at crates/petgraph/tests/iso.rs:513:5:\nassertion `left == right` failed\n  left: None\n right: Some([])\n\n\nfailures:\n    iso1\n    iter_subgraph_empty\n\ntest result: FAILED. 20 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s\n\n",
+      "stderr_tail": "warning: unused variable: `iter`\n   --> crates/petgraph/src/algo/isomorphism.rs:746:25\n    |\n746 |             if let Some(iter) = self.iter_override.as_mut() {\n    |                         ^^^^ help: if this is intentional, prefix it with an underscore: `_iter`\n    |\n    = note: `#[warn(unused_variables)]` (part of `#[warn(unused)]`) on by default\n\nerror: test failed, to rerun pass `-p petgraph --test iso`\n"
+    },
+    {
+      "variant": "simple_paths_ignore_visited_target_hint_8f7a0d9_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 6.09,
+      "failing_tests": [
+        "algo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n............................. 29/105\nalgo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph --- FAILED\n...........................................................................\nfailures:\n\n---- algo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph stdout ----\n\nthread 'algo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph' (52245391) panicked at crates/petgraph/src/algo/simple_paths.rs:627:9:\nassertion failed: paths.is_empty()\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    algo::simple_paths::test::test_simple_paths_from_node_to_itself_in_complete_graph\n\ntest result: FAILED. 104 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "dfs_move_to_marks_visited_0fae246_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 6.07,
+      "failing_tests": [
+        "csr::tests::csr_dfs",
+        "matrix_graph::tests::test_kosaraju_scc_with_removed_node",
+        "visit::undirected_adaptor::tests::test_is_reachable"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n.................................... 36/105\ncsr::tests::csr_dfs --- FAILED\n............................................. 82/105\nmatrix_graph::tests::test_kosaraju_scc_with_removed_node --- FAILED\n.................... 103/105\nvisit::undirected_adaptor::tests::test_is_reachable --- FAILED\n.\nfailures:\n\n---- csr::tests::csr_dfs stdout ----\nCsr { column: [1, 2, 0, 1, 3, 2, 4, 5], edges: [(), (), (), (), (), (), (), ()], row: [0, 2, 5, 6, 6, 8, 8], node_weights: [(), (), (), (), (), ()], edge_count: 8, ty: PhantomData<petgraph::Directed> }\n\nthread 'csr::tests::csr_dfs' (52250449) panicked at crates/petgraph/src/csr.rs:1042:13:\nvisited 1\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n---- matrix_graph::tests::test_kosaraju_scc_with_removed_node stdout ----\n\nthread 'matrix_graph::tests::test_kosaraju_scc_with_removed_node' (52250499) panicked at crates/petgraph/src/matrix_graph.rs:2071:9:\nassertion `left == right` failed\n  left: [[], []]\n right: [[NodeIndex(2)], [NodeIndex(0)]]\n\n---- visit::undirected_adaptor::tests::test_is_reachable stdout ----\n\nthread 'visit::undirected_adaptor::tests::test_is_reachable' (52250519) panicked at crates/petgraph/src/visit/undirected_adaptor.rs:217:9:\nassertion `left == right` failed\n  left: []\n right: [NodeIndex(0), NodeIndex(1), NodeIndex(2), NodeIndex(3), NodeIndex(4), NodeIndex(5)]\n\n\nfailures:\n    csr::tests::csr_dfs\n    matrix_graph::tests::test_kosaraju_scc_with_removed_node\n    visit::undirected_adaptor::tests::test_is_reachable\n\ntest result: FAILED. 102 passed; 3 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "undirected_adaptor_incoming_not_reversed_01b17d9_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 5.92,
+      "failing_tests": [
+        "visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse",
+        "visit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n.............. 101/105\nvisit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways --- FAILED\nvisit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse --- FAILED\n..\nfailures:\n\n---- visit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways stdout ----\n\nthread 'visit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways' (52255591) panicked at crates/petgraph/src/visit/undirected_adaptor.rs:262:13:\nassertion `left == right` failed\n  left: {NodeIndex(1), NodeIndex(2)}\n right: {NodeIndex(0), NodeIndex(2)}\n\n---- visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse stdout ----\n\nthread 'visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse' (52255590) panicked at crates/petgraph/src/visit/undirected_adaptor.rs:230:33:\ncalled `Option::unwrap()` on a `None` value\n\n\nfailures:\n    visit::undirected_adaptor::tests::test_undirected_adaptor_can_traverse\n    visit::undirected_adaptor::tests::test_undirected_edge_refs_point_both_ways\n\ntest result: FAILED. 103 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "nodefiltered_incoming_uses_target_1c26733_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 10.17,
+      "failing_tests": [
+        "test_node_filtered_iterators_directed"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 64 tests\n..................................................... 53/64\ntest_node_filtered_iterators_directed --- FAILED\n..........\nfailures:\n\n---- test_node_filtered_iterators_directed stdout ----\n\nthread 'test_node_filtered_iterators_directed' (52260652) panicked at /Users/akeles/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/itertools-0.12.1/src/lib.rs:4024:17:\nFailed assertion Some(EdgeReference { index: EdgeIndex(9), node: [NodeIndex(5), NodeIndex(4)], weight: 8.0 }) == Some(EdgeReference { index: EdgeIndex(7), node: [NodeIndex(3), NodeIndex(4)], weight: 15.0 }) for iteration 0\n\n\nfailures:\n    test_node_filtered_iterators_directed\n\ntest result: FAILED. 63 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --test graph`\n"
+    },
+    {
+      "variant": "edgefiltered_directed_neighbor_endpoint_1147022_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 10.05,
+      "failing_tests": [
+        "filtered_edge_reverse"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n...........\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 9 tests\n.........\ntest result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 8 tests\n........\ntest result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 5 tests\n.....\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 2 tests\n..\ntest result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 64 tests\n...................... 22/64\nfiltered_edge_reverse --- FAILED\n.........................................\nfailures:\n\n---- filtered_edge_reverse stdout ----\n\nthread 'filtered_edge_reverse' (52265896) panicked at crates/petgraph/tests/graph.rs:2097:5:\nassertion `left == right` failed\n  left: {NodeIndex(5)}\n right: {NodeIndex(3), NodeIndex(5), NodeIndex(4)}\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    filtered_edge_reverse\n\ntest result: FAILED. 63 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --test graph`\n"
+    },
+    {
+      "variant": "quickcheck_random01_rng_source_1125c33_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 6.23,
+      "failing_tests": [
+        "quickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n............... 102/105\nquickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen --- FAILED\n..\nfailures:\n\n---- quickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen stdout ----\n\nthread 'quickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen' (52271057) panicked at crates/petgraph/src/quickcheck.rs:46:9:\nrandom_01 produced only zero values with size=0 generator\n\n\nfailures:\n    quickcheck::tests::random_01_not_constant_zero_for_zero_sized_gen\n\ntest result: FAILED. 104 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "csr_add_node_row_resets_offset_dab2dbf_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 6.21,
+      "failing_tests": [
+        "csr::tests::test_add_node_with_existing_edges"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n......................................... 41/105\ncsr::tests::test_add_node_with_existing_edges --- FAILED\n...............................................................\nfailures:\n\n---- csr::tests::test_add_node_with_existing_edges stdout ----\nCsr { column: [1], edges: [()], row: [0, 1, 0, 1], node_weights: [(), (), ()], edge_count: 0, ty: PhantomData<petgraph::Directed> }\n\nthread 'csr::tests::test_add_node_with_existing_edges' (52275825) panicked at crates/petgraph/src/csr.rs:411:31:\nslice index starts at 1 but ends at 0\n\n\nfailures:\n    csr::tests::test_add_node_with_existing_edges\n\ntest result: FAILED. 104 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --lib`\n"
+    },
+    {
+      "variant": "csr_adjacency_matrix_uses_edge_count_7fa3aac_1",
+      "status": "detected",
+      "exit_code": 101,
+      "duration_seconds": 6.85,
+      "failing_tests": [
+        "test_adjacency_matrix_for_csr_directed",
+        "test_adjacency_matrix_for_csr_undirected"
+      ],
+      "stdout_tail": "\nrunning 105 tests\n....................................................................................... 87/105\n..................\ntest result: ok. 105 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 11 tests\n.... 4/11\ntest_adjacency_matrix_for_csr_undirected --- FAILED\ntest_adjacency_matrix_for_csr_directed --- FAILED\n.....\nfailures:\n\n---- test_adjacency_matrix_for_csr_undirected stdout ----\n\nthread 'test_adjacency_matrix_for_csr_undirected' (52280764) panicked at /Users/akeles/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/fixedbitset-0.5.7/src/lib.rs:486:9:\nput at index 16 exceeds fixedbitset size 16\n\n---- test_adjacency_matrix_for_csr_directed stdout ----\n\nthread 'test_adjacency_matrix_for_csr_directed' (52280763) panicked at /Users/akeles/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/fixedbitset-0.5.7/src/lib.rs:486:9:\nput at index 16 exceeds fixedbitset size 16\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n\n\nfailures:\n    test_adjacency_matrix_for_csr_directed\n    test_adjacency_matrix_for_csr_undirected\n\ntest result: FAILED. 9 passed; 2 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n",
+      "stderr_tail": "error: test failed, to rerun pass `-p petgraph --test adjacency_matrix`\n"
+    }
+  ],
+  "summary": {
+    "detected": 20,
+    "undetected": 0,
+    "compile_error": 0,
+    "timeout": 0,
+    "total": 20
+  }
+}

@@ -243,15 +243,34 @@ where
         // edge incoming / outgoing lists,
         // node incoming / outgoing lists
         for edge in &mut self.g.edges {
+/* marauders:variation=stablegraph_reverse_edge_free_list_swap;tags=stablegraph, reverse,edge-free-list */
+            /*| stablegraph_reverse_edge_free_list_swap_b682695 */
             if edge.weight.is_some() {
                 edge.node.swap(0, 1);
                 edge.next.swap(0, 1);
             }
+            /*|| stablegraph_reverse_edge_free_list_swap_b682695_1 */
+            /*|
+            if edge.weight.is_none() {
+                edge.node.swap(0, 1);
+                edge.next.swap(0, 1);
+            }
+            */
+            /* |*/
         }
         for node in &mut self.g.nodes {
+/* marauders:variation=stablegraph_reverse_node_free_list_swap;tags=stablegraph, reverse,node-free-list */
+            /*| stablegraph_reverse_node_free_list_swap_b682695 */
             if node.weight.is_some() {
                 node.next.swap(0, 1);
             }
+            /*|| stablegraph_reverse_node_free_list_swap_b682695_1 */
+            /*|
+            if node.weight.is_none() {
+                node.next.swap(0, 1);
+            }
+            */
+            /* |*/
         }
     }
 
@@ -533,9 +552,17 @@ where
                 }
                 Pair::Both(an, bn) => {
                     // a and b are different indices
+/* marauders:variation=stablegraph_add_edge_allows_vacant_target; tags=stablegraph,add-edge,vacant-node */
+                    /*| stablegraph_add_edge_allows_vacant_target_703c0f8 */
+                    let bn_vacant = bn.weight.is_none();
+                    /*|| stablegraph_add_edge_allows_vacant_target_703c0f8_1 */
+                    /*|
+                    let bn_vacant = false;
+                    */
+                    /* |*/
                     if an.weight.is_none() {
                         Some(a.index())
-                    } else if bn.weight.is_none() {
+                    } else if bn_vacant {
                         Some(b.index())
                     } else {
                         edge.next = [an.next[0], bn.next[1]];
@@ -777,6 +804,8 @@ where
     /// Computes in **O(e')** time, where **e'** is the number of edges
     /// connected to `a` (and `b`, if the graph edges are undirected).
     pub fn find_edge(&self, a: NodeIndex<Ix>, b: NodeIndex<Ix>) -> Option<EdgeIndex<Ix>> {
+/* marauders:variation=stablegraph_find_edge_uses_vacant_node_links;tags=stablegraph, find-edge,vacant-node */
+        /*| stablegraph_find_edge_uses_vacant_node_links_9ab1f50 */
         if !self.is_directed() {
             self.find_edge_undirected(a, b).map(|(ix, _)| ix)
         } else {
@@ -785,6 +814,11 @@ where
                 Some(node) => self.g.find_edge_directed_from_node(node, b),
             }
         }
+        /*|| stablegraph_find_edge_uses_vacant_node_links_9ab1f50_1 */
+        /*|
+        self.g.find_edge(a, b)
+        */
+        /* |*/
     }
 
     /// Lookup an edge between `a` and `b`, in either direction.
@@ -880,9 +914,21 @@ where
         Neighbors {
             skip_start: a,
             edges: &self.g.edges,
-            next: match self.get_node(a) {
-                None => [EdgeIndex::end(), EdgeIndex::end()],
-                Some(n) => n.next,
+/* marauders:variation=stablegraph_neighbors_use_vacant_node_links;tags=stablegraph, neighbors,vacant-node */
+            next: {
+                /*| stablegraph_neighbors_use_vacant_node_links_370e43f */
+                match self.get_node(a) {
+                    None => [EdgeIndex::end(), EdgeIndex::end()],
+                    Some(n) => n.next,
+                }
+                /*|| stablegraph_neighbors_use_vacant_node_links_370e43f_1 */
+                /*|
+                match self.g.nodes.get(a.index()) {
+                    None => [EdgeIndex::end(), EdgeIndex::end()],
+                    Some(n) => n.next,
+                }
+                */
+                /* |*/
             },
         }
     }
@@ -930,9 +976,21 @@ where
             skip_start: a,
             edges: &self.g.edges,
             direction: dir,
-            next: match self.get_node(a) {
-                None => [EdgeIndex::end(), EdgeIndex::end()],
-                Some(n) => n.next,
+/* marauders:variation=stablegraph_edges_use_vacant_node_links;tags=stablegraph, edges,vacant-node */
+            next: {
+                /*| stablegraph_edges_use_vacant_node_links_370e43f */
+                match self.get_node(a) {
+                    None => [EdgeIndex::end(), EdgeIndex::end()],
+                    Some(n) => n.next,
+                }
+                /*|| stablegraph_edges_use_vacant_node_links_370e43f_1 */
+                /*|
+                match self.g.nodes.get(a.index()) {
+                    None => [EdgeIndex::end(), EdgeIndex::end()],
+                    Some(n) => n.next,
+                }
+                */
+                /* |*/
             },
             ty: PhantomData,
         }
@@ -2345,7 +2403,15 @@ where
 {
     /// Return an upper bound of the node indices in the graph
     fn node_bound(&self) -> usize {
-        self.node_indices().next_back().map_or(0, |i| i.index() + 1)
+/* marauders:variation=stablegraph_node_bound_plus_two;tags=stablegraph,node-bound, off-by-one */
+        /*| stablegraph_node_bound_plus_two_b87cf17 */
+        let bound = self.node_indices().next_back().map_or(0, |i| i.index() + 1);
+        /*|| stablegraph_node_bound_plus_two_b87cf17_1 */
+        /*|
+        let bound = self.node_indices().next_back().map_or(0, |i| i.index() + 2);
+        */
+        /* |*/
+        bound
     }
 
     fn to_index(&self, ix: NodeIndex<Ix>) -> usize {
@@ -2640,4 +2706,63 @@ fn test_reverse_after_remove_edges() {
     gr.reverse();
 
     gr.check_free_lists();
+}
+
+#[test]
+fn property_reverse_after_removed_edges_preserves_free_lists() {
+    for _ in 0..8 {
+        let mut gr = StableGraph::<_, _>::default();
+        let a = gr.add_node("a");
+        let b = gr.add_node("b");
+        let c = gr.add_node("c");
+        let d = gr.add_node("d");
+
+        let e_ab = gr.add_edge(a, b, 0);
+        let e_bc = gr.add_edge(b, c, 0);
+        let e_cd = gr.add_edge(c, d, 0);
+
+        gr.remove_edge(e_ab);
+        gr.remove_edge(e_bc);
+        gr.remove_edge(e_cd);
+
+        gr.check_free_lists();
+        gr.reverse();
+        gr.check_free_lists();
+
+        // Reuse freed edge slots after reverse.
+        let e1 = gr.add_edge(a, d, 1);
+        let e2 = gr.add_edge(d, a, 2);
+        assert_eq!(gr.edge_weight(e1), Some(&1));
+        assert_eq!(gr.edge_weight(e2), Some(&2));
+        gr.check_free_lists();
+    }
+}
+
+#[test]
+fn property_reverse_after_removed_nodes_preserves_free_lists() {
+    for _ in 0..8 {
+        let mut gr = StableGraph::<_, _>::default();
+        let a = gr.add_node("a");
+        let b = gr.add_node("b");
+        let c = gr.add_node("c");
+        let d = gr.add_node("d");
+
+        gr.add_edge(a, a, 0);
+        gr.add_edge(a, b, 1);
+        gr.add_edge(c, d, 2);
+
+        gr.remove_node(b);
+        gr.remove_node(c);
+
+        gr.check_free_lists();
+        gr.reverse();
+        gr.check_free_lists();
+
+        // Reuse freed node slots after reverse.
+        let x = gr.add_node("x");
+        let y = gr.add_node("y");
+        gr.add_edge(a, x, 3);
+        gr.add_edge(x, y, 4);
+        gr.check_free_lists();
+    }
 }

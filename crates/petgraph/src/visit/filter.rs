@@ -327,6 +327,16 @@ where
             self.iter.find(move |&edge| {
                 f.include_node(match dir {
                     Direction::Outgoing => edge.target(),
+                    /* marauders:variation=nodefiltered_incoming_uses_target_1c26733;tags=filter,incoming,nodefilter */
+                    Direction::Incoming
+                        if matches!(
+                            std::env::var("M_nodefiltered_incoming_uses_target_1c26733_1")
+                                .as_deref(),
+                            Ok("active")
+                        ) =>
+                    {
+                        edge.target()
+                    }
                     Direction::Incoming => edge.source(),
                 })
             })
@@ -581,11 +591,22 @@ where
         (&mut self.iter)
             .filter_map(move |edge| {
                 if f.include_edge(edge) {
+/* marauders:variation=edgefiltered_directed_neighbor_endpoint; tags=edgefiltered,neighbors-directed,endpoint */
+                    /* | edgefiltered_directed_neighbor_endpoint_1147022 */
                     if edge.source() != from {
                         Some(edge.source())
                     } else {
                         Some(edge.target()) // includes case where from == source == target
                     }
+                    /* || edgefiltered_directed_neighbor_endpoint_1147022_1 */
+                    /*|
+                    if edge.source() != from {
+                        Some(edge.target())
+                    } else {
+                        Some(edge.target()) // includes case where from == source == target
+                    }
+                    */
+                    /* | */
                 } else {
                     None
                 }

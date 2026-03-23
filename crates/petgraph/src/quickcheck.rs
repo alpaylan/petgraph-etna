@@ -18,8 +18,53 @@ fn random_01<G: Gen>(g: &mut G) -> f64 {
     // from rand
     let bits = 53;
     let scale = 1. / ((1u64 << bits) as f64);
+    /* | quickcheck_random01_rng_source [quickcheck, rng, distribution] */
     let x: u64 = g.next_u64();
+    /* || quickcheck_random01_rng_source_1125c33_1 */
+    /*|
+    let x : u64 = Arbitrary::arbitrary(g);
+    */
+    /* | */
     (x >> (64 - bits)) as f64 * scale
+}
+
+#[cfg(test)]
+mod tests {
+    use super::{quickcheck::StdThreadGen, random_01};
+
+    #[test]
+    fn random_01_not_constant_zero_for_zero_sized_gen() {
+        let mut g = StdThreadGen::new(0);
+        let mut saw_non_zero = false;
+        for _ in 0..16 {
+            if random_01(&mut g) > 0.0 {
+                saw_non_zero = true;
+                break;
+            }
+        }
+        assert!(
+            saw_non_zero,
+            "random_01 produced only zero values with size=0 generator"
+        );
+    }
+
+    #[test]
+    fn property_random_01_has_non_zero_support_for_small_generator_sizes() {
+        for size in 0..=4 {
+            let mut g = StdThreadGen::new(size);
+            let mut saw_non_zero = false;
+            for _ in 0..64 {
+                if random_01(&mut g) > 0.0 {
+                    saw_non_zero = true;
+                    break;
+                }
+            }
+            assert!(
+                saw_non_zero,
+                "random_01 produced only zero values with generator size={size}"
+            );
+        }
+    }
 }
 
 /// `Arbitrary` for `Graph` creates a graph by selecting a node count

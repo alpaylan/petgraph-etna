@@ -318,10 +318,20 @@ where
             set_object(m_dist, source, target, cost);
             set_object(m_prev, source, target, Some(source));
 
+/* marauders:variation=floyd_warshall_undirected_guard_inverted;tags=floyd-warshall, undirected,edge-mirroring */
+            /* | floyd_warshall_undirected_guard_inverted_4c7f18e */
             if !graph.is_directed() {
                 set_object(m_dist, target, source, cost);
                 set_object(m_prev, target, source, Some(target));
             }
+            /* || floyd_warshall_undirected_guard_inverted_4c7f18e_1 */
+            /*|
+            if graph.is_directed() {
+                set_object(m_dist, target, source, cost);
+                set_object(m_prev, target, source, Some(target));
+            }
+            */
+            /* | */
         }
     }
 

@@ -1,0 +1,227 @@
+{
+  "project": "petgraph",
+  "generated_at": "2026-03-23T10:16:18-0400",
+  "filter": "quickcheck",
+  "results": [
+    {
+      "variant": "csr_add_node_row_resets_offset_dab2dbf_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant csr_add_node_row_resets_offset_dab2dbf_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.66,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.23s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "csr_adjacency_matrix_uses_edge_count_7fa3aac_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant csr_adjacency_matrix_uses_edge_count_7fa3aac_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.41,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.22s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "dfs_move_to_marks_visited_0fae246_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant dfs_move_to_marks_visited_0fae246_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.37,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.21s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "dominators_include_root_self_602308d_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant dominators_include_root_self_602308d_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.37,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.20s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "edgefiltered_directed_neighbor_endpoint_1147022_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant edgefiltered_directed_neighbor_endpoint_1147022_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.39,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.21s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "ff_flow_capacity_bound_ebee197_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant ff_flow_capacity_bound_ebee197_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.31,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.14s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "floyd_warshall_undirected_guard_inverted_4c7f18e_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant floyd_warshall_undirected_guard_inverted_4c7f18e_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.39,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.22s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "graphmap_incoming_self_loop_missing_e39f0f9_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant graphmap_incoming_self_loop_missing_e39f0f9_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.38,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.17s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "graphmap_remove_node_edge_key_direction_cdbad50_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant graphmap_remove_node_edge_key_direction_cdbad50_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.38,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.22s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "isomorphism_empty_iter_override_dropped_d33a613_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant isomorphism_empty_iter_override_dropped_d33a613_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.37,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.20s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "isomorphism_subgraph_inssize_strict_bc0e036_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant isomorphism_subgraph_inssize_strict_bc0e036_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.31,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.15s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "isomorphism_subgraph_outsize_strict_bc0e036_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant isomorphism_subgraph_outsize_strict_bc0e036_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.32,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.15s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "nodefiltered_incoming_uses_target_1c26733_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant nodefiltered_incoming_uses_target_1c26733_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.36,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.20s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "quickcheck_random01_rng_source_1125c33_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant quickcheck_random01_rng_source_1125c33_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.34,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.17s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "simple_paths_ignore_visited_target_hint_8f7a0d9_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant simple_paths_ignore_visited_target_hint_8f7a0d9_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.34,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.18s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "spfa_queue_pop_back_order_29f4c92_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant spfa_queue_pop_back_order_29f4c92_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.36,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.20s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "stablegraph_node_bound_plus_two_b87cf17_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant stablegraph_node_bound_plus_two_b87cf17_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.36,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.19s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "stablegraph_reverse_edge_free_list_swap_b682695_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant stablegraph_reverse_edge_free_list_swap_b682695_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.4,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.23s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "stablegraph_reverse_node_free_list_swap_b682695_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant stablegraph_reverse_node_free_list_swap_b682695_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.36,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.19s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    },
+    {
+      "variant": "undirected_adaptor_incoming_not_reversed_01b17d9_1",
+      "runner": "python3 -m wkgen test variant --workload-dir workloads/Rust/petgraph --variant undirected_adaptor_incoming_not_reversed_01b17d9_1 --timeout 1200 --test-filter quickcheck",
+      "ok_wrapper": true,
+      "passed": true,
+      "exit_code": 0,
+      "duration_seconds": 0.34,
+      "failing_tests": [],
+      "stdout_snippet": "red out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 1 test\ntest dsatur_coloring_quickcheck ... ok\n\ntest result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 67 filtered out; finished in 0.17s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 31 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 3 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 1 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s\n\n\nrunning 0 tests\n\ntest result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.00s\n\n",
+      "stderr_snippet": "arget/debug/deps/steiner_trees-c9ac4afb66d17ceb)\n     Running tests/unionfind.rs (target/debug/deps/unionfind-8675d2ef7e719ef8)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_core-6cabfb67cc9ec176)\n     Running unittests src/lib.rs (target/debug/deps/petgraph_serialization_tests-ab3990b9364a9bbf)\n     Running tests/serialization.rs (target/debug/deps/serialization-ebd08e728cace7bf)\n"
+    }
+  ]
+}

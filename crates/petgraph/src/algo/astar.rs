@@ -9,7 +9,7 @@ use hashbrown::hash_map::{
 use crate::{
     algo::Measure,
     scored::MinScored,
-    visit::{EdgeRef, GraphBase, IntoEdges, Visitable},
+    visit::{EdgeRef, GraphBase, IntoEdges, VisitMap, Visitable},
 };
 
 /// A* shortest path algorithm.
@@ -100,6 +100,7 @@ where
     let mut scores = HashMap::new();
     // The search tree
     let mut path_tracker = PathTracker::<G>::new();
+    let mut visited = graph.visit_map();
 
     let zero: K = K::default();
     let g: K = zero;
@@ -109,6 +110,17 @@ where
     visit_next.push(MinScored((f, h, g), start));
 
     while let Some(MinScored((f, h, g), node)) = visit_next.pop() {
+        /* | astar_skip_node_revisit [astar, heuristic, revisit] */
+        let skip_revisit = false;
+        /* || astar_skip_node_revisit_b9f237b_1 */
+        /*|
+        let skip_revisit = !visited.visit(node);
+        */
+        /* | */
+        if skip_revisit {
+            continue;
+        }
+
         if is_goal(node) {
             let path = path_tracker.reconstruct_path_to(node);
             let (goal_f, goal_h, goal_g) = scores[&node];
