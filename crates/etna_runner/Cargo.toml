@@ -1,0 +1,18 @@
+[package]
+name = "etna_runner"
+version = "0.0.0"
+edition = "2021"
+publish = false
+
+[[bin]]
+name = "etna"
+path = "src/bin/etna.rs"
+
+[dependencies]
+petgraph = { path = "../petgraph", default-features = false, features = ["std", "graphmap", "stable_graph"] }
+proptest = "1.11.0"
+quickcheck = { path = "/Users/akeles/Programming/projects/PbtBenchmark/quickcheck", features = ["etna"] }
+crabcheck = { path = "/Users/akeles/Programming/projects/PbtBenchmark/crabcheck" }
+hegeltest = "0.3.7"
+rand = "0.9"
+

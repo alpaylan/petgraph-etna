@@ -524,6 +524,9 @@ pub mod unionfind;
 pub mod operator;
 pub mod prelude;
 
+#[cfg(all(feature = "graphmap", feature = "stable_graph"))]
+pub mod etna;
+
 /// `Graph<N, E, Ty, Ix>` is a graph datastructure using an adjacency list representation.
 pub mod graph {
     pub use crate::graph_impl::{

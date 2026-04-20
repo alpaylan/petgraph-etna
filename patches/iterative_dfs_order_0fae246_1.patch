@@ -1,0 +1,33 @@
+diff --git a/crates/petgraph/src/visit/traversal.rs b/crates/petgraph/src/visit/traversal.rs
+--- a/crates/petgraph/src/visit/traversal.rs
++++ b/crates/petgraph/src/visit/traversal.rs
+@@ -99,6 +99,7 @@
+     /// Keep the discovered map, but clear the visit stack and restart
+     /// the dfs from a particular node.
+     pub fn move_to(&mut self, start: N) {
++        self.discovered.visit(start);
+         self.stack.clear();
+         self.stack.push(start);
+     }
+@@ -108,15 +109,14 @@
+     where
+         G: IntoNeighbors<NodeId = N>,
+     {
+-        while let Some(node) = self.stack.pop() {
+-            if self.discovered.visit(node) {
+-                for succ in graph.neighbors(node) {
+-                    if !self.discovered.is_visited(&succ) {
+-                        self.stack.push(succ);
+-                    }
++        if let Some(node) = self.stack.pop() {
++            for succ in graph.neighbors(node) {
++                if self.discovered.visit(succ) {
++                    self.stack.push(succ);
+                 }
+-                return Some(node);
+             }
++
++            return Some(node);
+         }
+         None
+     }

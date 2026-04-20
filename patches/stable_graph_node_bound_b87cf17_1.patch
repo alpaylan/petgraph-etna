@@ -1,0 +1,16 @@
+diff --git a/crates/petgraph/src/graph_impl/stable_graph/mod.rs b/crates/petgraph/src/graph_impl/stable_graph/mod.rs
+--- a/crates/petgraph/src/graph_impl/stable_graph/mod.rs
++++ b/crates/petgraph/src/graph_impl/stable_graph/mod.rs
+@@ -2345,7 +2345,11 @@
+ {
+     /// Return an upper bound of the node indices in the graph
+     fn node_bound(&self) -> usize {
+-        self.node_indices().next_back().map_or(0, |i| i.index() + 1)
++        self.g
++            .nodes
++            .iter()
++            .rposition(|elt| elt.weight.is_some())
++            .unwrap_or(0) + 1
+     }
+
+     fn to_index(&self, ix: NodeIndex<Ix>) -> usize {

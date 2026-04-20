@@ -1,0 +1,15 @@
+diff --git a/crates/petgraph/src/algo/floyd_warshall.rs b/crates/petgraph/src/algo/floyd_warshall.rs
+--- a/crates/petgraph/src/algo/floyd_warshall.rs
++++ b/crates/petgraph/src/algo/floyd_warshall.rs
+@@ -317,11 +317,6 @@
+         if is_greater(m_dist, source, target, cost) {
+             set_object(m_dist, source, target, cost);
+             set_object(m_prev, source, target, Some(source));
+-
+-            if !graph.is_directed() {
+-                set_object(m_dist, target, source, cost);
+-                set_object(m_prev, target, source, Some(target));
+-            }
+         }
+     }
+

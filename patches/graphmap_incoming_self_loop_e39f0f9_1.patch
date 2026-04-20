@@ -1,0 +1,16 @@
+diff --git a/crates/petgraph/src/graphmap.rs b/crates/petgraph/src/graphmap.rs
+--- a/crates/petgraph/src/graphmap.rs
++++ b/crates/petgraph/src/graphmap.rs
+@@ -761,10 +761,9 @@
+     fn next(&mut self) -> Option<N> {
+         if Ty::is_directed() {
+             let self_dir = self.dir;
+-            let start_node = self.start_node;
+             (&mut self.iter)
+-                .filter_map(move |&(n, dir)| {
+-                    if dir == self_dir || n == start_node {
++                .filter_map(move |&(n, dir)| {
++                    if dir == self_dir {
+                         Some(n)
+                     } else {
+                         None
