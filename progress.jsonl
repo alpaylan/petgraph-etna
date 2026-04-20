@@ -1,3 +1,30 @@
 {"ts":"2026-04-20T18:47:27Z","stage":"discover","event":"start"}
 {"ts":"2026-04-20T18:47:27Z","stage":"discover","event":"done","commits_scanned":1719,"fix_commits_so_far":90}
 {"ts":"2026-04-20T19:02:22Z","stage":"atomize","event":"start","total_candidates":4}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_start","variant":"iterative_dfs_order_0fae246_1"}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_detected","variant":"iterative_dfs_order_0fae246_1","witnesses":["witness_dfs_reuse_no_duplicate_visits_case_line","witness_dfs_reuse_no_duplicate_visits_case_branch"]}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_committed","variant":"iterative_dfs_order_0fae246_1","branch":"etna/iterative_dfs_order_0fae246_1"}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_start","variant":"floyd_warshall_undirected_4c7f18e_1"}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_detected","variant":"floyd_warshall_undirected_4c7f18e_1","witnesses":["witness_floyd_warshall_undirected_symmetric_case_two_nodes","witness_floyd_warshall_undirected_symmetric_case_triangle"]}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_committed","variant":"floyd_warshall_undirected_4c7f18e_1","branch":"etna/floyd_warshall_undirected_4c7f18e_1"}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_start","variant":"stable_graph_node_bound_b87cf17_1"}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_detected","variant":"stable_graph_node_bound_b87cf17_1","witnesses":["witness_stable_graph_node_bound_tight_case_empty","witness_stable_graph_node_bound_tight_case_three"]}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_committed","variant":"stable_graph_node_bound_b87cf17_1","branch":"etna/stable_graph_node_bound_b87cf17_1"}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_start","variant":"graphmap_incoming_self_loop_e39f0f9_1"}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_detected","variant":"graphmap_incoming_self_loop_e39f0f9_1","witnesses":["witness_graphmap_incoming_self_loop_case_bare"]}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"variant_committed","variant":"graphmap_incoming_self_loop_e39f0f9_1","branch":"etna/graphmap_incoming_self_loop_e39f0f9_1"}
+{"ts":"2026-04-20T19:15:00Z","stage":"atomize","event":"done","committed":4,"skipped":0}
+{"ts":"2026-04-20T19:20:00Z","stage":"document","event":"start"}
+{"ts":"2026-04-20T19:20:00Z","stage":"document","event":"bugs_written","variants":4}
+{"ts":"2026-04-20T19:20:00Z","stage":"document","event":"tasks_written","tasks":16}
+{"ts":"2026-04-20T19:20:00Z","stage":"document","event":"done"}
+{"ts":"2026-04-20T19:21:00Z","stage":"validate","event":"start"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"check_passed","check":"1. base builds and tests"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"check_passed","check":"2. etna.toml ↔ source consistency"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"check_passed","check":"3. per-variant detection"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"check_passed","check":"4. etna binary end-to-end"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"check_passed","check":"5. docs ↔ source consistency"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"check_passed","check":"6. commits"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"check_passed","check":"7. no placeholders + adapters drive real crates"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"all_checks_passed"}
+{"ts":"2026-04-20T19:24:00Z","stage":"validate","event":"done","failed_checks":0}
