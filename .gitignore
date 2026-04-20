@@ -3,6 +3,9 @@
 Cargo.lock
 rustc-ice-*
 
+# ETNA/hegel runtime state
+.hegel/
+
 .DS_Store
 .vscode/
 *.code-workspace

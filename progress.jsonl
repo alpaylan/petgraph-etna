@@ -1,2 +1,3 @@
 {"ts":"2026-04-20T18:47:27Z","stage":"discover","event":"start"}
 {"ts":"2026-04-20T18:47:27Z","stage":"discover","event":"done","commits_scanned":1719,"fix_commits_so_far":90}
+{"ts":"2026-04-20T19:02:22Z","stage":"atomize","event":"start","total_candidates":4}

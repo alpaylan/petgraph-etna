@@ -1,0 +1,64 @@
+# ETNA workload index for petgraph.
+#
+# One [[variant]] per injected mutation. Source of truth for variant -> property
+# mapping. Every other fact is derivable from the source tree:
+#   - ls patches/*.patch                                       (patch-based variants)
+#   - grep -rn "pub fn property_" crates/petgraph/src/etna.rs  (property functions)
+#   - grep -rn "fn witness_.*_case_" crates/petgraph/tests/    (witness tests)
+#
+# Base commit for this workload is HEAD of master on this tree. Every
+# etna/<variant> branch is master + exactly one patch applied on top.
+
+name = "petgraph"
+language = "Rust"
+
+[[variant]]
+name = "iterative_dfs_order_0fae246_1"
+property = "dfs_reuse_no_duplicate_visits"
+injection = "patch"
+patch = "patches/iterative_dfs_order_0fae246_1.patch"
+source_commit = "0fae246b07f3dba059a40288c4a7a96588bef19b"
+witnesses = [
+    "witness_dfs_reuse_no_duplicate_visits_case_line",
+    "witness_dfs_reuse_no_duplicate_visits_case_branch",
+]
+frameworks = ["proptest", "quickcheck", "crabcheck", "hegel"]
+files = ["crates/petgraph/src/visit/traversal.rs"]
+
+[[variant]]
+name = "floyd_warshall_undirected_4c7f18e_1"
+property = "floyd_warshall_undirected_symmetric"
+injection = "patch"
+patch = "patches/floyd_warshall_undirected_4c7f18e_1.patch"
+source_commit = "4c7f18e73a730527b4b4fb571190d71d639b6376"
+witnesses = [
+    "witness_floyd_warshall_undirected_symmetric_case_two_nodes",
+    "witness_floyd_warshall_undirected_symmetric_case_triangle",
+]
+frameworks = ["proptest", "quickcheck", "crabcheck", "hegel"]
+files = ["crates/petgraph/src/algo/floyd_warshall.rs"]
+
+[[variant]]
+name = "stable_graph_node_bound_b87cf17_1"
+property = "stable_graph_node_bound_tight"
+injection = "patch"
+patch = "patches/stable_graph_node_bound_b87cf17_1.patch"
+source_commit = "b87cf17dd5690f8de408015fa014b51c25fbf1d6"
+witnesses = [
+    "witness_stable_graph_node_bound_tight_case_empty",
+    "witness_stable_graph_node_bound_tight_case_three",
+]
+frameworks = ["proptest", "quickcheck", "crabcheck", "hegel"]
+files = ["crates/petgraph/src/graph_impl/stable_graph/mod.rs"]
+
+[[variant]]
+name = "graphmap_incoming_self_loop_e39f0f9_1"
+property = "graphmap_incoming_self_loop"
+injection = "patch"
+patch = "patches/graphmap_incoming_self_loop_e39f0f9_1.patch"
+source_commit = "e39f0f9523d4037ad212e89f51e1b7e8434964af"
+witnesses = [
+    "witness_graphmap_incoming_self_loop_case_bare",
+]
+frameworks = ["proptest", "quickcheck", "crabcheck", "hegel"]
+files = ["crates/petgraph/src/graphmap.rs"]
