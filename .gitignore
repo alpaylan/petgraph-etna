@@ -5,6 +5,10 @@ rustc-ice-*
 
 # ETNA/hegel runtime state
 .hegel/
+.marauders/
+.migration-cache/
+etna.log
+progress.jsonl
 
 .DS_Store
 .vscode/

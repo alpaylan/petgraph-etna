@@ -1,64 +1,111 @@
-# ETNA workload index for petgraph.
-#
-# One [[variant]] per injected mutation. Source of truth for variant -> property
-# mapping. Every other fact is derivable from the source tree:
-#   - ls patches/*.patch                                       (patch-based variants)
-#   - grep -rn "pub fn property_" crates/petgraph/src/etna.rs  (property functions)
-#   - grep -rn "fn witness_.*_case_" crates/petgraph/tests/    (witness tests)
-#
-# Base commit for this workload is HEAD of master on this tree. Every
-# etna/<variant> branch is master + exactly one patch applied on top.
-
 name = "petgraph"
-language = "Rust"
+language = "rust"
+crate = "petgraph"
+base_commit = "2e4db657ab38e1fe7b34ca30764812fae32e6eed"
 
-[[variant]]
-name = "iterative_dfs_order_0fae246_1"
-property = "dfs_reuse_no_duplicate_visits"
-injection = "patch"
-patch = "patches/iterative_dfs_order_0fae246_1.patch"
-source_commit = "0fae246b07f3dba059a40288c4a7a96588bef19b"
-witnesses = [
-    "witness_dfs_reuse_no_duplicate_visits_case_line",
-    "witness_dfs_reuse_no_duplicate_visits_case_branch",
-]
-frameworks = ["proptest", "quickcheck", "crabcheck", "hegel"]
+[[tasks]]
+mutations = ["iterative_dfs_order_0fae246_1"]
+
+[tasks.source]
+repo = "https://github.com/petgraph/petgraph"
+commits = ["0fae246b07f3dba059a40288c4a7a96588bef19b"]
+commit_subjects = ["Fix bug in order of iterative dfs"]
+summary = "`Dfs::move_to` pre-visited the new start node while `next` dropped the pop-time `discovered.visit(node)` gate; reusing a Dfs via `move_to` after a full traversal re-emitted the already-discovered start node. The fix keeps the visit check at pop-time and no longer pre-visits."
+
+[tasks.injection]
+kind = "patch"
 files = ["crates/petgraph/src/visit/traversal.rs"]
+locations = [{ file = "crates/petgraph/src/visit/traversal.rs" }]
+patch = "patches/iterative_dfs_order_0fae246_1.patch"
 
-[[variant]]
-name = "floyd_warshall_undirected_4c7f18e_1"
-property = "floyd_warshall_undirected_symmetric"
-injection = "patch"
-patch = "patches/floyd_warshall_undirected_4c7f18e_1.patch"
-source_commit = "4c7f18e73a730527b4b4fb571190d71d639b6376"
+[tasks.bug]
+short_name = "iterative_dfs_order"
+invariant = "When a `Dfs` is reused via `move_to(start)` after a prior full traversal, calling `next()` must never re-emit a node that the shared discovered map already marks as visited."
+how_triggered = "The buggy implementation pre-visits `start` in `move_to` and drops the pop-time `discovered.visit(node)` gate in `next`, so restarting at an already-discovered node pops the node and returns it a second time. The fix moves the visit check to pop-time and no longer pre-visits in `move_to`."
+
+[[tasks.tasks]]
+property = "DfsReuseNoDuplicateVisits"
 witnesses = [
-    "witness_floyd_warshall_undirected_symmetric_case_two_nodes",
-    "witness_floyd_warshall_undirected_symmetric_case_triangle",
+  { test_fn = "witness_dfs_reuse_no_duplicate_visits_case_line" },
+  { test_fn = "witness_dfs_reuse_no_duplicate_visits_case_branch" },
 ]
-frameworks = ["proptest", "quickcheck", "crabcheck", "hegel"]
+
+[[tasks]]
+mutations = ["floyd_warshall_undirected_4c7f18e_1"]
+
+[tasks.source]
+repo = "https://github.com/petgraph/petgraph"
+commits = ["4c7f18e73a730527b4b4fb571190d71d639b6376"]
+commit_subjects = ["Fix Floyd-Warshall algorithm behavior toward undirected graphs (#487)"]
+summary = "`floyd_warshall` seeded only `dist[source][target]` from each edge reference, leaving the reverse entries at infinity on undirected graphs; the Floyd-Warshall closure never repaired the asymmetric seeds, producing a non-symmetric distance map."
+
+[tasks.injection]
+kind = "patch"
 files = ["crates/petgraph/src/algo/floyd_warshall.rs"]
+locations = [{ file = "crates/petgraph/src/algo/floyd_warshall.rs" }]
+patch = "patches/floyd_warshall_undirected_4c7f18e_1.patch"
 
-[[variant]]
-name = "stable_graph_node_bound_b87cf17_1"
-property = "stable_graph_node_bound_tight"
-injection = "patch"
-patch = "patches/stable_graph_node_bound_b87cf17_1.patch"
-source_commit = "b87cf17dd5690f8de408015fa014b51c25fbf1d6"
+[tasks.bug]
+short_name = "floyd_warshall_undirected"
+invariant = "On an undirected graph, `floyd_warshall` returns a symmetric distance map: `dist(u, v) == dist(v, u)` for every pair of nodes."
+how_triggered = "The buggy seed loop records only `dist[source][target]` from each `edge_reference`. On an `UnGraph`, the reverse direction stays at the initial infinity, so every non-self edge becomes an asymmetric seed and the Floyd-Warshall closure never repairs the lower triangle. The fix additionally seeds `dist[target][source]` when the graph is undirected."
+
+[[tasks.tasks]]
+property = "FloydWarshallUndirectedSymmetric"
 witnesses = [
-    "witness_stable_graph_node_bound_tight_case_empty",
-    "witness_stable_graph_node_bound_tight_case_three",
+  { test_fn = "witness_floyd_warshall_undirected_symmetric_case_two_nodes" },
+  { test_fn = "witness_floyd_warshall_undirected_symmetric_case_triangle" },
 ]
-frameworks = ["proptest", "quickcheck", "crabcheck", "hegel"]
+
+[[tasks]]
+mutations = ["stable_graph_node_bound_b87cf17_1"]
+
+[tasks.source]
+repo = "https://github.com/petgraph/petgraph"
+commits = ["b87cf17dd5690f8de408015fa014b51c25fbf1d6"]
+commit_subjects = ["BUG: Fix off by one in StableGraph::node_bound"]
+summary = "`StableGraph::node_bound` used `rposition(...).unwrap_or(0) + 1`, which collapses to `1` on an empty graph and is off by one on dense graphs; the fix uses `next_back().map_or(0, |i| i.index() + 1)`."
+
+[tasks.injection]
+kind = "patch"
 files = ["crates/petgraph/src/graph_impl/stable_graph/mod.rs"]
+locations = [{ file = "crates/petgraph/src/graph_impl/stable_graph/mod.rs" }]
+patch = "patches/stable_graph_node_bound_b87cf17_1.patch"
 
-[[variant]]
-name = "graphmap_incoming_self_loop_e39f0f9_1"
-property = "graphmap_incoming_self_loop"
-injection = "patch"
-patch = "patches/graphmap_incoming_self_loop_e39f0f9_1.patch"
-source_commit = "e39f0f9523d4037ad212e89f51e1b7e8434964af"
+[tasks.bug]
+short_name = "stable_graph_node_bound"
+invariant = "For a `StableGraph` with no removed nodes, `node_bound() == node_count()`. In particular, `node_bound()` of an empty graph is `0`."
+how_triggered = "The buggy implementation scans the node slab with `rposition(...)` and computes `unwrap_or(0) + 1`, which collapses to `1` on an empty graph and is off by one on dense graphs. The fix uses `node_indices().next_back().map_or(0, |i| i.index() + 1)`, which returns `0` on an empty graph and exactly `node_count()` when the graph has no holes."
+
+[[tasks.tasks]]
+property = "StableGraphNodeBoundTight"
 witnesses = [
-    "witness_graphmap_incoming_self_loop_case_bare",
+  { test_fn = "witness_stable_graph_node_bound_tight_case_empty" },
+  { test_fn = "witness_stable_graph_node_bound_tight_case_three" },
 ]
-frameworks = ["proptest", "quickcheck", "crabcheck", "hegel"]
+
+[[tasks]]
+mutations = ["graphmap_incoming_self_loop_e39f0f9_1"]
+
+[tasks.source]
+repo = "https://github.com/petgraph/petgraph"
+commits = ["e39f0f9523d4037ad212e89f51e1b7e8434964af"]
+commit_subjects = ["FIX: Include self loops in incoming edges"]
+summary = "`GraphMap::neighbors_directed(n, Incoming)` filtered the adjacency stream by direction only; self-loops are stored with `Outgoing`, so the Incoming filter rejected them, and `neighbors_directed(n, Incoming)` on a self-looping node produced an empty iterator."
+
+[tasks.injection]
+kind = "patch"
 files = ["crates/petgraph/src/graphmap.rs"]
+locations = [{ file = "crates/petgraph/src/graphmap.rs" }]
+patch = "patches/graphmap_incoming_self_loop_e39f0f9_1.patch"
+
+[tasks.bug]
+short_name = "graphmap_incoming_self_loop"
+invariant = "For a directed `GraphMap` with a self-loop on node `n`, iterating `neighbors_directed(n, Incoming)` yields `n` at least once."
+how_triggered = "The buggy iterator filters the internal adjacency stream by direction alone. Self-loops are recorded only with `Outgoing`, so the `Incoming` filter always rejects them. The fix carries the start node into the iterator and accepts entries where the direction matches **or** the neighbor equals the start node (the self-loop case)."
+
+[[tasks.tasks]]
+property = "GraphmapIncomingSelfLoop"
+witnesses = [
+  { test_fn = "witness_graphmap_incoming_self_loop_case_bare" },
+]
